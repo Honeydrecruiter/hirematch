@@ -360,7 +360,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 <body>
 
 <!-- TOAST -->
-<div class="ts" id="ts"><div class="tsp"></div><span id="tsm">Processing…</span></div>
+<div class="ts" id="ts"><div class="tsp"></div><span id="tsm"></span></div>
 
 <!-- SCHEDULE MODAL -->
 <div class="modal-ov" id="schedModal">
@@ -844,7 +844,19 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
       <div class="card" style="text-align:center;padding:14px 8px;margin-bottom:0"><div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--te)">5</div><div style="font-size:11px;color:var(--mu)">Shortlisted</div></div>
       <div class="card" style="text-align:center;padding:14px 8px;margin-bottom:0"><div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--te)" id="pavg">—</div><div style="font-size:11px;color:var(--mu)">Avg Score</div></div>
     </div>
+
+    <!-- WHO DOES WHAT EXPLAINER -->
+    <div style="background:var(--bll);border:1px solid var(--blm);border-radius:12px;padding:12px 14px;display:flex;gap:10px;margin-bottom:14px">
+      <div style="font-size:16px;flex-shrink:0">💡</div>
+      <div style="font-size:12px;color:var(--br);line-height:1.7">
+        <strong style="color:var(--bl)">Recruiter</strong> screens the CV, runs the call and makes a recommendation — Shortlist / Hold / Reject.<br>
+        <strong style="color:var(--bl)">Hiring Manager (HM)</strong> reviews shortlisted candidates, gives their verdict and approves for interview. Both decisions are tracked and documented here.
+      </div>
+    </div>
+
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px"><span class="sl" style="margin-bottom:0" id="pro"></span><span style="font-size:12px;color:var(--te);font-weight:600">All roles →</span></div>
+
+    <!-- JUST ADDED CARD -->
     <div class="pc2" style="background:var(--tel);border-color:var(--tem);border-width:1.5px">
       <div style="font-size:11px;font-weight:700;color:var(--te);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">✨ Just Added</div>
       <div class="pc2-top">
@@ -852,13 +864,30 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
         <div style="flex:1"><div style="font-size:14px;font-weight:700" id="pnna"></div><div style="font-size:12px;color:var(--mu)" id="pnro"></div></div>
         <div style="text-align:right"><div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--te)" id="pnsc"></div><div class="sp2 ssc" id="pnst">Screened</div></div>
       </div>
+
+      <!-- RECRUITER RECOMMENDATION -->
+      <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;margin-top:8px">Recruiter recommendation</div>
       <div class="pc2-actions">
-        <button class="pa pa-sh" onclick="setStatus('pnst','ssh','✅ Shortlisted')">✅ Shortlist</button>
-        <button class="pa pa-ho" onclick="setStatus('pnst','sin','⏸ Hold')">⏸ Hold</button>
-        <button class="pa pa-re" onclick="setStatus('pnst','sre','❌ Rejected')">❌ Reject</button>
+        <button class="pa pa-sh" onclick="setStatus('pnst','ssh','✅ Shortlisted');triggerHMNotif()">✅ Shortlist</button>
+        <button class="pa pa-ho" onclick="setStatus('pnst','sin','⏸ Hold');triggerHMNotif()">⏸ Hold</button>
+        <button class="pa pa-re" onclick="setStatus('pnst','sre','❌ Rejected');showRejReason()">❌ Reject</button>
         <button class="pa pa-sc" onclick="openSched()">📅 Schedule</button>
       </div>
+
+      <!-- HM VERDICT ROW -->
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--tem)">
+        <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Hiring Manager verdict</div>
+        <div id="hm-verdict-main" style="display:flex;align-items:center;gap:8px">
+          <div style="width:28px;height:28px;border-radius:50%;background:var(--cr2);border:1px solid var(--cr3);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mu);flex-shrink:0" id="hm-avatar-main">HM</div>
+          <div style="flex:1">
+            <div style="font-size:12px;color:var(--mu)" id="hm-name-main">Waiting for recruiter recommendation first</div>
+            <div style="font-size:11px;color:var(--mu);margin-top:2px" id="hm-verdict-text-main"></div>
+          </div>
+          <div id="hm-verdict-badge-main"></div>
+        </div>
+      </div>
     </div>
+
     <span class="sl">Others in pipeline</span>
     <div id="poth"></div>
   </div>
@@ -2557,7 +2586,24 @@ function fillR(){
   var pav=document.getElementById('pnav');pav.textContent=d.ci;pav.className='av '+d.cv;pav.style.cssText='width:42px;height:42px;font-size:15px';
   document.getElementById('pnna').textContent=d.cn;document.getElementById('pnro').textContent=d.ch.split('·').slice(0,2).join('·').trim();document.getElementById('pnsc').textContent=d.sc+'%';
   document.getElementById('pnst').className='sp2 ssc';document.getElementById('pnst').textContent='Screened';
-  document.getElementById('poth').innerHTML=d.po.map(function(p){return'<div class="pc2"><div class="pc2-top"><div class="av '+p[1]+'" style="width:38px;height:38px;font-size:13px">'+p[0]+'</div><div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:600">'+p[2]+'</div><div style="font-size:12px;color:var(--mu)">'+p[3]+'</div></div><div style="text-align:right"><div style="font-family:\'Cormorant Garamond\',serif;font-size:20px;font-weight:600;color:var(--te)">'+p[4]+'</div><div class="sp2 '+p[5]+'">'+p[6]+'</div></div></div></div>'}).join('');
+  document.getElementById('poth').innerHTML=d.po.map(function(p,i){
+    var hmData=[
+      {name:'Priya Mehta (HM)',verdict:'approved',text:'Strong ATS background. Proceed to technical round.',col:'var(--sa)',bg:'var(--sal)',badge:'✅ Approved'},
+      {name:'Priya Mehta (HM)',verdict:'pending',text:'Reviewing profile — response expected by EOD.',col:'var(--am)',bg:'var(--aml)',badge:'⏳ Reviewing'},
+      {name:'Priya Mehta (HM)',verdict:'passed',text:'Needs more executive search experience for this level.',col:'var(--ro)',bg:'var(--rol)',badge:'❌ Passed'},
+      {name:'Priya Mehta (HM)',verdict:'approved',text:'Good volume hiring background. Schedule L1.',col:'var(--sa)',bg:'var(--sal)',badge:'✅ Approved'},
+    ];
+    var hm=hmData[i]||{name:'Priya Mehta (HM)',verdict:'pending',text:'Awaiting HM review.',col:'var(--am)',bg:'var(--aml)',badge:'⏳ Pending'};
+    return'<div class="pc2" style="margin-bottom:10px"><div class="pc2-top"><div class="av '+p[1]+'" style="width:38px;height:38px;font-size:13px">'+p[0]+'</div><div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:600">'+p[2]+'</div><div style="font-size:12px;color:var(--mu)">'+p[3]+'</div></div><div style="text-align:right"><div style="font-family:\'Cormorant Garamond\',serif;font-size:20px;font-weight:600;color:var(--te)">'+p[4]+'</div><div class="sp2 '+p[5]+'">'+p[6]+'</div></div></div>'
+    +'<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--cr3)">'
+      +'<div style="font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">HM verdict</div>'
+      +'<div style="display:flex;align-items:center;gap:8px">'
+        +'<div style="width:24px;height:24px;border-radius:50%;background:'+hm.bg+';display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:'+hm.col+';flex-shrink:0">PM</div>'
+        +'<div style="flex:1"><div style="font-size:11px;color:var(--br)">'+hm.text+'</div></div>'
+        +'<div style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:'+hm.bg+';color:'+hm.col+';white-space:nowrap">'+hm.badge+'</div>'
+      +'</div>'
+    +'</div></div>';
+  }).join('');
 }
 
 // ── AI TRANSPARENCY DATA ──
@@ -3331,7 +3377,57 @@ function markDone(i){
   else{el.classList.add('done');el.querySelectorAll('div')[el.querySelectorAll('div').length-1].textContent='✅';doneCount++;}
   document.getElementById('lc-done').textContent=doneCount+'/'+(d?d.qs.length:3);
 }
-function setStatus(elId,cls,label){var el=document.getElementById(elId);el.className='sp2 '+cls;el.textContent=label;}
+function setStatus(elId,cls,label){
+  var el=document.getElementById(elId);
+  el.className='sp2 '+cls;
+  el.textContent=label;
+}
+
+function triggerHMNotif(){
+  // Show HM notification sent toast
+  showT('📩 HM notified — Priya Mehta will review within 24hrs');
+  setTimeout(hideT,3000);
+  // Update HM verdict row on the main card to show "Notified"
+  setTimeout(function(){
+    var nameEl=document.getElementById('hm-name-main');
+    var textEl=document.getElementById('hm-verdict-text-main');
+    var badgeEl=document.getElementById('hm-verdict-badge-main');
+    var avatarEl=document.getElementById('hm-avatar-main');
+    if(nameEl){nameEl.textContent='Priya Mehta (Hiring Manager)';}
+    if(textEl){textEl.textContent='Profile summary sent. Awaiting verdict — typically responds within 24 hours.';}
+    if(badgeEl){badgeEl.innerHTML='<div style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--aml);color:var(--am);white-space:nowrap">⏳ Notified</div>';}
+    if(avatarEl){avatarEl.style.background='var(--aml)';avatarEl.style.color='var(--am)';avatarEl.style.borderColor='var(--amm)';}
+    // After 4 seconds simulate HM responding
+    setTimeout(function(){
+      showT('✅ Priya Mehta approved — "Strong candidate. Schedule L1 interview."');
+      setTimeout(hideT,4000);
+      if(nameEl){nameEl.textContent='Priya Mehta (Hiring Manager)';}
+      if(textEl){textEl.textContent='"Strong ATS and campus hiring background. Schedule L1 interview."';}
+      if(badgeEl){badgeEl.innerHTML='<div style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--sal);color:var(--sa);white-space:nowrap">✅ Approved</div>';}
+      if(avatarEl){avatarEl.style.background='var(--sal)';avatarEl.style.color='var(--sa)';avatarEl.style.borderColor='var(--sam)';}
+    },5000);
+  },1000);
+}
+
+function showRejReason(){
+  // Update main card status
+  var el=document.getElementById('pnst');
+  if(el){el.className='sp2 sre';el.textContent='❌ Rejected';}
+  // Show rejection reason prompt toast
+  showT('📝 Rejection reason logged — candidate notified');
+  setTimeout(hideT,2500);
+  // Update HM verdict to show rejection documented
+  setTimeout(function(){
+    var nameEl=document.getElementById('hm-name-main');
+    var textEl=document.getElementById('hm-verdict-text-main');
+    var badgeEl=document.getElementById('hm-verdict-badge-main');
+    var avatarEl=document.getElementById('hm-avatar-main');
+    if(nameEl){nameEl.textContent='Recruiter decision — no HM review required';}
+    if(textEl){textEl.textContent='Rejection reason documented. Candidate notified via HireMatch. Decision logged for compliance.';}
+    if(badgeEl){badgeEl.innerHTML='<div style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--rol);color:var(--ro);white-space:nowrap">❌ Rejected</div>';}
+    if(avatarEl){avatarEl.style.background='var(--rol)';avatarEl.style.color='var(--ro)';avatarEl.style.borderColor='var(--rom)';}
+  },500);
+}
 function openSched(){
   document.getElementById('schedName').textContent='Book interview for '+(d?d.cn:'Candidate');
   var days=['Mon 17 Mar','Tue 18 Mar','Wed 19 Mar','Thu 20 Mar','Fri 21 Mar','Mon 24 Mar'];
