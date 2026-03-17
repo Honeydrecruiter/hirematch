@@ -7,6 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+.back-btn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--mu);background:none;border:none;cursor:pointer;padding:0;font-family:'Figtree',sans-serif;transition:color .15s}
+.back-btn:active{color:var(--ink)}
+.back-btn:before{content:'←';font-size:14px}
+@media(min-width:600px){
+  .bc-trail{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mu)}
+  .bc-trail span{color:var(--mu)}
+  .bc-trail span:last-child{color:var(--ink);font-weight:600}
+  .bc-sep{color:var(--cr3)}
+}
 body{visibility:hidden}
 body.loaded{visibility:visible}
 :root{
@@ -437,7 +447,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 <div class="sc" id="m0"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
   <div class="tb">
     <div class="tbl tbl-r">Hire<em>Match</em></div>
-    <div style="display:flex;gap:8px;align-items:center"><span class="tbs">Match Mode</span><button class="tbr" onclick="go('s0')">↺</button></div>
+    <div style="display:flex;gap:8px;align-items:center"><span class="tbs">Match Mode</span><button class="back-btn" onclick="go('s0')">Home</button><div class="bc-trail" style="display:none" id="bc-s0"><span>Home</span><span class="bc-sep">›</span><span>Match</span><span class="bc-sep">›</span><span>Paste JD & CV</span></div><button class="tbr" onclick="go('s0')">↺</button></div>
   </div>
   <div class="pb"><div class="pf pf-r" style="width:12%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
@@ -470,23 +480,16 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
         <span class="sl" style="margin-bottom:0">Candidate CV / Resume</span>
         <span style="font-size:11px;font-weight:700;color:var(--ro)">Attachment only</span>
       </div>
-      <!-- ATTACHMENT ZONE -->
-      <div style="border:2px dashed var(--cr3);border-radius:12px;padding:20px 16px;text-align:center;background:var(--cr2);margin-bottom:10px" id="cv-upload-zone">
-        <div style="font-size:24px;margin-bottom:8px">📎</div>
-        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px">Upload CV as PDF or Word file</div>
-        <div style="font-size:12px;color:var(--mu);line-height:1.6;margin-bottom:12px">Copy-pasting from PDF breaks the layout — tables, columns and formatting collapse into garbled text. Attachment ensures the AI reads the CV correctly.</div>
-        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-          <span style="background:var(--rol);border:1px solid var(--rom);border-radius:8px;padding:4px 12px;font-size:11px;font-weight:700;color:var(--ro)">❌ Copy-paste from PDF</span>
-          <span style="background:var(--sal);border:1px solid var(--sam);border-radius:8px;padding:4px 12px;font-size:11px;font-weight:700;color:var(--sa)">✅ PDF attachment</span>
-          <span style="background:var(--sal);border:1px solid var(--sam);border-radius:8px;padding:4px 12px;font-size:11px;font-weight:700;color:var(--sa)">✅ Word (.docx)</span>
+      <button id="cv-upload-zone" onclick="return false" style="width:100%;background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;margin-bottom:10px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--te)'" onmouseout="this.style.borderColor='var(--cr3)'">
+        <div style="width:38px;height:38px;border-radius:10px;background:var(--tel);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px">Upload CV — PDF or Word</div>
+          <div style="font-size:11px;color:var(--mu)">Attachment only · Copy-paste from PDF breaks layout</div>
         </div>
-      </div>
+        <div style="font-size:11px;font-weight:700;color:var(--ro);flex-shrink:0">Real product</div>
+      </button>
       <!-- HIDDEN TEXTAREA still used for sample data -->
       <textarea id="mcv" rows="1" style="display:none" oninput="checkMatchReady()"></textarea>
-      <div style="background:var(--ink);border-radius:10px;padding:10px 13px;display:flex;gap:8px;margin-bottom:10px">
-        <span style="font-size:13px;flex-shrink:0">🔧</span>
-        <span style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.6"><strong style="color:#fff">Real product:</strong> Candidate uploads PDF/Word → spaCy parser extracts text → Claude structures it → skill matching engine runs. Layout-perfect every time.</span>
-      </div>
       <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap" id="cvSamples">
         <span style="font-size:11px;color:var(--mu);font-weight:600;line-height:24px">Demo — load a sample CV:</span>
         <button class="sample-btn" onclick="fillSampleCV('tech')">💻 Rahul Sharma</button>
@@ -544,7 +547,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- S1 · JD BUILDER -->
 <div class="sc" id="s1">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 1/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 1/8</span><button class="back-btn" onclick="go('s0')">Home</button><div class="bc-trail" style="display:none" id="bc-s0"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Select Role</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:13%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
     <div class="eyebrow ey-r"><div class="eyd eyd-r"></div><span class="eyt eyt-r">Recruiter Flow</span></div>
@@ -568,7 +571,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- SS · SMART SEARCH BUILDER -->
 <div class="sc" id="ss">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 2/9</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 2/9</span><button class="back-btn" onclick="go('s1')">Role Select</button><div class="bc-trail" style="display:none" id="bc-s1"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Select Role</span><span class="bc-sep">›</span><span>Search Builder</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:20%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--cr2);border-bottom:1px solid var(--cr3);padding:18px 20px">
@@ -655,7 +658,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
   </div>
 </div>
 <div class="sc" id="s2">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 2/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 2/8</span><button class="back-btn" onclick="go('ss')">Search Builder</button><div class="bc-trail" style="display:none" id="bc-ss"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Search Builder</span><span class="bc-sep">›</span><span>Profile</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:25%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:#f1f3f4;border-bottom:1px solid #ddd;padding:10px 16px;display:flex;align-items:center;gap:10px">
@@ -710,7 +713,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- S4 · RESULTS -->
 <div class="sc" id="s4">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 3/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 3/8</span><button class="back-btn" onclick="go('s2')">Profile</button><div class="bc-trail" style="display:none" id="bc-s2"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Profile</span><span class="bc-sep">›</span><span>Results</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:40%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--cr2);border-bottom:1px solid var(--cr3);padding:20px">
@@ -749,7 +752,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- S5 · CALL PREP -->
 <div class="sc" id="s5">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 4/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 4/8</span><button class="back-btn" onclick="go('s4')">Results</button><div class="bc-trail" style="display:none" id="bc-s4"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Results</span><span class="bc-sep">›</span><span>Call Prep</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:52%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--tel);border-bottom:1px solid var(--tem);padding:18px 20px">
@@ -771,7 +774,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- S6 · LIVE CALL -->
 <div class="sc" id="s6">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 5/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 5/8</span><button class="back-btn" onclick="go('s5')">Call Prep</button><div class="bc-trail" style="display:none" id="bc-s5"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Call Prep</span><span class="bc-sep">›</span><span>Live Call</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:62%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--ink);padding:18px 20px">
@@ -818,7 +821,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- S7 · AUTO NOTES -->
 <div class="sc" id="s7">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 6/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 6/8</span><button class="back-btn" onclick="go('s6')">Live Call</button><div class="bc-trail" style="display:none" id="bc-s6"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Live Call</span><span class="bc-sep">›</span><span>Auto Notes</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:74%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
     <h2 class="pt pt-r">Auto-Written <em>Notes</em></h2>
@@ -838,7 +841,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- S8 · PIPELINE -->
 <div class="sc" id="s8">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 7/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 7/8</span><button class="back-btn" onclick="go('s4')">Results</button><div class="bc-trail" style="display:none" id="bc-s4"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Results</span><span class="bc-sep">›</span><span>Pipeline</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:87%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
     <h2 class="pt pt-r">Candidate <em>Pipeline</em></h2>
@@ -903,7 +906,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- S9 · ANALYTICS + STAKEHOLDER -->
 <div class="sc" id="s9">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 8/8</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 8/8</span><button class="back-btn" onclick="go('s8')">Pipeline</button><div class="bc-trail" style="display:none" id="bc-s8"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Pipeline</span><span class="bc-sep">›</span><span>Analytics</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:100%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
     <div class="eyebrow ey-r"><div class="eyd eyd-r"></div><span class="eyt eyt-r">Analytics + Stakeholder</span></div>
@@ -1093,7 +1096,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 <div class="sc" id="m2"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
   <div class="tb">
     <div class="tbl tbl-r">Hire<em>Match</em></div>
-    <div style="display:flex;gap:8px;align-items:center"><span class="tbs">Match Results</span><button class="tbr" onclick="go('s0')">↺</button></div>
+    <div style="display:flex;gap:8px;align-items:center"><span class="tbs">Match Results</span><button class="back-btn" onclick="go('m0')">Paste JD & CV</button><div class="bc-trail" style="display:none" id="bc-m0"><span>Home</span><span class="bc-sep">›</span><span>Match</span><span class="bc-sep">›</span><span>Paste JD & CV</span><span class="bc-sep">›</span><span>Results</span></div><button class="tbr" onclick="go('s0')">↺</button></div>
   </div>
   <div class="pb"><div class="pf pf-r" style="width:60%"></div></div>
   <div class="sb" style="padding:0">
@@ -1140,7 +1143,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- M3 · MATCH CALL PREP -->
 <div class="sc" id="m3"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Call Prep</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Call Prep</span><button class="back-btn" onclick="go('m2')">Results</button><div class="bc-trail" style="display:none" id="bc-m2"><span>Home</span><span class="bc-sep">›</span><span>Match</span><span class="bc-sep">›</span><span>Results</span><span class="bc-sep">›</span><span>Call Prep</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:75%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--tel);border-bottom:1px solid var(--tem);padding:18px 20px">
@@ -1163,7 +1166,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- M4 · MATCH INTERVIEW PREP -->
 <div class="sc" id="m4"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Interview Prep</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Interview Prep</span><button class="back-btn" onclick="go('m2')">Results</button><div class="bc-trail" style="display:none" id="bc-m2"><span>Home</span><span class="bc-sep">›</span><span>Match</span><span class="bc-sep">›</span><span>Results</span><span class="bc-sep">›</span><span>Interview Prep</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:90%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--pul);border-bottom:1px solid var(--pum);padding:18px 20px">
@@ -1185,7 +1188,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C0 · CANDIDATE WELCOME -->
 <div class="sc" id="c0"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Candidate</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Candidate</span><button class="back-btn" onclick="go('s0')">Home</button><div class="bc-trail" style="display:none" id="bc-s0"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Welcome</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:8%"></div></div>
   <div class="sb" style="padding:28px 20px 0">
     <div class="eyebrow ey-c"><div class="eyd eyd-c"></div><span class="eyt eyt-c">Candidate Flow — New</span></div>
@@ -1223,7 +1226,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C1 · PICK JD -->
 <div class="sc" id="c1"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 1/5</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 1/5</span><button class="back-btn" onclick="go('c0')">Welcome</button><div class="bc-trail" style="display:none" id="bc-c0"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Welcome</span><span class="bc-sep">›</span><span>Select Role</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:22%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
     <div class="eyebrow ey-c"><div class="eyd eyd-c"></div><span class="eyt eyt-c">Candidate Flow</span></div>
@@ -1265,20 +1268,14 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
         <span class="sl" style="margin-bottom:0">Upload your CV</span>
         <span style="font-size:11px;font-weight:700;color:var(--ro)">Attachment only — not copy-paste</span>
       </div>
-      <div id="c1-cv-zone" style="border:2px dashed var(--cr3);border-radius:12px;padding:16px;text-align:center;background:var(--cr2);transition:all .2s">
-        <div style="font-size:22px;margin-bottom:6px">📎</div>
-        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px">Upload PDF or Word file</div>
-        <div style="font-size:11px;color:var(--mu);line-height:1.6;margin-bottom:10px">Copy-pasting from PDF breaks layouts — tables and columns collapse into garbled text. Attachment ensures accurate parsing.</div>
-        <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:10px">
-          <span style="background:var(--rol);border:1px solid var(--rom);border-radius:6px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--ro)">❌ Copy-paste</span>
-          <span style="background:var(--sal);border:1px solid var(--sam);border-radius:6px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--sa)">✅ PDF</span>
-          <span style="background:var(--sal);border:1px solid var(--sam);border-radius:6px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--sa)">✅ Word (.docx)</span>
+      <button id="c1-cv-zone" onclick="return false" style="width:100%;background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;transition:all .2s" onmouseover="this.style.borderColor='var(--pu)'" onmouseout="this.style.borderColor='var(--cr3)'">
+        <div style="width:38px;height:38px;border-radius:10px;background:var(--pul);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📎</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px">Upload your CV — PDF or Word</div>
+          <div style="font-size:11px;color:var(--mu)">Attachment only · Copy-paste from PDF breaks layout</div>
         </div>
-      </div>
-      <div style="background:var(--ink);border-radius:10px;padding:9px 13px;display:flex;gap:8px;margin-top:8px">
-        <span style="font-size:12px;flex-shrink:0">🔧</span>
-        <span style="font-size:11px;color:rgba(255,255,255,.65);line-height:1.6"><strong style="color:#fff">Real product:</strong> PDF → spaCy parser → Claude structures your data → skill matching engine. Layout-perfect every time. Demo uses a sample profile below.</span>
-      </div>
+        <div style="font-size:18px;color:var(--mu);flex-shrink:0">›</div>
+      </button>
     </div>
 
     <!-- DIVIDER -->
@@ -1334,7 +1331,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- CH · CV HEALTH CHECK -->
 <div class="sc" id="ch"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">CV Health</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">CV Health</span><button class="back-btn" onclick="go('c1')">Select Role</button><div class="bc-trail" style="display:none" id="bc-c1"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Select Role</span><span class="bc-sep">›</span><span>CV Health</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:30%"></div></div>
   <div class="sb" style="padding:0">
     <!-- HEADER -->
@@ -1400,7 +1397,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C3 · GAP REPORT -->
 <div class="sc" id="c3"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 2/5</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 2/5</span><button class="back-btn" onclick="go('ch')">CV Health</button><div class="bc-trail" style="display:none" id="bc-ch"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>CV Health</span><span class="bc-sep">›</span><span>Gap Report</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:46%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--cr2);border-bottom:1px solid var(--cr3);padding:18px 20px">
@@ -1429,7 +1426,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C4 · CV REWRITE -->
 <div class="sc" id="c4"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 3/5</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 3/5</span><button class="back-btn" onclick="go('ch')">CV Health</button><div class="bc-trail" style="display:none" id="bc-ch"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>CV Health</span><span class="bc-sep">›</span><span>AI Rewrite</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:55%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
     <div class="eyebrow ey-c"><div class="eyd eyd-c"></div><span class="eyt eyt-c">AI CV Rewrite</span></div>
@@ -1494,7 +1491,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C5 · INTERVIEW PREP -->
 <div class="sc" id="c5"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 4/5</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 4/5</span><button class="back-btn" onclick="go('c4')">AI Rewrite</button><div class="bc-trail" style="display:none" id="bc-c4"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>AI Rewrite</span><span class="bc-sep">›</span><span>Interview Prep</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:78%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--pul);border-bottom:1px solid var(--pum);padding:18px 20px">
@@ -1522,7 +1519,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
     <div style="display:flex;gap:8px;align-items:center">
       <div style="width:8px;height:8px;border-radius:50%;background:#22cc66;animation:br 1.5s infinite"></div>
       <span class="tbs">Mock Interview</span>
-      <button class="tbr" onclick="go('s0')">↺</button>
+      <button class="back-btn" onclick="go('c5')">Interview Prep</button><div class="bc-trail" style="display:none" id="bc-c5"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Interview Prep</span><span class="bc-sep">›</span><span>Mock Interview</span></div><button class="tbr" onclick="go('s0')">↺</button>
     </div>
   </div>
   <div class="pb"><div class="pf pf-c" style="width:88%"></div></div>
@@ -1589,7 +1586,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- CD · CV DOWNLOAD -->
 <div class="sc" id="cd"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Download CV</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Download CV</span><button class="back-btn" onclick="go('c5')">Interview Prep</button><div class="bc-trail" style="display:none" id="bc-c5"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Interview Prep</span><span class="bc-sep">›</span><span>Download CV</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:95%"></div></div>
   <div class="sb" style="padding:22px 20px 0">
     <div class="eyebrow ey-c"><div class="eyd eyd-c"></div><span class="eyt eyt-c">CV Download</span></div>
@@ -1670,7 +1667,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- BK · BULK CV SCREENER -->
 <div class="sc" id="bk">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Bulk Screening</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Bulk Screening</span><button class="back-btn" onclick="go('s1')">Role Select</button><div class="bc-trail" style="display:none" id="bc-s1"><span>Home</span><span class="bc-sep">›</span><span>Recruiter</span><span class="bc-sep">›</span><span>Select Role</span><span class="bc-sep">›</span><span>Bulk Screening</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-r" style="width:45%"></div></div>
   <div class="sb" style="padding:0">
     <div style="background:var(--tel);border-bottom:1px solid var(--tem);padding:18px 20px">
@@ -1710,7 +1707,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- CC · CANDIDATE COMMAND CENTRE -->
 <div class="sc" id="cc"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Command Centre</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Command Centre</span><button class="back-btn" onclick="go('c6')">Summary</button><div class="bc-trail" style="display:none" id="bc-c6"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Summary</span><span class="bc-sep">›</span><span>Command Centre</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:100%"></div></div>
   <div class="sb" style="padding:16px 20px 0">
 
@@ -1769,7 +1766,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C6 · PREP SUMMARY + RAG TEASER -->
 <div class="sc" id="c6"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 5/5</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 5/5</span><button class="back-btn" onclick="go('c5')">Interview Prep</button><div class="bc-trail" style="display:none" id="bc-c5"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Interview Prep</span><span class="bc-sep">›</span><span>Summary</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:100%"></div></div>
   <div class="sb" style="padding:24px 20px 0">
     <div style="text-align:center;margin-bottom:22px">
@@ -2296,16 +2293,15 @@ function selJDC(el,k){
   el.classList.add('sel-c');csel=k;cd=D[k];
   document.getElementById('cjdh').innerHTML='✅ <strong>'+cd.ti+'</strong> selected';
   var b=document.getElementById('cjdb');b.style.opacity='1';b.style.pointerEvents='auto';
-  // Update CV zone to show sample profile loaded
   var zone=document.getElementById('c1-cv-zone');
   if(zone){
     zone.style.borderColor='var(--sa)';
-    zone.style.borderStyle='solid';
     zone.style.background='var(--sal)';
-    zone.innerHTML='<div style="font-size:20px;margin-bottom:5px">✅</div>'
-      +'<div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">'+cd.cn+' — sample CV loaded</div>'
-      +'<div style="font-size:11px;color:var(--mu)">'+cd.ch+'</div>'
-      +'<div style="font-size:10px;color:var(--mu);margin-top:4px">Demo mode · Real product uses your uploaded PDF</div>';
+    zone.innerHTML='<div style="width:38px;height:38px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✅</div>'
+      +'<div style="flex:1;min-width:0">'
+        +'<div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">'+cd.cn+' — sample CV loaded</div>'
+        +'<div style="font-size:11px;color:var(--mu)">'+cd.ch+' · Demo mode</div>'
+      +'</div>';
   }
 }
 
@@ -2934,11 +2930,17 @@ function fillSampleJD(k){
 function fillSampleCV(k){
   document.getElementById('mcv').value = sampleCVs[k];
   matchCV = sampleCVs[k];
-  // Show loaded state on upload zone
   var zone = document.getElementById('cv-upload-zone');
   var name = {tech:'Rahul Sharma — SDE-2, Razorpay',mktg:'Priya Kapoor — Marketing Manager, Nykaa',bank:'Aditya Nair — AVP Banking, HDFC',cons:'Kavya Reddy — Consultant, McKinsey',hrta:'Anika Sharma — TA Manager, Infosys',sales:'Rohan Mehta — Sr. AE, Zoho'}[k]||'Sample CV';
-  zone.style.borderColor='var(--sa)';zone.style.background='var(--sal)';
-  zone.innerHTML='<div style="font-size:22px;margin-bottom:6px">✅</div><div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">'+name+'</div><div style="font-size:11px;color:var(--mu)">Sample CV loaded — ready to match</div>';
+  if(zone){
+    zone.style.borderColor='var(--sa)';
+    zone.style.background='var(--sal)';
+    zone.innerHTML='<div style="width:38px;height:38px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✅</div>'
+      +'<div style="flex:1;min-width:0">'
+        +'<div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">'+name+'</div>'
+        +'<div style="font-size:11px;color:var(--mu)">Sample CV loaded — ready to match</div>'
+      +'</div>';
+  }
   checkMatchReady();
 }
 function checkMatchReady(){
@@ -3490,7 +3492,7 @@ function hideT(){document.getElementById('ts').classList.remove('on');}
     <div style="display:flex;gap:8px;align-items:center">
       <div style="width:8px;height:8px;border-radius:50%;background:var(--pu);animation:br 1.5s infinite"></div>
       <span class="tbs">Career Assistant</span>
-      <button class="tbr" onclick="go('s0')">↺</button>
+      <button class="back-btn" onclick="go('c0')">Welcome</button><div class="bc-trail" style="display:none" id="bc-c0"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Welcome</span><span class="bc-sep">›</span><span>Career Assistant</span></div><button class="tbr" onclick="go('s0')">↺</button>
     </div>
   </div>
   <div class="pb"><div class="pf pf-c" style="width:100%"></div></div>
