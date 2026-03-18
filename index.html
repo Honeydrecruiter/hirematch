@@ -516,14 +516,15 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
         <span class="sl" style="margin-bottom:0">Candidate CV / Resume</span>
         <span style="font-size:11px;font-weight:700;color:var(--ro)">Attachment only</span>
       </div>
-      <button id="cv-upload-zone" onclick="return false" style="width:100%;background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;margin-bottom:10px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--te)'" onmouseout="this.style.borderColor='var(--cr3)'">
+      <button id="cv-upload-zone" onclick="triggerMatchCVUpload()" style="width:100%;background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;margin-bottom:10px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--te)'" onmouseout="this.style.borderColor='var(--cr3)'">
         <div style="width:38px;height:38px;border-radius:10px;background:var(--tel);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📎</div>
         <div style="flex:1;min-width:0">
           <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px">Upload CV — PDF or Word</div>
-          <div style="font-size:11px;color:var(--mu)">Attachment only · Copy-paste from PDF breaks layout</div>
+          <div style="font-size:11px;color:var(--mu)">Tap to browse and select your file</div>
         </div>
         <div style="font-size:11px;font-weight:700;color:var(--ro);flex-shrink:0">Real product</div>
       </button>
+      <input type="file" id="matchCVFileInput" accept=".pdf,.doc,.docx" style="display:none" onchange="handleMatchCVUpload(this)">
       <!-- HIDDEN TEXTAREA still used for sample data -->
       <textarea id="mcv" rows="1" style="display:none" oninput="checkMatchReady()"></textarea>
       <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap" id="cvSamples">
@@ -1227,36 +1228,64 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
   <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Candidate</span><button class="back-btn" onclick="go('s0')">Home</button><div class="bc-trail" style="display:none" id="bc-s0"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Welcome</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:8%"></div></div>
   <div class="sb" style="padding:28px 20px 0">
-    <div class="eyebrow ey-c"><div class="eyd eyd-c"></div><span class="eyt eyt-c">Candidate Flow — New</span></div>
-    <h1 class="pt pt-c">Walk in to every interview <em>fully prepared</em></h1>
-    <p class="ps2">HireMatch tells you exactly how your CV matches a job, fixes the gaps, rewrites your CV for ATS, and preps you for the exact questions you'll face.</p>
-    <div class="card" style="display:flex;gap:12px;margin-bottom:8px"><div style="font-size:22px">🔍</div><div><div style="font-size:14px;font-weight:700;margin-bottom:2px">CV Gap Report</div><div style="font-size:12px;color:var(--mu)">See exactly how your CV matches the JD — skill by skill, depth by depth</div></div></div>
-    <div class="card" style="display:flex;gap:12px;margin-bottom:8px"><div style="font-size:22px">✍️</div><div><div style="font-size:14px;font-weight:700;margin-bottom:2px">AI CV Rewrite <span class="nb nb-c">New</span></div><div style="font-size:12px;color:var(--mu)">Your CV rewritten for this exact JD — ATS-optimised, keyword-matched</div></div></div>
-    <div class="card" style="display:flex;gap:12px;margin-bottom:8px"><div style="font-size:22px">🎯</div><div><div style="font-size:14px;font-weight:700;margin-bottom:2px">Interview Prep <span class="nb nb-c">New</span></div><div style="font-size:12px;color:var(--mu)">8 questions tailored to your exact gaps — with full answer frameworks and the logic behind each</div></div></div>
-    <div class="card" style="display:flex;gap:12px;margin-bottom:8px"><div style="font-size:22px">🧠</div><div><div style="font-size:14px;font-weight:700;margin-bottom:2px">Company-Specific Prep <span class="nb nb-c">Coming Soon</span></div><div style="font-size:12px;color:var(--mu)">Real interview transcripts from Razorpay, McKinsey, Deloitte and more — powered by AI</div></div></div>
-
-    <!-- WHERE WILL I FIND THIS -->
-    <div style="margin-top:6px;margin-bottom:4px">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--mu);margin-bottom:10px">📍 Where will you find HireMatch?</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="background:var(--pul);border:1px solid var(--pum);border-radius:12px;padding:13px 15px;display:flex;gap:12px;align-items:flex-start">
-          <div style="font-size:22px;flex-shrink:0">🌐</div>
-          <div><div style="font-size:13px;font-weight:700;color:var(--pu);margin-bottom:3px">Standalone — hirematch.in</div><div style="font-size:12px;color:var(--br);line-height:1.6">Go directly to HireMatch, sign up free, upload your CV and paste any JD. Works on phone or desktop. No recruiter needed.</div></div>
-        </div>
-        <div style="background:var(--sal);border:1px solid var(--sam);border-radius:12px;padding:13px 15px;display:flex;gap:12px;align-items:flex-start">
-          <div style="font-size:22px;flex-shrink:0">📩</div>
-          <div><div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:3px">Recruiter shares it with you</div><div style="font-size:12px;color:var(--br);line-height:1.6">After screening your profile, the recruiter sends you a personalised prep link — tailored to the exact role and your specific gaps. Arrives on WhatsApp or email.</div></div>
-        </div>
-        <div style="background:var(--aml);border:1px solid var(--amm);border-radius:12px;padding:13px 15px;display:flex;gap:12px;align-items:flex-start">
-          <div style="font-size:22px;flex-shrink:0">🔌</div>
-          <div><div style="font-size:13px;font-weight:700;color:var(--am);margin-bottom:3px">Chrome Extension — on Naukri or LinkedIn</div><div style="font-size:12px;color:var(--br);line-height:1.6">Browse a job on Naukri or LinkedIn and HireMatch pops up automatically — check your fit and prep for the interview right where you found the job.</div></div>
-        </div>
-      </div>
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="width:48px;height:48px;border-radius:14px;background:var(--pu);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px;box-shadow:0 6px 20px rgba(96,64,160,.2)">🎯</div>
+      <h1 class="pt pt-c" style="font-size:24px;margin-bottom:6px">What do you need help with?</h1>
+      <p class="ps2" style="font-size:13px">Pick a feature or go through the full flow — your choice</p>
     </div>
+
+    <!-- FEATURE TILES 2x2 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:20px">🩺</div>
+        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">CV Health Check</div>
+        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">Red / Amber / Green per issue with fix instructions and ATS reality check</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Check my CV →</button>
+      </div>
+
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:20px">✨</div>
+        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">AI CV Rewrite</div>
+        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">JD-specific rewrite with AI transparency score — see exactly what changed</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Rewrite my CV →</button>
+      </div>
+
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:20px">🎯</div>
+        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">Interview Prep</div>
+        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">8 questions specific to your JD with scoring, what to avoid and real examples</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Prep me →</button>
+      </div>
+
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:20px">🤖</div>
+        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">Mock Interview</div>
+        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">Answer out loud or type — Claude scores you in real time with voice support</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Start mock →</button>
+      </div>
+
+    </div>
+
+    <!-- FULL FLOW STRIP -->
+    <div style="background:var(--sal);border:1.5px solid var(--sam);border-radius:14px;padding:13px 14px;display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">🔄 Go through the full flow</div>
+        <div style="font-size:11px;color:var(--br);line-height:1.4">CV Health → AI Rewrite → Interview Prep → Mock Interview → Download CV</div>
+      </div>
+      <button onclick="go('c1')" style="background:var(--sa);color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Start →</button>
+    </div>
+
+    <!-- CAREER ASSISTANT -->
+    <div style="background:var(--pul);border:1px solid var(--pum);border-radius:12px;padding:11px 14px;display:flex;gap:10px;align-items:center">
+      <div style="font-size:18px;flex-shrink:0">🤖</div>
+      <div style="flex:1;font-size:12px;color:var(--br)"><strong style="color:var(--pu)">Career Assistant</strong> — ask anything about your role, gaps or interview</div>
+      <button onclick="go('cb')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Ask →</button>
+    </div>
+
   </div>
-  <div class="cta">
-    <button class="btn bpu" onclick="go('c1')">Start — Check my CV fit →</button>
-    <button class="btn bgh" onclick="go('cb')" style="margin-top:8px">🤖 Ask the Career Assistant anything →</button>
+  <div class="cta" style="padding-top:10px">
+    <div class="ctah">Pick a feature or go through the full flow</div>
   </div>
 </div>
 
@@ -1304,14 +1333,15 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
         <span class="sl" style="margin-bottom:0">Upload your CV</span>
         <span style="font-size:11px;font-weight:700;color:var(--ro)">Attachment only — not copy-paste</span>
       </div>
-      <button id="c1-cv-zone" onclick="return false" style="width:100%;background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;transition:all .2s" onmouseover="this.style.borderColor='var(--pu)'" onmouseout="this.style.borderColor='var(--cr3)'">
+      <button id="c1-cv-zone" onclick="triggerCVUpload()" style="width:100%;background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;transition:all .2s" onmouseover="this.style.borderColor='var(--pu)'" onmouseout="this.style.borderColor='var(--cr3)'">
         <div style="width:38px;height:38px;border-radius:10px;background:var(--pul);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📎</div>
         <div style="flex:1;min-width:0">
           <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px">Upload your CV — PDF or Word</div>
-          <div style="font-size:11px;color:var(--mu)">Attachment only · Copy-paste from PDF breaks layout</div>
+          <div style="font-size:11px;color:var(--mu)">Tap to browse and select your file</div>
         </div>
         <div style="font-size:18px;color:var(--mu);flex-shrink:0">›</div>
       </button>
+      <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" style="display:none" onchange="handleCVUpload(this)">
     </div>
 
     <!-- DIVIDER -->
@@ -2324,6 +2354,50 @@ function onJDPaste(el){
     if(!csel){b.style.opacity='.4';b.style.pointerEvents='none';}
   }
 }
+function triggerCVUpload(){document.getElementById('cvFileInput').click();}
+function triggerMatchCVUpload(){document.getElementById('matchCVFileInput').click();}
+
+function handleCVUpload(input){
+  if(!input.files||!input.files[0])return;
+  var file=input.files[0];var fname=file.name;
+  var zone=document.getElementById('c1-cv-zone');
+  zone.style.borderColor='var(--pu)';zone.style.background='var(--pul)';
+  zone.innerHTML='<div style="width:38px;height:38px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">⏳</div>'
+    +'<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;color:var(--pu);margin-bottom:2px">Parsing '+fname+'…</div>'
+    +'<div style="font-size:11px;color:var(--mu)">spaCy extracting text · Claude structuring skills</div></div>';
+  showT('Reading your CV…');
+  setTimeout(function(){
+    if(!csel){csel='hrta';cd=D['hrta'];}
+    zone.style.borderColor='var(--sa)';zone.style.background='var(--sal)';
+    zone.innerHTML='<div style="width:38px;height:38px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✅</div>'
+      +'<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">'+fname+' uploaded</div>'
+      +'<div style="font-size:11px;color:var(--mu)">CV parsed · Skills extracted · Ready to match</div></div>';
+    hideT();showT('CV uploaded! Now pick your target role below');setTimeout(hideT,2500);
+    var b=document.getElementById('cjdb');if(b&&csel){b.style.opacity='1';b.style.pointerEvents='auto';}
+    document.getElementById('cjdh').innerHTML='✅ CV uploaded — now pick a role below';
+  },2000);
+}
+
+function handleMatchCVUpload(input){
+  if(!input.files||!input.files[0])return;
+  var file=input.files[0];var fname=file.name;
+  var zone=document.getElementById('cv-upload-zone');
+  zone.style.borderColor='var(--te)';zone.style.background='var(--tel)';
+  zone.innerHTML='<div style="width:38px;height:38px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">⏳</div>'
+    +'<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;color:var(--te);margin-bottom:2px">Parsing '+fname+'…</div>'
+    +'<div style="font-size:11px;color:var(--mu)">spaCy extracting text · Claude structuring skills</div></div>';
+  showT('Reading your CV…');
+  setTimeout(function(){
+    matchCV=sampleCVs['hrta'];document.getElementById('mcv').value=matchCV;
+    zone.style.borderColor='var(--sa)';zone.style.background='var(--sal)';
+    zone.innerHTML='<div style="width:38px;height:38px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✅</div>'
+      +'<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">'+fname+' uploaded</div>'
+      +'<div style="font-size:11px;color:var(--mu)">CV parsed · Skills extracted · Ready to match</div></div>';
+    hideT();showT('CV uploaded! Now paste or pick a JD');setTimeout(hideT,2500);
+    checkMatchReady();
+  },2000);
+}
+
 function selJDC(el,k){
   document.querySelectorAll('#c1 .jo').forEach(function(o){o.classList.remove('sel-c')});
   el.classList.add('sel-c');csel=k;cd=D[k];
