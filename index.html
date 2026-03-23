@@ -375,7 +375,95 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 <!-- TOAST -->
 <div class="ts" id="ts"><div class="tsp"></div><span id="tsm"></span></div>
 
-<!-- SCHEDULE MODAL -->
+<!-- OUTREACH DEMO MODAL -->
+<div class="modal-ov" id="outreachModal">
+  <div class="modal-sh" style="max-height:88vh;overflow-y:auto;padding:0">
+
+    <!-- STEP 1 — RECRUITERS FOUND -->
+    <div id="or-step1">
+      <div style="background:var(--ink);padding:16px 18px 14px;border-radius:16px 16px 0 0">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+          <div style="font-size:13px;font-weight:700;color:#fff">📨 AI Recruiter Outreach</div>
+          <button onclick="closeOutreach()" style="background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif">✕ Close</button>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6)" id="or-scanning">🔍 Scanning LinkedIn and Naukri for active recruiters…</div>
+      </div>
+
+      <div style="padding:14px 16px">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:10px" id="or-found-label">Finding recruiters…</div>
+        <div id="or-recruiter-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px"></div>
+        <div style="background:var(--aml);border:1px solid var(--amm);border-radius:10px;padding:10px 13px;font-size:11px;color:var(--br);line-height:1.6;margin-bottom:14px">
+          <strong style="color:var(--am)">How HireMatch finds them:</strong> We scan active job postings on Naukri and LinkedIn, identify the hiring manager or TA lead, cross-reference with your rewritten CV and match score, then rank by likelihood of response.
+        </div>
+        <button onclick="orStep2()" id="or-next-btn" style="width:100%;background:var(--te);color:#fff;border:none;border-radius:10px;padding:12px;font-size:13px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;opacity:.4;pointer-events:none" >Preview outreach message →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 — MESSAGE PREVIEW -->
+    <div id="or-step2" style="display:none">
+      <div style="background:var(--ink);padding:16px 18px 14px;border-radius:16px 16px 0 0">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+          <div style="font-size:13px;font-weight:700;color:#fff">✍️ Your personalised message</div>
+          <button onclick="closeOutreach()" style="background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif">✕ Close</button>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6)">Tailored to each recruiter's JD and your rewritten CV</div>
+      </div>
+      <div style="padding:14px 16px">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:8px">Sending to: <span id="or-sending-to" style="color:var(--ink);text-transform:none;letter-spacing:0;font-weight:600"></span></div>
+
+        <!-- MESSAGE CARD -->
+        <div style="background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;overflow:hidden;margin-bottom:10px">
+          <div style="background:var(--cr2);padding:10px 13px;border-bottom:1px solid var(--cr3);display:flex;gap:8px;align-items:center">
+            <div style="font-size:13px">💼</div>
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--ink)" id="or-msg-platform">LinkedIn Message</div>
+              <div style="font-size:10px;color:var(--mu)" id="or-msg-to"></div>
+            </div>
+          </div>
+          <div style="padding:13px 14px">
+            <div style="font-size:12px;color:var(--br);line-height:1.8;white-space:pre-line" id="or-msg-body"></div>
+          </div>
+          <div style="background:var(--cr2);padding:8px 13px;border-top:1px solid var(--cr3);display:flex;align-items:center;gap:6px">
+            <div style="font-size:10px;color:var(--mu)">📎 Attached:</div>
+            <div style="font-size:10px;font-weight:600;color:var(--pu);background:var(--pul);padding:2px 8px;border-radius:5px" id="or-cv-name"></div>
+          </div>
+        </div>
+
+        <div style="background:var(--sal);border:1px solid var(--sam);border-radius:10px;padding:9px 12px;font-size:11px;color:var(--br);line-height:1.6;margin-bottom:14px">
+          <strong style="color:var(--sa)">Each message is different.</strong> HireMatch tailors the subject line, opening and skills mentioned to each recruiter's specific JD. No copy-paste spam.
+        </div>
+
+        <div style="display:flex;gap:8px">
+          <button onclick="orStep1()" style="flex:1;background:var(--cr2);color:var(--br);border:1px solid var(--cr3);border-radius:10px;padding:11px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">← Back</button>
+          <button onclick="orStep3()" style="flex:2;background:var(--te);color:#fff;border:none;border-radius:10px;padding:11px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">Send to all 4 recruiters →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 — SENT CONFIRMATION -->
+    <div id="or-step3" style="display:none">
+      <div style="background:var(--sa);padding:16px 18px 14px;border-radius:16px 16px 0 0">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div style="font-size:13px;font-weight:700;color:#fff">✅ Outreach sent!</div>
+          <button onclick="closeOutreach()" style="background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif">✕ Close</button>
+        </div>
+      </div>
+      <div style="padding:16px">
+        <div style="text-align:center;margin-bottom:16px">
+          <div style="font-size:40px;margin-bottom:8px">📨</div>
+          <div style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px" id="or-sent-headline"></div>
+          <div style="font-size:12px;color:var(--mu)">Average response time: 2–4 days</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px" id="or-sent-list"></div>
+        <div style="background:var(--pul);border:1px solid var(--pum);border-radius:10px;padding:10px 13px;font-size:11px;color:var(--br);line-height:1.6;margin-bottom:14px">
+          <strong style="color:var(--pu)">What happens next:</strong> HireMatch monitors for replies. When a recruiter responds you get a notification with their message and a suggested reply. You're always in control — we never send anything without your approval.
+        </div>
+        <button onclick="closeOutreach()" style="width:100%;background:var(--pu);color:#fff;border:none;border-radius:10px;padding:12px;font-size:13px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">Got it — notify me when they reply 🔔</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 <div class="modal-ov" id="schedModal">
   <div class="modal-sh">
     <div class="modal-title">Schedule Interview</div>
@@ -2339,23 +2427,130 @@ function onJDPaste(el){
     if(!csel){b.style.opacity='.4';b.style.pointerEvents='none';}
   }
 }
+// ── OUTREACH DEMO DATA ──
+var OUTREACH = {
+  hrta:{
+    name:'Anika Sharma',role:'Senior TA Manager',co:'Infosys',
+    recruiters:[
+      {name:'Priya Mehta',title:'Head of TA',co:'HDFC Bank',posted:'2 days ago',match:'92%',platform:'LinkedIn'},
+      {name:'Rohan Kapoor',title:'Senior Recruiter',co:'Razorpay',posted:'4 days ago',match:'87%',platform:'LinkedIn'},
+      {name:'Sneha Iyer',title:'TA Lead',co:'McKinsey India',posted:'1 week ago',match:'84%',platform:'Naukri'},
+      {name:'Amit Sharma',title:'HR Manager',co:'Flipkart',posted:'3 days ago',match:'79%',platform:'LinkedIn'}
+    ],
+    message:function(r){return 'Hi '+r.name+',\n\nI came across your opening for a Senior TA Manager at '+r.co+' and wanted to reach out directly.\n\nI\'m currently a TA Manager at Infosys with 6+ years of full-cycle recruiting experience across tech and non-tech roles. I\'ve built and led a team of 5, delivered 300+ annual hires and have strong ATS experience on Workday.\n\nWhat caught my eye about this role specifically is the focus on executive search and employer branding — both areas I\'ve been building depth in over the past year.\n\nWould love to explore if there\'s a fit. Happy to share more context or jump on a quick call at your convenience.\n\nWarm regards,\nAnika Sharma';}
+  },
+  tech:{
+    name:'Rahul Sharma',role:'Senior Backend Engineer',co:'Razorpay',
+    recruiters:[
+      {name:'Divya Nair',title:'Senior Technical Recruiter',co:'Google India',posted:'1 day ago',match:'89%',platform:'LinkedIn'},
+      {name:'Karan Mehta',title:'Engineering Recruiter',co:'Stripe India',posted:'3 days ago',match:'85%',platform:'LinkedIn'},
+      {name:'Pooja Rao',title:'TA Manager',co:'Flipkart',posted:'5 days ago',match:'81%',platform:'Naukri'},
+      {name:'Arjun Singh',title:'Tech Recruiter',co:'PhonePe',posted:'1 week ago',match:'77%',platform:'LinkedIn'}
+    ],
+    message:function(r){return 'Hi '+r.name+',\n\nI noticed '+r.co+' is hiring for a Senior Backend Engineer and wanted to connect directly.\n\nI\'m a SDE-2 at Razorpay with 5 years of backend experience — primarily Node.js, TypeScript and PostgreSQL at scale. I\'ve owned the webhook delivery service handling 2M+ daily transactions and led the migration to a microservices architecture.\n\nI\'m particularly interested in '+r.co+'\'s engineering culture and the scale of problems your backend team is solving.\n\nWould you be open to a quick conversation?\n\nBest,\nRahul Sharma';}
+  },
+  mktg:{
+    name:'Priya Kapoor',role:'Senior Marketing Manager',co:'Nykaa',
+    recruiters:[
+      {name:'Meera Joshi',title:'Talent Acquisition Lead',co:'Mamaearth',posted:'2 days ago',match:'88%',platform:'LinkedIn'},
+      {name:'Siddharth Roy',title:'Senior Recruiter',co:'boAt',posted:'4 days ago',match:'83%',platform:'LinkedIn'},
+      {name:'Ananya Bhat',title:'HR Manager',co:'Sugar Cosmetics',posted:'6 days ago',match:'80%',platform:'Naukri'},
+      {name:'Vikram Patel',title:'TA Head',co:'Lenskart',posted:'1 week ago',match:'76%',platform:'LinkedIn'}
+    ],
+    message:function(r){return 'Hi '+r.name+',\n\nI saw '+r.co+' is looking for a Senior Marketing Manager and wanted to reach out.\n\nI currently lead D2C performance marketing at Nykaa — managing a ₹1.2Cr monthly budget across Meta and Google with a 3.2x ROAS. I also own brand campaigns and have cross-functional experience with product and content teams.\n\nI\'m drawn to '+r.co+'\'s growth trajectory and the opportunity to own both performance and brand at scale.\n\nWould love to explore this further if the timing is right.\n\nWarm regards,\nPriya Kapoor';}
+  }
+};
+
+var orCurrentKey = 'hrta';
+var orCurrentRecruiter = null;
+
 function showOutreachDemo(){
-  var steps=[
-    {icon:'🔍',title:'Scanning for recruiters…',sub:'Finding recruiters actively hiring for Senior TA Manager in Bangalore'},
-    {icon:'✅',title:'8 recruiters found',sub:'Priya Mehta · HDFC Bank · Posted 3 days ago\nRohan Sharma · Razorpay · Posted 1 week ago\nAnita Rao · McKinsey · Posted 2 days ago\n+5 more'},
-    {icon:'✍️',title:'Personalising messages…',sub:'Tailoring each message to the recruiter\'s JD and your rewritten CV'},
-    {icon:'📨',title:'Outreach sent!',sub:'8 personalised messages sent. You\'ll be notified when recruiters respond. Average response time: 2-3 days.'}
-  ];
-  var i=0;
-  showT(steps[0].icon+' '+steps[0].title);
-  var iv=setInterval(function(){
-    i++;
-    if(i<steps.length){showT(steps[i].icon+' '+steps[i].title);}
-    else{clearInterval(iv);hideT();
-      setTimeout(function(){showT('📨 Outreach sent to 8 recruiters! This feature is coming soon.');setTimeout(hideT,3500);},300);
-    }
-  },1800);
+  orCurrentKey = csel || 'hrta';
+  var d = OUTREACH[orCurrentKey] || OUTREACH.hrta;
+  // Reset to step 1
+  orStep1();
+  document.getElementById('outreachModal').classList.add('on');
+  // Simulate scanning
+  var scanLabel = document.getElementById('or-scanning');
+  var foundLabel = document.getElementById('or-found-label');
+  var nextBtn = document.getElementById('or-next-btn');
+  var list = document.getElementById('or-recruiter-list');
+  list.innerHTML = '';
+  foundLabel.textContent = 'Scanning…';
+  nextBtn.style.opacity = '.4';
+  nextBtn.style.pointerEvents = 'none';
+  // Show recruiters one by one
+  var delay = 800;
+  d.recruiters.forEach(function(r, i){
+    setTimeout(function(){
+      scanLabel.textContent = '🔍 Found '+r.name+' at '+r.co+'…';
+      var row = document.createElement('div');
+      row.style.cssText = 'background:var(--cr);border:1px solid var(--cr3);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;animation:fu .25s ease both';
+      row.innerHTML = '<div style="width:36px;height:36px;border-radius:9px;background:var(--tel);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">👤</div>'
+        +'<div style="flex:1;min-width:0">'
+          +'<div style="font-size:12px;font-weight:700;color:var(--ink)">'+(i===0?'<span style="background:var(--sa);color:#fff;font-size:9px;padding:1px 6px;border-radius:4px;margin-right:5px">Top pick</span>':'')+r.name+'</div>'
+          +'<div style="font-size:10px;color:var(--mu)">'+r.title+' · '+r.co+'</div>'
+          +'<div style="font-size:10px;color:var(--mu);margin-top:1px">📅 Posted '+r.posted+' · '+r.platform+'</div>'
+        +'</div>'
+        +'<div style="text-align:right;flex-shrink:0">'
+          +'<div style="font-size:13px;font-weight:700;color:var(--sa)">'+r.match+'</div>'
+          +'<div style="font-size:9px;color:var(--mu)">match</div>'
+        +'</div>';
+      list.appendChild(row);
+      if(i === d.recruiters.length - 1){
+        setTimeout(function(){
+          scanLabel.textContent = '✅ '+d.recruiters.length+' recruiters found — ranked by match score';
+          foundLabel.textContent = d.recruiters.length+' recruiters actively hiring for '+d.role;
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }, 400);
+      }
+    }, delay * (i+1));
+  });
 }
+
+function orStep1(){
+  document.getElementById('or-step1').style.display='block';
+  document.getElementById('or-step2').style.display='none';
+  document.getElementById('or-step3').style.display='none';
+}
+
+function orStep2(){
+  var d = OUTREACH[orCurrentKey] || OUTREACH.hrta;
+  orCurrentRecruiter = d.recruiters[0];
+  document.getElementById('or-step1').style.display='none';
+  document.getElementById('or-step2').style.display='block';
+  document.getElementById('or-step3').style.display='none';
+  document.getElementById('or-sending-to').textContent = orCurrentRecruiter.name+', '+orCurrentRecruiter.title+' at '+orCurrentRecruiter.co;
+  document.getElementById('or-msg-platform').textContent = orCurrentRecruiter.platform+' Message';
+  document.getElementById('or-msg-to').textContent = 'To: '+orCurrentRecruiter.name+' · '+orCurrentRecruiter.co;
+  document.getElementById('or-msg-body').textContent = d.message(orCurrentRecruiter);
+  document.getElementById('or-cv-name').textContent = (d.name.split(' ')[0])+'_CV_HireMatch.pdf';
+}
+
+function orStep3(){
+  var d = OUTREACH[orCurrentKey] || OUTREACH.hrta;
+  document.getElementById('or-step1').style.display='none';
+  document.getElementById('or-step2').style.display='none';
+  document.getElementById('or-step3').style.display='block';
+  document.getElementById('or-sent-headline').textContent = 'Sent to '+d.recruiters.length+' recruiters on your behalf';
+  var sentList = document.getElementById('or-sent-list');
+  sentList.innerHTML = d.recruiters.map(function(r){
+    return '<div style="display:flex;align-items:center;gap:10px;background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:9px 12px">'
+      +'<div style="font-size:14px">✅</div>'
+      +'<div style="flex:1;min-width:0">'
+        +'<div style="font-size:12px;font-weight:600;color:var(--ink)">'+r.name+' · '+r.co+'</div>'
+        +'<div style="font-size:10px;color:var(--mu)">'+r.platform+' · Personalised message sent</div>'
+      +'</div>'
+    +'</div>';
+  }).join('');
+}
+
+function closeOutreach(){
+  document.getElementById('outreachModal').classList.remove('on');
+}
+
+function showOutreachDemo_old(){}
 
 function triggerCVUpload(){document.getElementById('cvFileInput').click();}
 function triggerMatchCVUpload(){document.getElementById('matchCVFileInput').click();}
@@ -3563,6 +3758,7 @@ function confirmSched(){
 }
 function closeSchedBtn(){document.getElementById('schedModal').classList.remove('on');}
 var _sm=document.getElementById('schedModal');if(_sm)_sm.addEventListener('click',function(e){if(e.target===document.getElementById('schedModal'))document.getElementById('schedModal').classList.remove('on');});
+var _om=document.getElementById('outreachModal');if(_om)_om.addEventListener('click',function(e){if(e.target===document.getElementById('outreachModal'))closeOutreach();});
 function cpyN(){var ta=document.getElementById('nta');try{navigator.clipboard.writeText(ta.value);}catch(e){ta.select();document.execCommand('copy');}var b=document.getElementById('cpyb');b.classList.add('cp');b.textContent='✓ Copied!';setTimeout(function(){b.classList.remove('cp');b.textContent='📋 Copy';},2500);}
 function regN(){var ta=document.getElementById('nta');ta.style.opacity='.3';setTimeout(function(){ta.style.opacity='1';},700);showT('Regenerating notes…');setTimeout(hideT,1800);}
 function waShare(){window.open('https://wa.me/?text='+encodeURIComponent(document.getElementById('nsj').value+'\n\n'+document.getElementById('nta').value),'_blank');}
