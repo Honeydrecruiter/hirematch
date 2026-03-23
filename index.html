@@ -390,89 +390,63 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
      S0 · ROLE SELECTOR — V2 (Archi design)
 ══════════════════════════════════════ -->
 <div class="sc on" id="s0">
-  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><span class="tbs">V3 Demo</span></div>
-  <div class="pb"><div class="pf pf-r" style="width:3%"></div></div>
-  <div class="sb" style="padding:28px 16px 0">
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><span class="tbs" style="font-size:11px;color:var(--mu)">AI Hiring Co-pilot</span></div>
 
-    <!-- HERO -->
-    <div style="text-align:center;margin-bottom:24px">
-      <div style="width:52px;height:52px;border-radius:15px;background:var(--te);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 14px;box-shadow:0 8px 24px rgba(193,96,74,.22)">⚡</div>
-      <h1 class="pt pt-r" style="font-size:26px;text-align:center;margin-bottom:6px">Your AI co-pilot for <em>every hire</em></h1>
-      <p class="ps2" style="text-align:center;margin-bottom:0;font-size:13px">HireMatch helps recruiters screen faster and candidates prepare smarter.</p>
+  <!-- HERO -->
+  <div style="text-align:center;padding:16px 16px 12px;border-bottom:1px solid var(--cr3)">
+    <div style="width:36px;height:36px;border-radius:10px;background:var(--te);display:flex;align-items:center;justify-content:center;font-size:17px;margin:0 auto 10px;box-shadow:0 4px 14px rgba(193,96,74,.2)">⚡</div>
+    <h1 class="pt pt-r" style="font-size:22px;text-align:center;margin-bottom:4px">Your AI co-pilot for <em>every hire</em></h1>
+    <p style="font-size:11px;color:var(--mu);line-height:1.5">Recruiters screen faster · Candidates land offers · Powered by Claude AI</p>
+  </div>
+
+  <!-- 4 USP TILES -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--cr3);border-bottom:1px solid var(--cr3);flex:1">
+
+    <div style="background:var(--cr);padding:14px 13px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:background .15s" onclick="role='rec';go('s1')" onmouseover="this.style.background='var(--cr2)'" onmouseout="this.style.background='var(--cr)'">
+      <div style="font-size:18px">📋</div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink);line-height:1.3">Score & shortlist CVs instantly</div>
+      <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">AI scores any CV against your JD — match %, gaps and signals in seconds</div>
+      <div style="display:inline-flex;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--tel);color:var(--te);width:fit-content;margin-top:2px">For Recruiters</div>
     </div>
 
-    <!-- TWO PANELS SIDE BY SIDE -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-
-      <!-- RECRUITER PANEL -->
-      <div style="background:var(--tel);border:1.5px solid var(--tem);border-radius:18px;padding:16px 14px 14px;display:flex;flex-direction:column">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--te);margin-bottom:2px">👩‍💼 Recruiter</div>
-        <div style="font-size:11px;color:var(--mu);margin-bottom:12px;line-height:1.4">Screen faster · Close confidently</div>
-        <div style="background:#fff;border-radius:12px;padding:4px 0;margin-bottom:12px;flex:1">
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--tel);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">📋</span>CV scoring & shortlisting
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--tel);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🔍</span>Smart search builder
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--tel);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">📞</span>Call prep + live guide
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--tel);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">📝</span>AI auto notes
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--tel);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">📊</span>Pipeline & analytics
-          </div>
-        </div>
-        <button onclick="role='rec';go('s1')" style="width:100%;background:var(--te);color:#fff;border:none;border-radius:10px;padding:11px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">Start as Recruiter →</button>
-      </div>
-
-      <!-- CANDIDATE PANEL -->
-      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:18px;padding:16px 14px 14px;display:flex;flex-direction:column">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--pu);margin-bottom:2px">🎯 Candidate</div>
-        <div style="font-size:11px;color:var(--mu);margin-bottom:12px;line-height:1.4">Fix gaps · Ace the interview</div>
-        <div style="background:#fff;border-radius:12px;padding:4px 0;margin-bottom:12px;flex:1">
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--pul);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🩺</span>CV health check
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--pul);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">✨</span>AI CV rewrite
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--pul);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🎯</span>Interview prep
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--cr2);font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--pul);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🤖</span>AI mock interview
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:11px;color:var(--ink);font-weight:500">
-            <span style="width:22px;height:22px;background:var(--pul);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">📄</span>Download tailored CV
-          </div>
-        </div>
-        <button onclick="role='can';go('c0')" style="width:100%;background:var(--pu);color:#fff;border:none;border-radius:10px;padding:11px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">Start as Candidate →</button>
-      </div>
-
+    <div style="background:var(--cr);padding:14px 13px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:background .15s;border-left:1px solid var(--cr3)" onclick="role='can';go('c0')" onmouseover="this.style.background='var(--cr2)'" onmouseout="this.style.background='var(--cr)'">
+      <div style="font-size:18px">✨</div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink);line-height:1.3">Rewrite your CV for the exact JD</div>
+      <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">AI rewrites each bullet for your target role — with a transparency score</div>
+      <div style="display:inline-flex;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--pul);color:var(--pu);width:fit-content;margin-top:2px">For Candidates</div>
     </div>
 
-    <!-- MATCH STRIP -->
-    <div style="background:var(--sal);border:1.5px solid var(--sam);border-radius:14px;padding:13px 14px;display:flex;align-items:center;gap:12px;margin-bottom:10px">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">🔗 Match any CV to any JD</div>
-        <div style="font-size:11px;color:var(--br);line-height:1.4">Instant score · Gap analysis · Interview prep</div>
-      </div>
-      <button onclick="go('m0')" style="background:var(--sa);color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Try it →</button>
+    <div style="background:var(--cr);padding:14px 13px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:background .15s;border-top:1px solid var(--cr3)" onclick="role='rec';go('s1')" onmouseover="this.style.background='var(--cr2)'" onmouseout="this.style.background='var(--cr)'">
+      <div style="font-size:18px">📞</div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink);line-height:1.3">Walk into every call prepared</div>
+      <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">3 deep questions, live call guide and AI auto notes after every interview</div>
+      <div style="display:inline-flex;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--tel);color:var(--te);width:fit-content;margin-top:2px">For Recruiters</div>
     </div>
 
-    <!-- VERTICALS -->
-    <div style="background:var(--bll);border:1px solid var(--blm);border-radius:12px;padding:10px 14px;display:flex;gap:8px;align-items:center">
-      <div style="font-size:14px;flex-shrink:0">🧠</div>
-      <div style="font-size:11px;color:var(--br);line-height:1.5"><strong style="color:var(--bl)">7 verticals</strong> — Tech · Marketing · Accounting · Banking · Consulting · HR/TA · B2B Sales</div>
+    <div style="background:var(--cr);padding:14px 13px;display:flex;flex-direction:column;gap:5px;cursor:pointer;transition:background .15s;border-top:1px solid var(--cr3);border-left:1px solid var(--cr3)" onclick="role='can';go('c0')" onmouseover="this.style.background='var(--cr2)'" onmouseout="this.style.background='var(--cr)'">
+      <div style="font-size:18px">📨</div>
+      <div style="font-size:12px;font-weight:700;color:var(--ink);line-height:1.3">AI reaches out to recruiters for you</div>
+      <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">Finds recruiters hiring for your role and sends personalised outreach on your behalf</div>
+      <div style="display:inline-flex;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--ink);color:#fff;width:fit-content;margin-top:2px">✦ New</div>
     </div>
 
   </div>
-  <div class="cta" style="padding-top:12px">
-    <div class="ctah">Takes 3 minutes · Works on your phone · All flows end to end</div>
+
+  <!-- TWO CTAs -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 14px;border-bottom:1px solid var(--cr3)">
+    <button onclick="role='rec';go('s1')" style="background:var(--te);color:#fff;border:none;border-radius:10px;padding:12px 10px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">👩‍💼 I'm a Recruiter →</button>
+    <button onclick="role='can';go('c0')" style="background:var(--pu);color:#fff;border:none;border-radius:10px;padding:12px 10px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">🎯 I'm a Candidate →</button>
   </div>
+
+  <!-- MATCH STRIP -->
+  <div style="margin:10px 14px;background:var(--sal);border:1px solid var(--sam);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px">
+    <div style="flex:1;min-width:0">
+      <div style="font-size:12px;font-weight:700;color:var(--sa)">🔗 Match any CV to any JD</div>
+      <div style="font-size:10px;color:var(--br);margin-top:1px">Instant score · Gap analysis · Interview prep</div>
+    </div>
+    <button onclick="go('m0')" style="background:var(--sa);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Try it →</button>
+  </div>
+
 </div>
 
 <!-- ══════════════════════════════════════
@@ -1228,59 +1202,69 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
   <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Candidate</span><button class="back-btn" onclick="go('s0')">Home</button><div class="bc-trail" style="display:none" id="bc-s0"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Welcome</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:8%"></div></div>
   <div class="sb" style="padding:28px 20px 0">
-    <div style="text-align:center;margin-bottom:20px">
-      <div style="width:48px;height:48px;border-radius:14px;background:var(--pu);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px;box-shadow:0 6px 20px rgba(96,64,160,.2)">🎯</div>
-      <h1 class="pt pt-c" style="font-size:24px;margin-bottom:6px">What do you need help with?</h1>
-      <p class="ps2" style="font-size:13px">Pick a feature or go through the full flow — your choice</p>
+    <div style="text-align:center;margin-bottom:16px">
+      <div style="width:40px;height:40px;border-radius:12px;background:var(--pu);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 10px;box-shadow:0 6px 18px rgba(96,64,160,.18)">🎯</div>
+      <h1 class="pt pt-c" style="font-size:22px;margin-bottom:4px">What do you need help with?</h1>
+      <p class="ps2" style="font-size:12px">Pick a feature or go through the full flow</p>
     </div>
 
     <!-- FEATURE TILES 2x2 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
 
-      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
-        <div style="font-size:20px">🩺</div>
-        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">CV Health Check</div>
-        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">Red / Amber / Green per issue with fix instructions and ATS reality check</div>
-        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Check my CV →</button>
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:13px;padding:11px 11px 10px;display:flex;flex-direction:column;gap:5px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:17px">🩺</div>
+        <div style="font-size:12px;font-weight:700;color:var(--pu);line-height:1.3">CV Health Check</div>
+        <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">Red / Amber / Green per issue with fix instructions</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:7px;padding:7px 10px;font-size:10px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Check my CV →</button>
       </div>
 
-      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
-        <div style="font-size:20px">✨</div>
-        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">AI CV Rewrite</div>
-        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">JD-specific rewrite with AI transparency score — see exactly what changed</div>
-        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Rewrite my CV →</button>
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:13px;padding:11px 11px 10px;display:flex;flex-direction:column;gap:5px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:17px">✨</div>
+        <div style="font-size:12px;font-weight:700;color:var(--pu);line-height:1.3">AI CV Rewrite</div>
+        <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">JD-specific rewrite with AI transparency score</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:7px;padding:7px 10px;font-size:10px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Rewrite my CV →</button>
       </div>
 
-      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
-        <div style="font-size:20px">🎯</div>
-        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">Interview Prep</div>
-        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">8 questions specific to your JD with scoring, what to avoid and real examples</div>
-        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Prep me →</button>
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:13px;padding:11px 11px 10px;display:flex;flex-direction:column;gap:5px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:17px">🎯</div>
+        <div style="font-size:12px;font-weight:700;color:var(--pu);line-height:1.3">Interview Prep</div>
+        <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">8 questions specific to your JD with scoring</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:7px;padding:7px 10px;font-size:10px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Prep me →</button>
       </div>
 
-      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:16px;padding:14px 13px;display:flex;flex-direction:column;gap:6px;cursor:pointer" onclick="go('c1')">
-        <div style="font-size:20px">🤖</div>
-        <div style="font-size:13px;font-weight:700;color:var(--pu);line-height:1.3">Mock Interview</div>
-        <div style="font-size:11px;color:var(--mu);line-height:1.5;flex:1">Answer out loud or type — Claude scores you in real time with voice support</div>
-        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Start mock →</button>
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:13px;padding:11px 11px 10px;display:flex;flex-direction:column;gap:5px;cursor:pointer" onclick="go('c1')">
+        <div style="font-size:17px">🤖</div>
+        <div style="font-size:12px;font-weight:700;color:var(--pu);line-height:1.3">Mock Interview</div>
+        <div style="font-size:10px;color:var(--mu);line-height:1.5;flex:1">Claude scores you in real time with voice support</div>
+        <button onclick="event.stopPropagation();go('c1')" style="background:var(--pu);color:#fff;border:none;border-radius:7px;padding:7px 10px;font-size:10px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;width:100%;margin-top:2px">Start mock →</button>
       </div>
 
+    </div>
+
+    <!-- OUTREACH ENGINE TILE — FULL WIDTH -->
+    <div style="background:linear-gradient(135deg,var(--tel),var(--sal));border:1.5px solid var(--tem);border-radius:13px;padding:11px 13px;display:flex;align-items:center;gap:12px;margin-bottom:8px;cursor:pointer" onclick="showOutreachDemo()">
+      <div style="font-size:22px;flex-shrink:0">📨</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:700;color:var(--te);margin-bottom:2px">AI Recruiter Outreach <span style="background:var(--te);color:#fff;font-size:9px;padding:1px 6px;border-radius:8px;font-weight:700;vertical-align:middle">NEW</span></div>
+        <div style="font-size:10px;color:var(--br);line-height:1.5">HireMatch finds recruiters hiring for your role and reaches out on your behalf — personalised, instant, no cold calling</div>
+      </div>
+      <button onclick="event.stopPropagation();showOutreachDemo()" style="background:var(--te);color:#fff;border:none;border-radius:7px;padding:7px 10px;font-size:10px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">See how →</button>
     </div>
 
     <!-- FULL FLOW STRIP -->
-    <div style="background:var(--sal);border:1.5px solid var(--sam);border-radius:14px;padding:13px 14px;display:flex;align-items:center;gap:12px;margin-bottom:10px">
+    <div style="background:var(--sal);border:1.5px solid var(--sam);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px;margin-bottom:8px">
       <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:700;color:var(--sa);margin-bottom:2px">🔄 Go through the full flow</div>
-        <div style="font-size:11px;color:var(--br);line-height:1.4">CV Health → AI Rewrite → Interview Prep → Mock Interview → Download CV</div>
+        <div style="font-size:12px;font-weight:700;color:var(--sa);margin-bottom:1px">🔄 Go through the full flow</div>
+        <div style="font-size:10px;color:var(--br)">CV Health → Rewrite → Interview Prep → Mock → Download</div>
       </div>
-      <button onclick="go('c1')" style="background:var(--sa);color:#fff;border:none;border-radius:9px;padding:9px 14px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Start →</button>
+      <button onclick="go('c1')" style="background:var(--sa);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Start →</button>
     </div>
 
     <!-- CAREER ASSISTANT -->
-    <div style="background:var(--pul);border:1px solid var(--pum);border-radius:12px;padding:11px 14px;display:flex;gap:10px;align-items:center">
-      <div style="font-size:18px;flex-shrink:0">🤖</div>
-      <div style="flex:1;font-size:12px;color:var(--br)"><strong style="color:var(--pu)">Career Assistant</strong> — ask anything about your role, gaps or interview</div>
-      <button onclick="go('cb')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Ask →</button>
+    <div style="background:var(--pul);border:1px solid var(--pum);border-radius:10px;padding:9px 12px;display:flex;gap:9px;align-items:center">
+      <div style="font-size:16px;flex-shrink:0">🤖</div>
+      <div style="flex:1;font-size:11px;color:var(--br)"><strong style="color:var(--pu)">Career Assistant</strong> — ask anything about your role or gaps</div>
+      <button onclick="go('cb')" style="background:var(--pu);color:#fff;border:none;border-radius:7px;padding:6px 10px;font-size:10px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">Ask →</button>
     </div>
 
   </div>
@@ -2355,6 +2339,24 @@ function onJDPaste(el){
     if(!csel){b.style.opacity='.4';b.style.pointerEvents='none';}
   }
 }
+function showOutreachDemo(){
+  var steps=[
+    {icon:'🔍',title:'Scanning for recruiters…',sub:'Finding recruiters actively hiring for Senior TA Manager in Bangalore'},
+    {icon:'✅',title:'8 recruiters found',sub:'Priya Mehta · HDFC Bank · Posted 3 days ago\nRohan Sharma · Razorpay · Posted 1 week ago\nAnita Rao · McKinsey · Posted 2 days ago\n+5 more'},
+    {icon:'✍️',title:'Personalising messages…',sub:'Tailoring each message to the recruiter\'s JD and your rewritten CV'},
+    {icon:'📨',title:'Outreach sent!',sub:'8 personalised messages sent. You\'ll be notified when recruiters respond. Average response time: 2-3 days.'}
+  ];
+  var i=0;
+  showT(steps[0].icon+' '+steps[0].title);
+  var iv=setInterval(function(){
+    i++;
+    if(i<steps.length){showT(steps[i].icon+' '+steps[i].title);}
+    else{clearInterval(iv);hideT();
+      setTimeout(function(){showT('📨 Outreach sent to 8 recruiters! This feature is coming soon.');setTimeout(hideT,3500);},300);
+    }
+  },1800);
+}
+
 function triggerCVUpload(){document.getElementById('cvFileInput').click();}
 function triggerMatchCVUpload(){document.getElementById('matchCVFileInput').click();}
 
@@ -3024,7 +3026,8 @@ async function quickAskFull(q) {
 }
 
 // Close bot overlay when tapping outside
-document.getElementById('cbotOverlay').addEventListener('click', function(e){
+var _cbo=document.getElementById('cbotOverlay');
+if(_cbo)_cbo.addEventListener('click', function(e){
   if(e.target === document.getElementById('cbotOverlay')) closeCBot();
 });
 
@@ -3559,7 +3562,7 @@ function confirmSched(){
   showT('✅ Interview booked — '+selSlot.day+' at '+selSlot.time);setTimeout(hideT,3000);
 }
 function closeSchedBtn(){document.getElementById('schedModal').classList.remove('on');}
-document.getElementById('schedModal').addEventListener('click',function(e){if(e.target===document.getElementById('schedModal'))document.getElementById('schedModal').classList.remove('on');});
+var _sm=document.getElementById('schedModal');if(_sm)_sm.addEventListener('click',function(e){if(e.target===document.getElementById('schedModal'))document.getElementById('schedModal').classList.remove('on');});
 function cpyN(){var ta=document.getElementById('nta');try{navigator.clipboard.writeText(ta.value);}catch(e){ta.select();document.execCommand('copy');}var b=document.getElementById('cpyb');b.classList.add('cp');b.textContent='✓ Copied!';setTimeout(function(){b.classList.remove('cp');b.textContent='📋 Copy';},2500);}
 function regN(){var ta=document.getElementById('nta');ta.style.opacity='.3';setTimeout(function(){ta.style.opacity='1';},700);showT('Regenerating notes…');setTimeout(hideT,1800);}
 function waShare(){window.open('https://wa.me/?text='+encodeURIComponent(document.getElementById('nsj').value+'\n\n'+document.getElementById('nta').value),'_blank');}
