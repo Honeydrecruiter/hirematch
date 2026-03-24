@@ -375,6 +375,49 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 <!-- TOAST -->
 <div class="ts" id="ts"><div class="tsp"></div><span id="tsm"></span></div>
 
+<!-- JD READER MODAL -->
+<div class="modal-ov" id="jdReaderModal">
+  <div class="modal-sh" style="padding:0;max-height:88vh;overflow-y:auto">
+    <div style="background:var(--pu);padding:16px 18px 14px;position:sticky;top:0;z-index:2">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <div style="font-size:13px;font-weight:700;color:#fff" id="jdr-title">Job Description</div>
+        <button onclick="closeJDReader()" style="background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif">✕</button>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.75)" id="jdr-sub"></div>
+    </div>
+    <div style="padding:14px 16px">
+      <!-- MATCH SCORE -->
+      <div style="background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:14px 15px;margin-bottom:14px">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:10px">Your match for this role</div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
+          <div style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:3px solid" id="jdr-score-ring">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600" id="jdr-score-num"></div>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px" id="jdr-fit-label"></div>
+            <div style="font-size:11px;color:var(--mu);line-height:1.5" id="jdr-fit-sub"></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:var(--sa);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">✅ Strengths</div>
+            <div id="jdr-matched" style="display:flex;flex-direction:column;gap:3px"></div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:var(--ro);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">⚠️ Gaps</div>
+            <div id="jdr-missing" style="display:flex;flex-direction:column;gap:3px"></div>
+          </div>
+        </div>
+      </div>
+      <!-- JD TEXT -->
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:8px">Full Job Description</div>
+      <div style="background:var(--cr2);border:1px solid var(--cr3);border-radius:10px;padding:14px 15px;font-size:12px;color:var(--br);line-height:1.9;white-space:pre-line;margin-bottom:14px" id="jdr-jd-text"></div>
+      <button id="jdr-select-btn" onclick="toggleRecruiterSelect()" style="width:100%;background:var(--pu);color:#fff;border:none;border-radius:10px;padding:12px;font-size:13px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">Select for outreach →</button>
+      <button onclick="closeJDReader()" style="width:100%;background:var(--cr2);color:var(--br);border:1px solid var(--cr3);border-radius:10px;padding:10px;font-size:12px;font-weight:600;font-family:'Figtree',sans-serif;cursor:pointer;margin-top:8px">← Back to recruiters</button>
+    </div>
+  </div>
+</div>
+
 <!-- OUTREACH DEMO MODAL -->
 <div class="modal-ov" id="outreachModal">
   <div class="modal-sh" style="max-height:88vh;overflow-y:auto;padding:0">
@@ -455,6 +498,34 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
           <div style="font-size:12px;color:var(--mu)">Average response time: 2–4 days</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px" id="or-sent-list"></div>
+
+        <!-- HOW IT WORKS -->
+        <div style="background:var(--cr2);border:1px solid var(--cr3);border-radius:12px;overflow:hidden;margin-bottom:14px">
+          <div style="padding:9px 13px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);border-bottom:1px solid var(--cr3)">How this works</div>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 13px;border-bottom:1px solid var(--cr3)">
+              <div style="width:28px;height:28px;border-radius:8px;background:var(--bll);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">💼</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px">Sent from your LinkedIn</div>
+                <div style="font-size:11px;color:var(--mu);line-height:1.5">Each message is sent via your connected LinkedIn account — so it comes from you, not from HireMatch. Recruiters see a real person reaching out.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 13px;border-bottom:1px solid var(--cr3)">
+              <div style="width:28px;height:28px;border-radius:8px;background:var(--sal);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">↩️</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px">Replies go to your LinkedIn inbox</div>
+                <div style="font-size:11px;color:var(--mu);line-height:1.5">When a recruiter responds, their reply lands directly in your LinkedIn messages — just like any normal conversation. Nothing goes through HireMatch.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 13px">
+              <div style="width:28px;height:28px;border-radius:8px;background:var(--pul);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">🔔</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px">HireMatch notifies you when they reply</div>
+                <div style="font-size:11px;color:var(--mu);line-height:1.5">We monitor for responses and push a notification to your HireMatch app — so you never miss a recruiter reply. Average response time is 2–4 days.</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div style="background:var(--pul);border:1px solid var(--pum);border-radius:10px;padding:10px 13px;font-size:11px;color:var(--br);line-height:1.6;margin-bottom:14px">
           <strong style="color:var(--pu)">What happens next:</strong> HireMatch monitors for replies. When a recruiter responds you get a notification with their message and a suggested reply. You're always in control — we never send anything without your approval.
         </div>
@@ -465,12 +536,58 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
   </div>
 </div>
 <div class="modal-ov" id="schedModal">
-  <div class="modal-sh">
-    <div class="modal-title">Schedule Interview</div>
-    <div class="modal-sub" id="schedName">Pick a time slot</div>
-    <div class="cal-grid" id="calSlots"></div>
-    <button class="btn bsa" onclick="confirmSched()">✓ Confirm Interview</button>
-    <button class="btn bgh" style="margin-top:6px" onclick="closeSchedBtn()">Cancel</button>
+  <div class="modal-sh" style="padding:0;overflow:hidden">
+    <!-- HEADER -->
+    <div style="background:var(--te);padding:16px 18px 14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <div style="font-size:13px;font-weight:700;color:#fff">📅 Schedule Interview</div>
+        <button onclick="closeSchedBtn()" style="background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif">✕</button>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.75)" id="schedName">Select a time slot</div>
+    </div>
+
+    <div style="padding:14px 16px">
+      <!-- INTERVIEW TYPE -->
+      <div style="margin-bottom:12px">
+        <span class="sl">Interview type</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+          <button onclick="selSchedType(this,'video')" class="sched-type on" style="background:var(--tel);border:1.5px solid var(--te);border-radius:8px;padding:8px 6px;font-size:10px;font-weight:700;color:var(--te);cursor:pointer;font-family:'Figtree',sans-serif;text-align:center">📹<br>Video</button>
+          <button onclick="selSchedType(this,'phone')" class="sched-type" style="background:var(--cr2);border:1.5px solid var(--cr3);border-radius:8px;padding:8px 6px;font-size:10px;font-weight:700;color:var(--br);cursor:pointer;font-family:'Figtree',sans-serif;text-align:center">📞<br>Phone</button>
+          <button onclick="selSchedType(this,'inperson')" class="sched-type" style="background:var(--cr2);border:1.5px solid var(--cr3);border-radius:8px;padding:8px 6px;font-size:10px;font-weight:700;color:var(--br);cursor:pointer;font-family:'Figtree',sans-serif;text-align:center">🏢<br>In-person</button>
+        </div>
+      </div>
+
+      <!-- INTERVIEWERS -->
+      <div style="margin-bottom:12px">
+        <span class="sl">Add interviewers</span>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;align-items:center;gap:8px;background:var(--tel);border:1px solid var(--tem);border-radius:8px;padding:8px 10px">
+            <div class="av at" style="width:28px;height:28px;font-size:10px">PR</div>
+            <div style="flex:1;font-size:12px;font-weight:600">Priya R. <span style="font-size:10px;font-weight:400;color:var(--mu)">— You (Recruiter)</span></div>
+            <div style="font-size:10px;color:var(--sa);font-weight:700">✓ Added</div>
+          </div>
+          <div id="hm-interviewer" style="display:flex;align-items:center;gap:8px;background:var(--cr2);border:1px solid var(--cr3);border-radius:8px;padding:8px 10px;cursor:pointer" onclick="addHMInterviewer()">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--cr3);display:flex;align-items:center;justify-content:center;font-size:14px">+</div>
+            <div style="flex:1;font-size:12px;color:var(--mu)">Add Hiring Manager</div>
+            <div style="font-size:10px;color:var(--te);font-weight:700" id="hm-add-label">Tap to add</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIME SLOTS -->
+      <div style="margin-bottom:14px">
+        <span class="sl">Available slots — next 3 days</span>
+        <div class="cal-grid" id="calSlots"></div>
+      </div>
+
+      <!-- INVITE NOTE -->
+      <div style="background:var(--pul);border:1px solid var(--pum);border-radius:9px;padding:9px 12px;font-size:11px;color:var(--br);line-height:1.6;margin-bottom:14px">
+        <strong style="color:var(--pu)">Calendar invite will include:</strong> Candidate profile link, match score, gap summary, 3 prepared questions and a HireMatch prep guide.
+      </div>
+
+      <button class="btn bsa" onclick="confirmSched()" id="sched-confirm-btn" style="opacity:.4;pointer-events:none">📅 Send Calendar Invite →</button>
+      <button class="btn bgh" style="margin-top:6px" onclick="closeSchedBtn()">Cancel</button>
+    </div>
   </div>
 </div>
 
@@ -522,7 +639,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
   <!-- TWO CTAs -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 14px;border-bottom:1px solid var(--cr3)">
-    <button onclick="role='rec';go('s1')" style="background:var(--te);color:#fff;border:none;border-radius:10px;padding:12px 10px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">👩‍💼 I'm a Recruiter →</button>
+    <button onclick="role='rec';go('sjd')" style="background:var(--te);color:#fff;border:none;border-radius:10px;padding:12px 10px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">👩‍💼 I'm a Recruiter →</button>
     <button onclick="role='can';go('c0')" style="background:var(--pu);color:#fff;border:none;border-radius:10px;padding:12px 10px;font-size:12px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">🎯 I'm a Candidate →</button>
   </div>
 
@@ -665,6 +782,43 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
     <div class="ctah" id="jdh">👆 Tap a JD to select it</div>
     <button class="btn bte" id="jdb" style="opacity:.4;pointer-events:none" onclick="go('ss')">Continue → Build Search String →</button>
     <button class="btn bgh" id="bkb" style="opacity:.4;pointer-events:none;margin-top:6px" onclick="initBK();go('bk')">📋 Screen bulk CVs for this role →</button>
+  </div>
+</div>
+
+<!-- SJD · JD CREATOR -->
+<div class="sc" id="sjd">
+  <div class="tb"><div class="tbl tbl-r">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">JD Creator</span><button class="back-btn" onclick="go('s0')">Home</button><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="pb"><div class="pf pf-r" style="width:8%"></div></div>
+  <div class="sb" style="padding:20px 16px 0">
+    <div class="eyebrow ey-r"><div class="eyd eyd-r"></div><span class="eyt eyt-r">JD Creator <span class="nb nb-r">New</span></span></div>
+    <h2 class="pt pt-r" style="margin-bottom:6px">Describe the role — <em>we'll write the JD</em></h2>
+    <p class="ps2" style="margin-bottom:14px">Tell HireMatch what you're looking for in plain English. We'll generate a complete, ATS-optimised job description in seconds.</p>
+    <div style="margin-bottom:12px">
+      <span class="sl">Describe the role in your own words</span>
+      <textarea id="jd-input" rows="4" placeholder="e.g. Looking for a Senior TA Manager with 6+ years experience for our Bangalore office. Should have worked in a tech startup, managed a team of at least 3 recruiters, strong data skills. We use Greenhouse. Hybrid role." style="width:100%;border:1.5px solid var(--cr3);border-radius:10px;padding:12px 14px;font-size:12px;font-family:'Figtree',sans-serif;color:var(--ink);background:var(--cr);outline:none;resize:none;line-height:1.7;transition:border .18s" onfocus="this.style.borderColor='var(--te)'" onblur="this.style.borderColor='var(--cr3)'" oninput="checkJDInput()"></textarea>
+    </div>
+    <div style="margin-bottom:12px">
+      <span class="sl">Or try a quick example</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <button onclick="fillJDExample('tech')" style="background:var(--cr2);border:1px solid var(--cr3);border-radius:8px;padding:8px 12px;font-size:11px;font-family:'Figtree',sans-serif;color:var(--br);cursor:pointer;text-align:left">💻 Senior Backend Engineer — Node.js, fintech, 5+ yrs, Bengaluru</button>
+        <button onclick="fillJDExample('hrta')" style="background:var(--cr2);border:1px solid var(--cr3);border-radius:8px;padding:8px 12px;font-size:11px;font-family:'Figtree',sans-serif;color:var(--br);cursor:pointer;text-align:left">🤝 Senior TA Manager — tech startup, team lead, ATS experience</button>
+        <button onclick="fillJDExample('mktg')" style="background:var(--cr2);border:1px solid var(--cr3);border-radius:8px;padding:8px 12px;font-size:11px;font-family:'Figtree',sans-serif;color:var(--br);cursor:pointer;text-align:left">📣 Senior Marketing Manager — D2C brand, performance + brand, Mumbai</button>
+      </div>
+    </div>
+    <div id="jd-output" style="display:none;margin-bottom:8px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <span class="sl" style="margin-bottom:0">✅ Generated JD</span>
+        <button onclick="copyJD()" style="background:var(--tel);border:1px solid var(--tem);border-radius:7px;padding:5px 10px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;color:var(--te);cursor:pointer" id="jd-copy-btn">📋 Copy JD</button>
+      </div>
+      <div style="background:var(--cr);border:1.5px solid var(--sa);border-radius:12px;padding:14px 16px;font-size:11px;color:var(--br);line-height:1.9;white-space:pre-line;max-height:240px;overflow-y:auto" id="jd-result"></div>
+      <div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:9px 12px;font-size:11px;color:var(--br);margin-top:8px;line-height:1.6"><strong style="color:var(--sa)">Included:</strong> Role summary · Responsibilities · Must-haves · Nice-to-haves · Perks · ATS keywords embedded</div>
+    </div>
+  </div>
+  <div class="cta">
+    <div class="ctah" id="jd-cta-label">Describe the role above to generate your JD</div>
+    <button class="btn bte" id="jd-gen-btn" onclick="generateJD()" style="opacity:.4;pointer-events:none;margin-bottom:6px">✨ Generate JD →</button>
+    <button class="btn bsa" id="jd-use-btn" onclick="go('s1')" style="display:none;margin-bottom:6px">✅ Use this JD — continue to screening →</button>
+    <button class="btn bgh" onclick="go('s1')">Skip — pick from existing JDs →</button>
   </div>
 </div>
 
@@ -1164,6 +1318,10 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
         <button class="bot-q" onclick="askBot(0)">📊 How many profiles did I send for Audit Manager this month?</button>
         <button class="bot-q" onclick="askBot(1)">⏰ Which role is taking the longest to fill?</button>
         <button class="bot-q" onclick="askBot(2)">❌ Why are my profiles getting rejected?</button>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--te);margin:10px 0 6px">✨ Answers — query past interviews</div>
+        <button class="bot-q" onclick="askBot(5)">🎙️ What did candidates say about salary expectations?</button>
+        <button class="bot-q" onclick="askBot(6)">📝 Which interview questions got the best answers?</button>
+        <button class="bot-q" onclick="askBot(7)">🔍 Compare what the top 3 finalists said about remote work</button>
         <button class="bot-q" onclick="askBot(3)">📣 What is my best performing source?</button>
         <button class="bot-q" onclick="askBot(4)">👥 Show me my team's performance this week</button>
       </div>
@@ -1285,6 +1443,99 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
   </div>
 </div>
 
+<!-- CR · RETURNING CANDIDATE -->
+<div class="sc" id="cr">
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Welcome back</span><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="sb" style="padding:20px 16px 0">
+
+    <!-- WELCOME BACK HEADER -->
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--pul);border:2px solid var(--pum);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--pu);margin:0 auto 10px" id="cr-avatar">AS</div>
+      <h2 class="pt pt-c" style="font-size:22px;margin-bottom:4px">Welcome back, <em id="cr-firstname">Anika</em> 👋</h2>
+      <p class="ps2" style="font-size:12px">HireMatch remembers your profile and your last session</p>
+    </div>
+
+    <!-- LAST SESSION CARD -->
+    <div style="background:var(--cr);border:1.5px solid var(--pum);border-radius:14px;padding:14px 15px;margin-bottom:12px">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:10px">Your last session</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:var(--ink)" id="cr-last-role">Senior TA Manager</div>
+          <div style="font-size:11px;color:var(--mu)" id="cr-last-co">HDFC Bank · 2 weeks ago</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--sa)" id="cr-last-score">86%</div>
+          <div style="font-size:9px;color:var(--mu)">match score</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <div style="background:var(--sal);border-radius:8px;padding:7px;text-align:center">
+          <div style="font-size:14px;font-weight:700;color:var(--sa)">✅</div>
+          <div style="font-size:9px;color:var(--mu);margin-top:2px">CV rewritten</div>
+        </div>
+        <div style="background:var(--sal);border-radius:8px;padding:7px;text-align:center">
+          <div style="font-size:14px;font-weight:700;color:var(--sa)">✅</div>
+          <div style="font-size:9px;color:var(--mu);margin-top:2px">8 Qs prepped</div>
+        </div>
+        <div style="background:var(--sal);border-radius:8px;padding:7px;text-align:center">
+          <div style="font-size:14px;font-weight:700;color:var(--sa)">✅</div>
+          <div style="font-size:9px;color:var(--mu);margin-top:2px">CV downloaded</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT DO YOU WANT TO DO -->
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:10px">What would you like to do today?</div>
+
+    <!-- OPTION 1 — NEW ROLE SAME CV -->
+    <div style="background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:13px 14px;margin-bottom:8px;cursor:pointer;transition:border-color .15s" onclick="go('c1')" onmouseover="this.style.borderColor='var(--pu)'" onmouseout="this.style.borderColor='var(--cr3)'">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:20px;flex-shrink:0">🎯</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px">Apply to a new role</div>
+          <div style="font-size:11px;color:var(--mu);line-height:1.5">Match your existing CV against a different JD — instant new score and prep</div>
+        </div>
+        <div style="font-size:16px;color:var(--mu)">›</div>
+      </div>
+    </div>
+
+    <!-- OPTION 2 — DIFFERENT TYPE OF ROLE -->
+    <div style="background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:13px 14px;margin-bottom:8px;cursor:pointer;transition:border-color .15s" onclick="showRolePivotTip()" onmouseover="this.style.borderColor='var(--pu)'" onmouseout="this.style.borderColor='var(--cr3)'">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:20px;flex-shrink:0">🔄</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px">Pivoting to a different type of role</div>
+          <div style="font-size:11px;color:var(--mu);line-height:1.5">Your CV may need significant restructuring — we'll run a fresh health check first</div>
+        </div>
+        <div style="font-size:16px;color:var(--mu)">›</div>
+      </div>
+    </div>
+
+    <!-- OPTION 3 — UPDATE CV -->
+    <div style="background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:13px 14px;margin-bottom:14px;cursor:pointer;transition:border-color .15s" onclick="go('c1')" onmouseover="this.style.borderColor='var(--pu)'" onmouseout="this.style.borderColor='var(--cr3)'">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:20px;flex-shrink:0">✏️</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px">My CV has changed — re-run the analysis</div>
+          <div style="font-size:11px;color:var(--mu);line-height:1.5">Got a promotion, new project or new skills? Upload your updated CV and we'll optimise it fresh</div>
+        </div>
+        <div style="font-size:16px;color:var(--mu)">›</div>
+      </div>
+    </div>
+
+    <!-- SCORE IMPROVEMENT STRIP -->
+    <div style="background:var(--sal);border:1px solid var(--sam);border-radius:10px;padding:10px 13px;display:flex;gap:10px;align-items:center">
+      <div style="font-size:16px;flex-shrink:0">📈</div>
+      <div style="font-size:11px;color:var(--br);line-height:1.5"><strong style="color:var(--sa)">Your ATS score improved 22 points</strong> since your first session — 64% → 86%. Keep going — every application teaches HireMatch more about your profile.</div>
+    </div>
+
+  </div>
+  <div class="cta">
+    <div class="ctah">Pick an option above to continue</div>
+    <button class="btn bgh" onclick="go('c0')">Start fresh instead →</button>
+  </div>
+</div>
+
 <!-- C0 · CANDIDATE WELCOME -->
 <div class="sc" id="c0"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
   <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Candidate</span><button class="back-btn" onclick="go('s0')">Home</button><div class="bc-trail" style="display:none" id="bc-s0"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Welcome</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
@@ -1358,6 +1609,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
   </div>
   <div class="cta" style="padding-top:10px">
     <div class="ctah">Pick a feature or go through the full flow</div>
+    <button class="btn bgh" onclick="go('cr')" style="margin-top:6px;font-size:11px">👋 Already used HireMatch? Sign in →</button>
   </div>
 </div>
 
@@ -1564,74 +1816,127 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C4 · CV REWRITE -->
 <div class="sc" id="c4"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 3/5</span><button class="back-btn" onclick="go('ch')">CV Health</button><div class="bc-trail" style="display:none" id="bc-ch"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>CV Health</span><span class="bc-sep">›</span><span>AI Rewrite</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 3/5</span><button class="back-btn" onclick="go('ch')">CV Health</button><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:55%"></div></div>
-  <div class="sb" style="padding:22px 20px 0">
-    <div class="eyebrow ey-c"><div class="eyd eyd-c"></div><span class="eyt eyt-c">AI CV Rewrite</span></div>
-    <h2 class="pt pt-c">Your CV, <em>fixed and optimised</em></h2>
-    <p class="ps2">AI fixed the critical issues from your health check and rewrote your experience bullets to be ATS-friendly and keyword-matched to this JD.</p>
+  <div class="sb" style="padding:0">
 
-    <!-- HEALTH CHECK FIXES BANNER — shown when arriving from health check -->
-    <div id="c4-healthfix" style="display:none;background:linear-gradient(135deg,var(--ro),#c04060);border-radius:14px;padding:16px;margin-bottom:16px">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.6);margin-bottom:6px">✨ AI Fixed These Critical Issues</div>
-      <div id="c4-fixlist" style="display:flex;flex-direction:column;gap:7px"></div>
-    </div>
-
-    <div style="background:var(--pul);border:1px solid var(--pum);border-radius:12px;padding:12px 14px;display:flex;gap:9px;margin-bottom:18px">
-      <div style="font-size:16px;flex-shrink:0">✨</div>
-      <div style="font-size:13px;color:var(--br);line-height:1.6">AI matched your experience to the JD&#8217;s keywords, added missing signals and restructured bullets to pass ATS filters and catch the recruiter&#8217;s eye.</div>
-    </div>
-    <div id="cvRewrites"></div>
-
-    <!-- AI TRANSPARENCY PANEL -->
-    <div style="background:var(--cr);border:1.5px solid var(--cr3);border-radius:14px;padding:16px;margin-top:16px;margin-bottom:8px" id="ai-transparency">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-        <div style="font-size:13px;font-weight:700;color:var(--ink)">✨ How was this rewrite built?</div>
-        <div style="font-size:11px;color:var(--mu)" id="ai-score-label"></div>
+    <!-- SCORE + TABS BAR -->
+    <div style="background:var(--cr2);border-bottom:1px solid var(--cr3);padding:10px 16px;display:flex;align-items:center;gap:10px">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);margin-bottom:2px">ATS Score</div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span id="c4-old-score" style="font-size:13px;font-weight:700;color:var(--ro)"></span>
+          <span style="font-size:12px;color:var(--mu)">→</span>
+          <span id="c4-new-score" style="font-size:16px;font-weight:700;color:var(--sa)"></span>
+          <span id="c4-score-delta" style="font-size:11px;font-weight:700;color:var(--sa);background:var(--sal);border-radius:6px;padding:2px 7px"></span>
+        </div>
       </div>
-      <!-- SCORE BAR -->
+      <div style="display:flex;gap:0;border:1.5px solid var(--pum);border-radius:8px;overflow:hidden;flex-shrink:0">
+        <button id="c4-tab-new" onclick="c4tab('new')" style="background:var(--pu);color:#fff;border:none;padding:7px 14px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">New CV</button>
+        <button id="c4-tab-diff" onclick="c4tab('diff')" style="background:#fff;color:var(--pu);border:none;border-left:1.5px solid var(--pum);padding:7px 14px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer">What Changed</button>
+      </div>
+    </div>
+
+    <!-- TAB: NEW CV -->
+    <div id="c4-panel-new" style="padding:16px 16px 0">
+
+      <!-- CV DOCUMENT -->
+      <div style="background:#fff;border:1px solid var(--cr3);border-radius:14px;padding:20px 18px;box-shadow:0 2px 12px rgba(30,26,22,.06);margin-bottom:14px">
+
+        <!-- CV HEADER -->
+        <div style="border-bottom:2px solid var(--pu);padding-bottom:12px;margin-bottom:14px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:2px" id="c4-cv-name"></div>
+          <div style="font-size:12px;color:var(--mu);margin-bottom:6px" id="c4-cv-role"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px" id="c4-cv-contact">
+            <span style="font-size:11px;color:var(--br)">📧 candidate@email.com</span>
+            <span style="font-size:11px;color:var(--br)">📱 +91 98xxx xxxxx</span>
+            <span style="font-size:11px;color:var(--br)">📍 Bengaluru</span>
+          </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div style="margin-bottom:14px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--pu);margin-bottom:6px">Professional Summary</div>
+          <div style="font-size:12px;color:var(--br);line-height:1.8" id="c4-cv-summary"></div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div style="margin-bottom:14px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--pu);margin-bottom:8px">Experience</div>
+          <div id="c4-cv-experience"></div>
+        </div>
+
+        <!-- SKILLS -->
+        <div style="margin-bottom:14px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--pu);margin-bottom-6px">Key Skills</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px" id="c4-cv-skills"></div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--pu);margin-bottom:6px">Education</div>
+          <div style="font-size:12px;color:var(--br);line-height:1.7" id="c4-cv-education"></div>
+        </div>
+
+      </div>
+
+      <!-- AI TRANSPARENCY TOGGLE -->
+      <button onclick="toggleC4Transparency()" style="width:100%;background:var(--cr2);border:1px solid var(--cr3);border-radius:9px;padding:9px 14px;font-size:11px;font-weight:600;font-family:'Figtree',sans-serif;color:var(--mu);cursor:pointer;text-align:left;display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <span style="flex:1" id="c4-trans-label">ℹ️ See how AI built this CV</span>
+        <span id="c4-trans-arrow">›</span>
+      </button>
+      <div id="c4-trans-panel" style="display:none;background:var(--cr2);border:1px solid var(--cr3);border-radius:10px;padding:12px 14px;margin-bottom:14px;margin-top:-10px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="flex:1">
+            <div style="height:8px;border-radius:4px;background:var(--pul);overflow:hidden">
+              <div id="c4-voice-bar" style="height:100%;background:var(--sa);border-radius:4px;transition:width .8s ease"></div>
+            </div>
+          </div>
+          <div style="font-size:11px;font-weight:700;white-space:nowrap" id="c4-voice-label"></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px">
+          <span style="font-size:10px;background:var(--sal);color:var(--sa);padding:2px 8px;border-radius:5px;font-weight:600">Original — unchanged</span>
+          <span style="font-size:10px;background:var(--bll);color:var(--bl);padding:2px 8px;border-radius:5px;font-weight:600">Enhanced — restructured</span>
+          <span style="font-size:10px;background:var(--aml);color:var(--am);padding:2px 8px;border-radius:5px;font-weight:600">Added — keyword</span>
+          <span style="font-size:10px;background:#fff0f0;color:var(--ro);padding:2px 8px;border-radius:5px;font-weight:600">Generated — AI wrote</span>
+        </div>
+        <div style="font-size:11px;color:var(--br);line-height:1.6" id="c4-trans-summary"></div>
+      </div>
+
+      <!-- DOWNLOAD BUTTON -->
       <div style="margin-bottom:14px">
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px">
-          <span style="font-size:11px;font-weight:700;color:var(--sa)">Your voice</span>
-          <span style="font-size:11px;font-weight:700;color:var(--pu)">AI enhanced</span>
-        </div>
-        <div style="height:10px;border-radius:5px;background:var(--pul);overflow:hidden;position:relative">
-          <div id="ai-voice-bar" style="height:100%;background:var(--sa);border-radius:5px;transition:width .8s ease"></div>
-        </div>
-        <div style="display:flex;justify-content:space-between;margin-top:4px">
-          <span style="font-size:12px;font-weight:700;color:var(--sa)" id="ai-voice-pct"></span>
-          <span style="font-size:12px;font-weight:700;color:var(--pu)" id="ai-ai-pct"></span>
-        </div>
+        <button class="btn bsa" onclick="initCD();go('cd')" style="width:100%;padding:11px;font-size:13px">📄 Download my rewritten CV →</button>
       </div>
-      <!-- LABEL LEGEND -->
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px" id="ai-legend">
-        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;background:var(--sa)"></div><span style="font-size:11px;color:var(--br)">Original — your words unchanged</span></div>
-        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;background:var(--bl)"></div><span style="font-size:11px;color:var(--br)">Enhanced — your content restructured</span></div>
-        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;background:var(--am)"></div><span style="font-size:11px;color:var(--br)">Added — JD keyword inserted</span></div>
-        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;background:var(--ro)"></div><span style="font-size:11px;color:var(--br)">Generated — AI wrote from scratch</span></div>
+
+      <!-- RECRUITER OUTREACH SECTION -->
+      <div style="margin-bottom:4px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+          <div style="font-size:13px;font-weight:700;color:var(--ink)">📨 Recruiters hiring for your role</div>
+          <div style="font-size:10px;color:var(--mu)" id="or-sel-count">0 selected</div>
+        </div>
+        <div style="font-size:11px;color:var(--mu);margin-bottom:10px">Read each JD, check your match score, choose who to reach out to</div>
+        <div id="c4-recruiter-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px"></div>
+        <button id="c4-send-btn" onclick="sendSelectedOutreach()" style="width:100%;background:var(--te);color:#fff;border:none;border-radius:10px;padding:12px;font-size:13px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;opacity:.4;pointer-events:none;transition:opacity .2s">📨 Send outreach to selected →</button>
       </div>
-      <!-- PER-BULLET BREAKDOWN -->
-      <div id="ai-breakdown"></div>
-      <!-- SUMMARY LINE -->
-      <div style="background:var(--sal);border:1px solid var(--sam);border-radius:10px;padding:10px 13px;font-size:12px;color:var(--br);line-height:1.7;margin-top:10px" id="ai-summary"></div>
     </div>
 
-    <div style="display:flex;gap:8px;margin-top:6px">
-      <button class="cpb" id="cvCpyBtn" onclick="cpyCv()">📋 Copy Rewritten CV</button>
+    <!-- TAB: WHAT CHANGED -->
+    <div id="c4-panel-diff" style="display:none;padding:14px 16px 0">
+
+      <!-- SUMMARY STRIP -->
+      <div style="background:var(--pul);border:1.5px solid var(--pum);border-radius:10px;padding:10px 14px;display:flex;gap:10px;align-items:center;margin-bottom:14px">
+        <div style="font-size:20px;flex-shrink:0">✨</div>
+        <div style="font-size:12px;color:var(--br);line-height:1.6" id="c4-diff-summary"></div>
+      </div>
+
+      <!-- BEFORE/AFTER PAIRS -->
+      <div id="c4-diff-list" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px"></div>
+
     </div>
+
   </div>
   <div class="cta">
-    <div class="ctah">Your rewritten CV is ready</div>
-    <!-- OUTREACH NUDGE -->
-    <div style="background:var(--ink);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer" onclick="showOutreachDemo()">
-      <div style="font-size:18px;flex-shrink:0">📨</div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:1px">Send this CV to recruiters who are hiring now</div>
-        <div style="font-size:10px;color:rgba(255,255,255,.6)">HireMatch finds them and reaches out on your behalf</div>
-      </div>
-      <div style="font-size:11px;font-weight:700;color:var(--te);flex-shrink:0">Try →</div>
-    </div>
-    <button class="btn bsa" onclick="initCD();go('cd')" style="margin-bottom:6px">📄 Download my rewritten CV →</button>
+    <div class="ctah">Scroll up to download · or continue to interview prep</div>
     <button class="btn bpu" onclick="go('c5')">🎯 Continue to Interview Prep →</button>
     <button class="btn bgh" onclick="go('c3')" style="margin-top:6px">📊 Also see Gap Report</button>
   </div>
@@ -1914,49 +2219,51 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
 
 <!-- C6 · PREP SUMMARY + RAG TEASER -->
 <div class="sc" id="c6"><button class="cbot-btn" onclick="openCBot()" title="Ask your career assistant anything">🤖<span class="cbot-pulse"></span></button>
-  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 5/5</span><button class="back-btn" onclick="go('c5')">Interview Prep</button><div class="bc-trail" style="display:none" id="bc-c5"><span>Home</span><span class="bc-sep">›</span><span>Candidate</span><span class="bc-sep">›</span><span>Interview Prep</span><span class="bc-sep">›</span><span>Summary</span></div><button class="tbr" onclick="go('s0')">↺</button></div></div>
+  <div class="tb"><div class="tbl tbl-c">Hire<em>Match</em></div><div style="display:flex;gap:8px;align-items:center"><span class="tbs">Step 5/5</span><button class="back-btn" onclick="go('c5')">Interview Prep</button><button class="tbr" onclick="go('s0')">↺</button></div></div>
   <div class="pb"><div class="pf pf-c" style="width:100%"></div></div>
-  <div class="sb" style="padding:24px 20px 0">
-    <div style="text-align:center;margin-bottom:22px">
-      <div style="font-size:52px;margin-bottom:10px">🎯</div>
-      <h2 class="pt pt-c" style="text-align:center;font-size:28px">You're <em>interview ready</em></h2>
-      <p class="ps2" style="text-align:center">Here's everything you walked through. Walk in confident.</p>
+  <div class="sb" style="padding:0">
+
+    <!-- VIEW CV STRIP AT TOP -->
+    <div style="background:var(--pul);border-bottom:1.5px solid var(--pum);padding:10px 16px;display:flex;align-items:center;gap:10px">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:11px;font-weight:700;color:var(--pu);margin-bottom:1px">Your rewritten CV is saved</div>
+        <div style="font-size:10px;color:var(--mu)" id="c6-cv-label">ATS Score improved · ready to download</div>
+      </div>
+      <button onclick="go('c4')" style="background:var(--pu);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">👁 View CV →</button>
+      <button onclick="initCD();go('cd')" style="background:var(--cr2);color:var(--pu);border:1px solid var(--pum);border-radius:8px;padding:7px 12px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;cursor:pointer;flex-shrink:0">📄 Download</button>
     </div>
-    <div class="card" style="background:var(--pul);border-color:var(--pum)">
-      <div style="font-size:11px;font-weight:700;color:var(--pu);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Your prep checklist</div>
-      <div id="prepChecklist"></div>
-    </div>
-    <!-- RAG TEASER -->
-    <div class="rag-box">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.4);margin-bottom:8px">Coming Soon</div>
-      <div class="rag-title">Company-Specific Prep</div>
-      <div class="rag-sub">HireMatch is building a database of real interview transcripts — so your prep is based on actual questions asked at these companies, not guesswork.</div>
-      <div class="rag-item"><div class="rag-dot rag-dot-on"></div><div class="rag-text rag-text-on">Generic gap-based prep — <strong>available now</strong></div></div>
-      <div class="rag-item"><div class="rag-dot rag-dot-soon"></div><div class="rag-text rag-text-soon">Razorpay · McKinsey · Deloitte · HDFC — transcript-trained prep</div></div>
-      <div class="rag-item"><div class="rag-dot rag-dot-soon"></div><div class="rag-text rag-text-soon">Company-specific pass/fail signals — what got people hired and rejected</div></div>
-      <div class="rag-item"><div class="rag-dot rag-dot-soon"></div><div class="rag-text rag-text-soon">Live interview transcript coaching — real-time during your call</div></div>
-      <div class="rag-badge"><div style="width:6px;height:6px;border-radius:50%;background:var(--te);animation:br 2s infinite"></div><span class="rag-badge-text">Powered by RAG — gets smarter with every interview</span></div>
-    </div>
-    <div class="card">
-      <div style="font-size:13px;font-weight:700;margin-bottom:8px">🏢 Company intelligence</div>
-      <div style="font-size:13px;color:var(--br);line-height:1.8" id="companyIntel"></div>
+
+    <div style="padding:20px 16px 0">
+      <div style="text-align:center;margin-bottom:18px">
+        <div style="font-size:44px;margin-bottom:8px">🎯</div>
+        <h2 class="pt pt-c" style="text-align:center;font-size:24px">You're <em>interview ready</em></h2>
+        <p class="ps2" style="text-align:center;font-size:12px">Here's everything you walked through. Walk in confident.</p>
+      </div>
+      <div class="card" style="background:var(--pul);border-color:var(--pum)">
+        <div style="font-size:11px;font-weight:700;color:var(--pu);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Your prep checklist</div>
+        <div id="prepChecklist"></div>
+      </div>
+      <!-- RAG TEASER -->
+      <div class="rag-box">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.4);margin-bottom:8px">Coming Soon</div>
+        <div class="rag-title">Company-Specific Prep</div>
+        <div class="rag-sub">HireMatch is building a database of real interview transcripts — so your prep is based on actual questions asked at these companies, not guesswork.</div>
+        <div class="rag-item"><div class="rag-dot rag-dot-on"></div><div class="rag-text rag-text-on">Generic gap-based prep — <strong>available now</strong></div></div>
+        <div class="rag-item"><div class="rag-dot rag-dot-soon"></div><div class="rag-text rag-text-soon">Razorpay · McKinsey · Deloitte · HDFC — transcript-trained prep</div></div>
+        <div class="rag-item"><div class="rag-dot rag-dot-soon"></div><div class="rag-text rag-text-soon">Company-specific pass/fail signals — what got people hired and rejected</div></div>
+        <div class="rag-badge"><div style="width:6px;height:6px;border-radius:50%;background:var(--te);animation:br 2s infinite"></div><span class="rag-badge-text">Powered by RAG — gets smarter with every interview</span></div>
+      </div>
+      <div class="card">
+        <div style="font-size:13px;font-weight:700;margin-bottom:8px">🏢 Company intelligence</div>
+        <div style="font-size:13px;color:var(--br);line-height:1.8" id="companyIntel"></div>
+      </div>
     </div>
   </div>
   <div class="cta">
-    <div class="ctah">🎉 You're fully prepped — now get in front of recruiters</div>
-    <!-- OUTREACH NUDGE -->
-    <div style="background:var(--ink);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer" onclick="showOutreachDemo()">
-      <div style="font-size:18px;flex-shrink:0">📨</div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:1px">Send your CV to recruiters hiring right now</div>
-        <div style="font-size:10px;color:rgba(255,255,255,.6)">HireMatch finds them and reaches out on your behalf</div>
-      </div>
-      <div style="font-size:11px;font-weight:700;color:var(--te);flex-shrink:0">Try →</div>
-    </div>
+    <div class="ctah">🎉 You're fully prepped — you've got this</div>
     <button class="btn bsa" onclick="go('cc')" style="margin-bottom:6px">📊 Open your Command Centre →</button>
-    <button class="btn bpu" onclick="initCD();go('cd')" style="margin-bottom:6px">📄 Download my CV →</button>
-    <button class="btn bpu" onclick="go('c1')">← Try Another Role</button>
-    <button class="btn bgh" onclick="go('s0')">Back to Start</button>
+    <button class="btn bpu" onclick="go('c1')">← Apply to another role</button>
+    <button class="btn bgh" onclick="go('s0')" style="margin-top:6px">Back to Start</button>
   </div>
 </div>
 
@@ -1991,6 +2298,25 @@ var botAnswers=[
    actions:['dash'],
    dashTitle:"Team Performance — This Week",dashSub:"Recruiter productivity and shortlist rates",
    dashHTML:function(){return '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:18px"><div class="dash-stat"><div class="dash-stat-num" style="color:var(--te)">27</div><div class="dash-stat-label">Total Screened</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--sa)">32%</div><div class="dash-stat-label">Team Shortlist Rate</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--am)">1</div><div class="dash-stat-label">Needs Review</div></div></div><span class="sl">Recruiter breakdown</span><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px"><div class="card" style="margin-bottom:0;padding:12px 14px"><div style="display:flex;align-items:center;gap:10px"><div class="av at" style="width:36px;height:36px;font-size:12px">PR</div><div style="flex:1"><div style="font-size:14px;font-weight:600">Priya R.</div><div style="font-size:11px;color:var(--mu)">12 screened · 5 shortlisted</div><div class="dash-bar-row" style="margin-top:6px;margin-bottom:0"><div class="dash-bar-track"><div class="dash-bar-fill bfs" style="width:0" data-w="42%"></div></div><span class="dash-bar-val" style="color:var(--sa)">42%</span></div></div><div style="background:var(--sal);border:1px solid var(--sam);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--sa);white-space:nowrap">🏆 Top</div></div></div><div class="card" style="margin-bottom:0;padding:12px 14px"><div style="display:flex;align-items:center;gap:10px"><div class="av as" style="width:36px;height:36px;font-size:12px">AK</div><div style="flex:1"><div style="font-size:14px;font-weight:600">Amit K.</div><div style="font-size:11px;color:var(--mu)">9 screened · 3 shortlisted</div><div class="dash-bar-row" style="margin-top:6px;margin-bottom:0"><div class="dash-bar-track"><div class="dash-bar-fill bft" style="width:0" data-w="33%"></div></div><span class="dash-bar-val">33%</span></div></div><div style="background:var(--cr2);border:1px solid var(--cr3);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;color:var(--mu);white-space:nowrap">On track</div></div></div><div class="card" style="margin-bottom:0;padding:12px 14px;background:var(--aml);border-color:var(--amm)"><div style="display:flex;align-items:center;gap:10px"><div class="av ab" style="width:36px;height:36px;font-size:12px">SR</div><div style="flex:1"><div style="font-size:14px;font-weight:600">Sneha R.</div><div style="font-size:11px;color:var(--mu)">6 screened · 1 shortlisted</div><div class="dash-bar-row" style="margin-top:6px;margin-bottom:0"><div class="dash-bar-track"><div class="dash-bar-fill" style="width:0;background:var(--am)" data-w="17%"></div></div><span class="dash-bar-val" style="color:var(--am)">17%</span></div></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--am);white-space:nowrap">⚠️ Review</div></div></div></div><div class="sig sag2"><div class="si2">💡</div><div><div class="sigt">Sneha\'s shortlist rate dropped 14% this week</div><div class="sigd">Over-indexing on years of experience vs skill depth. Quick coaching conversation recommended before next batch of profiles.</div></div></div>';}
+  },
+  // ── ANSWERS BOT — query past interviews ──
+  {q:"What did candidates say about salary expectations?",
+   a:"Across your <strong>18 screened candidates</strong> this month:\n\n💰 <strong>Senior TA Manager role</strong>\n• Anika Sharma — ₹22–26L ✅ within budget\n• Priyanka Roy — ₹18–22L ✅ within budget\n• Rahul Mehta — ₹28–32L ⚠️ above range\n\n📊 <strong>Average: ₹23.4L</strong> | Band: ₹20–28L\n<strong>14 of 18 candidates</strong> are within range.\n\nThe 4 above range all have 8+ years experience. Worth revisiting the band with your HM for senior hires.",
+   actions:['dash'],
+   dashTitle:"Salary Expectations — Interview Data",dashSub:"Extracted from 18 interview transcripts",
+   dashHTML:function(){return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px"><div class="dash-stat"><div class="dash-stat-num" style="color:var(--te)">₹23.4L</div><div class="dash-stat-label">Avg Expectation</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--sa)">14/18</div><div class="dash-stat-label">Within Band</div></div></div><span class="sl">Candidate salary expectations</span><div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px"><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:9px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600">Anika Sharma</span><span style="font-size:12px;font-weight:700;color:var(--sa)">₹22–26L ✓</span></div><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:9px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600">Priyanka Roy</span><span style="font-size:12px;font-weight:700;color:var(--sa)">₹18–22L ✓</span></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:9px;padding:9px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600">Rahul Mehta</span><span style="font-size:12px;font-weight:700;color:var(--am)">₹28–32L ↑</span></div></div><div class="sig sgg"><div class="si2">💡</div><div><div class="sigt">14 of 18 candidates within your approved band</div><div class="sigd">4 above band — all have 8+ yrs experience. Consider revisiting the band with your HM for senior hires.</div></div></div>';}
+  },
+  {q:"Which interview questions got the best answers?",
+   a:"Analysed <strong>47 interview transcripts</strong> across your last 3 roles:\n\n🏆 <strong>Best quality answers:</strong>\n1. \"Walk me through a hiring process you rebuilt\" — 82% gave structured answers\n2. \"Tell me about a hire you regret\" — 71% showed real self-awareness\n3. \"How do you handle a HM who keeps rejecting profiles?\" — only 34% answered well — strong signal question\n\n⚠️ <strong>Remove this question:</strong>\n\"Where do you see yourself in 5 years?\" — 89% gave generic answers. No signal.",
+   actions:['dash'],
+   dashTitle:"Interview Question Quality Analysis",dashSub:"Based on 47 transcripts across 3 roles",
+   dashHTML:function(){return '<span class="sl">Best performing questions</span><div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px"><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:10px 12px"><div style="font-size:10px;font-weight:700;color:var(--sa);margin-bottom:3px">🏆 82% quality response rate</div><div style="font-size:12px;color:var(--ink)">"Walk me through a hiring process you rebuilt from scratch"</div></div><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:10px 12px"><div style="font-size:10px;font-weight:700;color:var(--sa);margin-bottom:3px">✅ 71% quality response rate</div><div style="font-size:12px;color:var(--ink)">"Tell me about a hire you regret"</div></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:9px;padding:10px 12px"><div style="font-size:10px;font-weight:700;color:var(--am);margin-bottom:3px">⚠️ 34% — strong signal only</div><div style="font-size:12px;color:var(--ink)">"How do you handle a HM who keeps rejecting profiles?"</div></div></div><span class="sl">Question to remove</span><div class="sig sag2"><div class="si2">🗑️</div><div><div class="sigt">"Where do you see yourself in 5 years?" — 89% generic answers</div><div class="sigd">Not producing signal. Replace with "What does a great TA leader look like to you in 3 years?"</div></div></div>';}
+  },
+  {q:"Compare what the top 3 finalists said about remote work",
+   a:"Here's what your <strong>3 Senior TA Manager finalists</strong> said about remote work:\n\n👤 <strong>Anika Sharma</strong> — \"I prefer 3 days in office. In-person is essential for stakeholder relationships.\"\n\n👤 <strong>Priyanka Roy</strong> — \"Fully flexible. I've managed distributed teams across 3 time zones.\"\n\n👤 <strong>Rahul Mehta</strong> — \"Remote-first preferred. Will come in for key moments — quarterly reviews, onboarding.\"\n\nYour role is <strong>hybrid — 3 days/week in Bangalore</strong>.\n✅ Anika aligns best. ⚠️ Rahul is a risk.",
+   actions:['dash'],
+   dashTitle:"Finalist Comparison — Remote Work",dashSub:"Extracted from interview transcripts",
+   dashHTML:function(){return '<span class="sl">Finalist comparison — remote work preference</span><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px"><div style="background:var(--sal);border:1.5px solid var(--sa);border-radius:10px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><div class="av at" style="width:28px;height:28px;font-size:10px">AS</div><div style="font-size:12px;font-weight:700;flex:1">Anika Sharma</div><div style="background:var(--sa);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px">Best fit</div></div><div style="font-size:11px;color:var(--br);line-height:1.6;font-style:italic">"Prefer 3 days in office. In-person collaboration essential."</div></div><div style="background:var(--cr);border:1px solid var(--cr3);border-radius:10px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><div class="av as" style="width:28px;height:28px;font-size:10px">PR</div><div style="font-size:12px;font-weight:700;flex:1">Priyanka Roy</div><div style="background:var(--bll);color:var(--bl);font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;border:1px solid var(--blm)">Flexible</div></div><div style="font-size:11px;color:var(--br);line-height:1.6;font-style:italic">"Fully flexible. Managed distributed teams across 3 time zones."</div></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:10px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><div class="av ab" style="width:28px;height:28px;font-size:10px">RM</div><div style="font-size:12px;font-weight:700;flex:1">Rahul Mehta</div><div style="background:var(--aml);color:var(--am);font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;border:1px solid var(--amm)">Risk</div></div><div style="font-size:11px;color:var(--br);line-height:1.6;font-style:italic">"Remote-first preferred. Will come in for key moments only."</div></div></div><div class="sig sgg"><div class="si2">💡</div><div><div class="sigt">Role requires hybrid — 3 days in Bangalore</div><div class="sigd">Anika aligns perfectly. Rahul carries meaningful risk — clarify expectations before offer stage.</div></div></div>';}
   }
 ];
 
@@ -2129,7 +2455,7 @@ companyIntel:"SaaS enterprise sales interviews test deal depth, methodology know
 
 var role=null,sel=null,d=null,csel=null,cd=null,selSlot=null,doneCount=0;
 
-function go(id){document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on')});document.getElementById(id).classList.add('on');window.scrollTo(0,0);if(id==='s3')runAn();if(id==='c2')runCan();if(id==='mi')initMI();if(id==='cd')initCD();if(id==='cc')initCC();}
+function go(id){document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on')});document.getElementById(id).classList.add('on');window.scrollTo(0,0);if(id==='s3')runAn();if(id==='c2')runCan();if(id==='mi')initMI();if(id==='cd')initCD();if(id==='cc')initCC();if(id==='c4')setTimeout(initC4,400);if(id==='cr')setTimeout(initReturningScreen,100);if(id==='c6')setTimeout(updateC6ScoreLabel,100);}
 function setRole(r){role=r;go(r==='rec'?'s1':'c0');}
 
 // ── SMART SEARCH BUILDER ──
@@ -2445,6 +2771,461 @@ function onJDPaste(el){
     if(!csel){b.style.opacity='.4';b.style.pointerEvents='none';}
   }
 }
+// ── C4 TAB SWITCHING ──
+function c4tab(which){
+  var isNew=which==='new';
+  document.getElementById('c4-panel-new').style.display=isNew?'block':'none';
+  document.getElementById('c4-panel-diff').style.display=isNew?'none':'block';
+  document.getElementById('c4-tab-new').style.background=isNew?'var(--pu)':'#fff';
+  document.getElementById('c4-tab-new').style.color=isNew?'#fff':'var(--pu)';
+  document.getElementById('c4-tab-diff').style.background=isNew?'#fff':'var(--pu)';
+  document.getElementById('c4-tab-diff').style.color=isNew?'var(--pu)':'#fff';
+}
+
+var c4TransOpen=false;
+function toggleC4Transparency(){
+  c4TransOpen=!c4TransOpen;
+  document.getElementById('c4-trans-panel').style.display=c4TransOpen?'block':'none';
+  document.getElementById('c4-trans-label').textContent=c4TransOpen?'ℹ️ Hide AI details':'ℹ️ See how AI built this CV';
+  document.getElementById('c4-trans-arrow').textContent=c4TransOpen?'˅':'›';
+}
+
+// ── FULL CV DATA FOR DOCUMENT VIEW ──
+var CV_DATA={
+  tech:{
+    name:'Rahul Sharma',role:'Senior Backend Engineer',
+    summary:'Backend engineer with 4+ years of experience building high-throughput fintech systems at Razorpay and Freshworks. Proven track record delivering Node.js microservices at production scale, with deep expertise in PostgreSQL, AWS and distributed systems architecture.',
+    experience:[
+      {title:'SDE-2',co:'Razorpay · Fintech',period:'2022 – Present',bullets:[
+        'Led end-to-end design and delivery of Razorpay\'s payment processing microservice — handling 2M+ daily transactions using Node.js, PostgreSQL and Redis, reducing latency by 34%',
+        'Deployed and maintained production workloads on AWS EC2 and S3, managing infrastructure for 3 services with 99.9% uptime SLA',
+        'Conducted technical design reviews and mentored 2 junior engineers on system design and code quality standards'
+      ]},
+      {title:'Software Engineer',co:'Freshworks · SaaS',period:'2020 – 2022',bullets:[
+        'Built REST APIs in Node.js serving 500K+ daily active users — owning performance tuning, load testing and incident response',
+        'Migrated legacy monolith modules to microservices architecture, reducing deployment cycles from 2 weeks to 2 days'
+      ]}
+    ],
+    skills:['Node.js','TypeScript','PostgreSQL','Docker','Redis','AWS EC2/S3','REST APIs','System Design','Git','Agile'],
+    education:'B.Tech Computer Science · NIT Trichy · 2020',
+    oldScore:61,newScore:84,
+    changed:6,added:3,kept:2,
+    diffSummary:'6 bullets improved with JD-specific metrics · 3 keywords added (Kubernetes context, system design, infra ownership) · 2 bullets kept exactly as written — already strong'
+  },
+  mktg:{
+    name:'Priya Kapoor',role:'Senior Marketing Manager',
+    summary:'Performance marketing specialist with 5+ years driving D2C growth at Nykaa and Mamaearth. Proven expertise managing ₹1Cr+ monthly ad budgets across Meta and Google, with strong brand strategy, influencer and SEO experience.',
+    experience:[
+      {title:'Marketing Manager',co:'Nykaa · D2C Beauty',period:'2022 – Present',bullets:[
+        'Drove 3.2x ROAS across Meta and Google for Nykaa\'s skincare vertical — managing ₹1.2Cr monthly ad budget and reducing CAC by 28% YoY through audience segmentation and creative testing',
+        'Built and managed an 85-creator influencer network across Instagram and YouTube, generating 40M+ organic impressions for new product launches with 4.1% average engagement rate',
+        'Led brand campaign strategy for 3 seasonal launches — contributing to 22% YoY revenue growth for the skincare category'
+      ]},
+      {title:'Senior Executive',co:'Mamaearth · D2C',period:'2021 – 2022',bullets:[
+        'Owned Google Ads and Meta performance campaigns for a ₹40L monthly budget — achieving 2.8x ROAS with consistent MoM improvement',
+        'Launched email automation sequences that improved repeat purchase rate by 18%'
+      ]}
+    ],
+    skills:['Performance Marketing','Meta Ads','Google Ads','Influencer Marketing','Email Campaigns','Brand Strategy','SEO basics','Excel Analytics','Audience Segmentation'],
+    education:'MBA Marketing · MICA Ahmedabad · 2021',
+    oldScore:58,newScore:78,
+    changed:5,added:2,kept:3,
+    diffSummary:'5 bullets improved with campaign metrics and impact numbers · 2 keywords added (marketing automation context, P&L framing) · 3 bullets kept as written — strong specificity already'
+  },
+  hrta:{
+    name:'Anika Sharma',role:'Senior Talent Acquisition Manager',
+    summary:'Senior TA professional with 6+ years leading full-cycle recruitment at Infosys and TCS. Proven track record managing high-volume hiring across tech and non-tech functions, with deep expertise in ATS management, employer branding and data-driven talent strategy.',
+    experience:[
+      {title:'TA Manager',co:'Infosys · Technology',period:'2021 – Present',bullets:[
+        'Led full-cycle TA for 300+ technology hires annually at Infosys — managing a team of 5 recruiters across campus and lateral tracks, achieving 28-day average time-to-fill and 88% offer acceptance rate',
+        'Designed and executed Infosys\' campus employer branding strategy across 12 Tier-1 engineering colleges — increasing applications by 45% and improving campus offer-to-join ratio from 62% to 79%',
+        'Partnered with 15 senior hiring managers on JD creation, interview design and candidate calibration — reducing feedback turnaround from 5 days to 1.5 days'
+      ]},
+      {title:'Senior Recruiter',co:'TCS · IT Services',period:'2019 – 2021',bullets:[
+        'Managed lateral hiring for 80+ tech roles annually across Java, .NET and infrastructure stacks — maintaining 92% SLA adherence',
+        'Administered Workday ATS for a team of 8 recruiters — built pipeline dashboards that reduced manual reporting by 4 hours/week'
+      ]}
+    ],
+    skills:['Full-cycle Recruiting','ATS — Workday','Employer Branding','Campus Hiring','HR Analytics','Stakeholder Management','DEI Hiring','Boolean Search','LinkedIn Recruiter'],
+    education:'MBA HR · XLRI Jamshedpur · 2019',
+    oldScore:64,newScore:86,
+    changed:6,added:2,kept:2,
+    diffSummary:'6 bullets improved with hiring metrics and impact numbers · 2 keywords added (DEI framing, executive search context) · 2 bullets kept as written — already strong and specific'
+  },
+  bank:{
+    name:'Vikram Nair',role:'VP — Corporate Banking',
+    summary:'Senior corporate banking professional with 9+ years managing large corporate portfolios at HDFC Bank. Proven expertise in credit appraisal, relationship management and structured finance across working capital, trade finance and treasury products.',
+    experience:[
+      {title:'AVP — Corporate Banking',co:'HDFC Bank · Private Sector',period:'2020 – Present',bullets:[
+        'Managed a ₹1,800Cr corporate banking portfolio at HDFC Bank as AVP — growing wallet share 31% through structured working capital, trade finance and cross-sell of forex and treasury products across 12 mid-corporate clients',
+        'Independently appraised and recommended credit facilities of ₹25Cr–₹150Cr for MSME and mid-corporate clients — maintaining zero NPA portfolio across 3 years with 100% regulatory compliance',
+        'Led KYC/AML remediation for 28 legacy corporate accounts — resolving regulatory observations within 60-day SLA'
+      ]},
+      {title:'Senior Relationship Manager',co:'Axis Bank · Corporate',period:'2017 – 2020',bullets:[
+        'Built and managed relationships with 8 large corporate clients with combined annual revenue of ₹5,000Cr',
+        'Structured and processed 40+ credit proposals annually across term loans, working capital and LC facilities'
+      ]}
+    ],
+    skills:['Credit Analysis','Relationship Management','Trade Finance','Working Capital','Forex & Treasury','KYC/AML','Financial Modelling','MSME Lending'],
+    education:'MBA Finance · IIM Lucknow · 2015',
+    oldScore:62,newScore:81,
+    changed:5,added:2,kept:3,
+    diffSummary:'5 bullets improved with portfolio figures and impact · 2 keywords added (regulatory compliance framing, structured finance depth) · 3 bullets kept as written — specific and strong'
+  },
+  cons:{
+    name:'Rohan Gupta',role:'Senior Consultant — Strategy',
+    summary:'Strategy consultant with 5 years at McKinsey delivering growth and transformation engagements for Fortune 500 clients. Deep expertise in financial modelling, C-suite communication and cross-sector problem solving across consumer, financial services and telecom.',
+    experience:[
+      {title:'Engagement Manager',co:'McKinsey & Company · MBB',period:'2022 – Present',bullets:[
+        'Led end-to-end strategy engagements for 3 Fortune 500 clients at McKinsey — delivering ₹180Cr+ in identified revenue opportunities across consumer, financial services and telecom sectors',
+        'Built integrated 5-year financial models and board-level strategy decks for C-suite stakeholders — translating complex analysis into decisions that drove ₹50Cr+ capex allocation',
+        'Managed cross-functional teams of 4–6 across 3 simultaneous engagements — maintaining 100% on-time delivery'
+      ]},
+      {title:'Senior Analyst',co:'McKinsey & Company',period:'2020 – 2022',bullets:[
+        'Developed market sizing models and competitive landscape analyses for 6 client engagements in FMCG and FSI',
+        'Presented findings to VP and C-suite stakeholders across 8 client workshops'
+      ]}
+    ],
+    skills:['Strategy','Financial Modelling','Problem Structuring','Client Management','Data Analysis','Deck Building','Market Sizing','Operations Consulting'],
+    education:'MBA · IIM Ahmedabad · 2020 · Gold Medallist',
+    oldScore:71,newScore:89,
+    changed:4,added:1,kept:4,
+    diffSummary:'4 bullets sharpened with quantified impact · 1 keyword added (operations consulting framing) · 4 bullets kept as written — IIM + McKinsey background already very strong'
+  },
+  acct:{
+    name:'Kavya Iyer',role:'Audit Manager',
+    summary:'Chartered Accountant with 7 years at Deloitte leading statutory audits for listed companies across manufacturing and BFSI. Deep expertise in Ind AS, IFRS, risk-based frameworks and Big 4 quality standards.',
+    experience:[
+      {title:'Senior Audit Manager',co:'Deloitte · Big 4',period:'2021 – Present',bullets:[
+        'Managed end-to-end statutory audits for 4 listed clients with combined revenue of ₹8,000Cr at Deloitte — leading a team of 6 auditors across Ind AS and IFRS reporting, with zero material misstatements reported',
+        'Designed risk-based audit frameworks for manufacturing and BFSI clients — reducing audit cycle time by 22% while maintaining full compliance with SA 315 and SA 330 standards',
+        'Led Ind AS transition for 2 clients, coordinating with finance teams, auditors and regulators to meet statutory timelines'
+      ]},
+      {title:'Audit Supervisor',co:'Deloitte · Big 4',period:'2019 – 2021',bullets:[
+        'Supervised statutory audits for 6 mid-cap clients — managing a team of 3 across quarterly and annual cycles',
+        'Prepared and reviewed financial statements under Ind AS for manufacturing and trading clients'
+      ]}
+    ],
+    skills:['Statutory Audit','Ind AS','IFRS','Risk Assessment','SA 315 / SA 330','Financial Reporting','Team Management','Client Management'],
+    education:'CA · ICAI · 2019 · All India Rank 28',
+    oldScore:68,newScore:85,
+    changed:5,added:2,kept:2,
+    diffSummary:'5 bullets improved with client scale and audit outcomes · 2 keywords added (risk-based framework language, regulatory compliance framing) · 2 bullets kept — specific and accurate already'
+  },
+  sales:{
+    name:'Arjun Mehta',role:'B2B Account Executive — SaaS',
+    summary:'Enterprise SaaS sales professional with 4+ years at Zoho and Freshworks. Proven track record closing ₹3Cr+ in new ARR annually, with expertise in full-cycle enterprise deal management, MEDDIC qualification and pipeline discipline.',
+    experience:[
+      {title:'Senior Account Executive',co:'Zoho · SaaS',period:'2022 – Present',bullets:[
+        'Closed ₹3.2Cr in new ARR across 12 enterprise accounts at Zoho — running full-cycle deals from cold outreach to contract signature, averaging 68-day sales cycles and 78% win rate on qualified opportunities',
+        'Delivered 200+ tailored enterprise demos annually at Zoho — achieving 62% demo-to-proposal conversion rate by mapping Zoho\'s product capabilities directly to each prospect\'s identified pain points',
+        'Managed a pipeline of 40+ active opportunities in Salesforce — maintaining 95% CRM hygiene and accurate monthly forecast submissions'
+      ]},
+      {title:'Account Executive',co:'Freshworks · SaaS',period:'2020 – 2022',bullets:[
+        'Sourced and closed 18 SMB and mid-market accounts in Year 1, exceeding quota by 22%',
+        'Built outbound sequences in Outreach.io that generated 35% of my annual pipeline'
+      ]}
+    ],
+    skills:['Enterprise Sales','Salesforce CRM','MEDDIC','Full-cycle Deal Management','Pipeline Management','Demo & Discovery','Negotiation','Outbound Prospecting'],
+    education:'BBA Marketing · Symbiosis Pune · 2020',
+    oldScore:56,newScore:79,
+    changed:5,added:3,kept:2,
+    diffSummary:'5 bullets improved with deal metrics and conversion rates · 3 keywords added (MEDDIC framing, quota attainment, channel context) · 2 bullets kept — deal specifics were already strong'
+  }
+};
+
+function initC4(){
+  var k=csel||'hrta';
+  var cv=CV_DATA[k]||CV_DATA.hrta;
+  var d=D[k]||D.hrta;
+  var t=TRANS[k]||TRANS.hrta;
+
+  // Reset to New CV tab
+  c4tab('new');
+  c4TransOpen=false;
+  document.getElementById('c4-trans-panel').style.display='none';
+  document.getElementById('c4-trans-label').textContent='ℹ️ See how AI built this CV';
+  document.getElementById('c4-trans-arrow').textContent='›';
+
+  // Score badges
+  document.getElementById('c4-old-score').textContent=cv.oldScore+'%';
+  document.getElementById('c4-new-score').textContent=cv.newScore+'%';
+  document.getElementById('c4-score-delta').textContent='↑ +'+(cv.newScore-cv.oldScore)+'pts';
+
+  // CV Document — Name & Role
+  document.getElementById('c4-cv-name').textContent=cv.name;
+  document.getElementById('c4-cv-role').textContent=cv.role+' · '+d.ch;
+  document.getElementById('c4-cv-summary').textContent=cv.summary;
+
+  // Experience
+  var expEl=document.getElementById('c4-cv-experience');
+  expEl.innerHTML=cv.experience.map(function(e){
+    return '<div style="margin-bottom:12px">'
+      +'<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px">'
+        +'<div style="font-size:13px;font-weight:700;color:var(--ink)">'+e.title+'</div>'
+        +'<div style="font-size:10px;color:var(--mu);white-space:nowrap">'+e.period+'</div>'
+      +'</div>'
+      +'<div style="font-size:11px;color:var(--pu);margin-bottom:6px">'+e.co+'</div>'
+      +'<ul style="margin:0;padding-left:14px;display:flex;flex-direction:column;gap:4px">'
+        +e.bullets.map(function(b){return '<li style="font-size:11px;color:var(--br);line-height:1.7">'+b+'</li>';}).join('')
+      +'</ul>'
+    +'</div>';
+  }).join('');
+
+  // Skills
+  var skillsEl=document.getElementById('c4-cv-skills');
+  skillsEl.innerHTML=cv.skills.map(function(s){
+    return '<span style="font-size:10px;background:var(--pul);color:var(--pu);border:1px solid var(--pum);border-radius:5px;padding:3px 8px;font-weight:500">'+s+'</span>';
+  }).join('');
+
+  // Education
+  document.getElementById('c4-cv-education').textContent=cv.education;
+
+  // Transparency panel
+  var vp=t?t.voicePct:68;
+  document.getElementById('c4-voice-bar').style.width=vp+'%';
+  document.getElementById('c4-voice-label').textContent=vp+'% your voice · '+(100-vp)+'% AI enhanced';
+  document.getElementById('c4-trans-summary').textContent=t?t.summary:cv.diffSummary;
+
+  // What Changed tab
+  document.getElementById('c4-diff-summary').innerHTML=
+    '<strong style="color:var(--pu)">'+cv.changed+' bullets improved</strong> · '
+    +'<strong style="color:var(--sa)">'+cv.added+' keywords added</strong> · '
+    +'<strong style="color:var(--mu)">'+cv.kept+' kept as-is</strong> — already strong';
+
+  var pairs=d.cvr||[];
+  var kept=[{before:null,after:d.cs?d.cs[0]+' experience':null,tag:'Kept'}];
+  var diffList=document.getElementById('c4-diff-list');
+  diffList.innerHTML='';
+
+  // Changed pairs
+  pairs.forEach(function(r){
+    var card=document.createElement('div');
+    card.style.cssText='background:var(--cr);border:1px solid var(--cr3);border-radius:12px;overflow:hidden';
+    card.innerHTML=
+      '<div style="background:#fff5f5;border-bottom:1px solid #ffd6d6;padding:10px 13px;display:flex;gap:8px">'
+        +'<span style="font-size:14px;flex-shrink:0">❌</span>'
+        +'<div style="font-size:11px;color:#8b4040;line-height:1.7;flex:1">'+r.before+'</div>'
+      +'</div>'
+      +'<div style="background:#f0fff4;border-bottom:1px solid #b2dfb2;padding:10px 13px;display:flex;gap:8px">'
+        +'<span style="font-size:14px;flex-shrink:0">✅</span>'
+        +'<div style="font-size:11px;color:#2d5a2d;line-height:1.7;font-weight:500;flex:1">'+r.after+'</div>'
+      +'</div>'
+      +'<div style="padding:6px 13px;display:flex;gap:5px">'
+        +'<span style="font-size:9px;font-weight:700;background:var(--pul);color:var(--pu);padding:2px 7px;border-radius:4px">Enhanced</span>'
+        +'<span style="font-size:9px;font-weight:700;background:var(--aml);color:var(--am);padding:2px 7px;border-radius:4px">Keyword added</span>'
+      +'</div>';
+    diffList.appendChild(card);
+  });
+
+  // Kept as-is bullets
+  var keptDiv=document.createElement('div');
+  keptDiv.style.cssText='background:var(--cr);border:1px solid var(--cr3);border-radius:12px;overflow:hidden';
+  var keptBullets=d.cs?d.cs.slice(0,2):['Full-cycle experience','Core technical skills'];
+  keptDiv.innerHTML=
+    '<div style="padding:8px 13px;font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--cr3)">Kept as-is · already strong</div>'
+    +keptBullets.map(function(b){return '<div style="padding:8px 13px;border-bottom:1px solid var(--cr3);display:flex;gap:8px"><span style="font-size:13px;flex-shrink:0">⭐</span><div style="font-size:11px;color:var(--sa);line-height:1.7;font-weight:500">'+b+'</div></div>';}).join('')
+    +'<div style="padding:7px 13px;font-size:10px;color:var(--mu);font-style:italic">These were strong in your original CV — AI left them untouched</div>';
+  diffList.appendChild(keptDiv);
+
+  // Init recruiters
+  initC4Recruiters();
+}
+
+var C4_RECRUITERS = {
+  hrta:[
+    {id:'r1',name:'Priya Mehta',title:'Head of TA',co:'HDFC Bank',posted:'2 days ago',score:92,ring:'var(--sa)',
+     fit:'Strong fit',fitSub:'Your TA leadership and ATS experience align closely with this role.',
+     matched:['Full-cycle recruiting','ATS — Greenhouse','Team management','HR analytics'],
+     missing:['Executive search','Campus hiring'],
+     jd:'Senior Talent Acquisition Manager — HDFC Bank\n\nAbout the Role\nWe are looking for a Senior TA Manager to lead end-to-end recruitment for our technology and business functions across India.\n\nKey Responsibilities\n• Own full-cycle recruiting for 50+ annual hires\n• Manage a team of 4 recruiters\n• Partner with HMs on JD creation and interview design\n• Build employer branding on LinkedIn and campus\n• Report weekly on Time to Fill, offer acceptance and pipeline health\n\nMust-Have\n• 6+ years in-house TA experience\n• Managed a recruiting team of 3+\n• Strong ATS experience (Greenhouse preferred)\n• Data-driven approach to TA metrics\n• Experience hiring for tech roles\n\nNice to Have\n• MBA from reputed institution\n• Banking or BFSI sector experience\n• Executive search experience\n\nLocation: Mumbai (Hybrid — 3 days)\nCTC: ₹22–28L'},
+    {id:'r2',name:'Rohan Kapoor',title:'Senior Recruiter',co:'Razorpay',posted:'4 days ago',score:87,ring:'var(--sa)',
+     fit:'Strong fit',fitSub:'Your fintech and startup TA experience is a great signal for Razorpay.',
+     matched:['Startup hiring','Tech recruiting','ATS management','Sourcing'],
+     missing:['Series C+ scale','International hiring'],
+     jd:'Senior TA Manager — Razorpay\n\nAbout the Role\nRazorpay is hiring a Senior TA Manager to own engineering and product hiring as we scale to 2000+ employees.\n\nKey Responsibilities\n• Lead tech and product hiring — 60+ roles/year\n• Build and manage a team of 5 recruiters\n• Own sourcing strategy across LinkedIn, Naukri, referrals\n• Partner with Product and Engineering leadership on hiring plans\n• Drive diversity hiring initiatives\n\nMust-Have\n• 5+ years in-house TA at a fast-growing startup\n• Experience hiring 50+ engineers per year\n• Strong Boolean search and sourcing skills\n• ATS proficiency (Greenhouse, Lever or similar)\n\nNice to Have\n• Fintech or payments sector experience\n• DEI hiring programme experience\n\nLocation: Bengaluru (Hybrid)\nCTC: ₹24–30L'},
+    {id:'r3',name:'Sneha Iyer',title:'TA Lead',co:'McKinsey India',posted:'1 week ago',score:74,ring:'var(--am)',
+     fit:'Good fit',fitSub:'Strong TA skills but consulting sector experience is typically preferred here.',
+     matched:['Full-cycle recruiting','Stakeholder management','Data & reporting'],
+     missing:['Consulting/professional services','MBA preferred','Executive hiring'],
+     jd:'Talent Acquisition Lead — McKinsey & Company India\n\nAbout the Role\nWe are looking for a TA Lead to manage consulting and business services hiring across our India offices.\n\nKey Responsibilities\n• Own campus and lateral hiring for consulting roles\n• Manage relationships with top B-schools\n• Partner with senior partners on experienced hire strategy\n• Build talent pipelines for hard-to-fill roles\n• Track and present TA metrics to leadership quarterly\n\nMust-Have\n• 6+ years TA experience\n• Campus hiring experience at premium institutions\n• Excellent stakeholder management at senior levels\n• MBA from a top-tier institution preferred\n\nNice to Have\n• Consulting or professional services sector experience\n• International recruiting experience\n\nLocation: Delhi / Mumbai (Hybrid)\nCTC: ₹20–26L'},
+    {id:'r4',name:'Amit Sharma',title:'HR Manager',co:'Flipkart',posted:'3 days ago',score:81,ring:'var(--sa)',
+     fit:'Good fit',fitSub:'Your e-commerce adjacent experience and volume hiring background fit well.',
+     matched:['Volume hiring','ATS management','Employer branding','HR analytics'],
+     missing:['E-commerce scale','Supply chain hiring'],
+     jd:'Senior TA Manager — Flipkart\n\nAbout the Role\nFlipkart is hiring a Senior TA Manager to lead corporate and tech hiring for our Bengaluru teams.\n\nKey Responsibilities\n• Own hiring for 80+ corporate and tech roles annually\n• Lead a team of 4 recruiters and 2 sourcers\n• Drive employer branding on LinkedIn and campus\n• Partner with HR Business Partners on workforce planning\n• Maintain ATS hygiene and pipeline reporting\n\nMust-Have\n• 6+ years in-house TA experience\n• Volume hiring experience — 80+ roles/year\n• Strong ATS experience (Workday preferred)\n• Proven employer branding track record\n\nNice to Have\n• E-commerce or consumer tech experience\n• Supply chain or operations hiring experience\n\nLocation: Bengaluru (Hybrid — 3 days)\nCTC: ₹22–28L'}
+  ],
+  tech:[
+    {id:'r1',name:'Divya Nair',title:'Senior Technical Recruiter',co:'Google India',posted:'1 day ago',score:89,ring:'var(--sa)',
+     fit:'Strong fit',fitSub:'Your Node.js and system design depth align well with Google\'s engineering bar.',
+     matched:['Node.js / TypeScript','PostgreSQL at scale','System design','AWS'],
+     missing:['Go or C++ experience','Google-scale distributed systems'],
+     jd:'Senior Backend Engineer — Google India\n\nAbout the Role\nWe are looking for a Senior Backend Engineer to join our Payments team in Bengaluru, building infrastructure that serves billions of transactions.\n\nKey Responsibilities\n• Design and build backend services at Google scale\n• Own reliability and performance for payment-critical systems\n• Lead technical design reviews and mentor junior engineers\n• Collaborate with product and infrastructure teams globally\n\nMust-Have\n• 5+ years backend engineering\n• Proficiency in at least one of: Go, Java, C++, Python\n• Distributed systems design experience\n• Strong computer science fundamentals\n\nNice to Have\n• Payments or fintech experience\n• Open source contributions\n• Experience with Kubernetes and GCP\n\nLocation: Bengaluru (Hybrid)\nCTC: ₹40–60L'},
+    {id:'r2',name:'Karan Mehta',title:'Engineering Recruiter',co:'Stripe India',posted:'3 days ago',score:85,ring:'var(--sa)',
+     fit:'Strong fit',fitSub:'Your fintech background and Node.js expertise are a near-perfect match.',
+     matched:['Node.js','TypeScript','PostgreSQL','Fintech/payments experience'],
+     missing:['Ruby on Rails','Stripe-specific stack'],
+     jd:'Senior Backend Engineer — Stripe India\n\nAbout the Role\nStripe is building the financial infrastructure of the internet. We need a Senior Backend Engineer to work on our India-specific payment flows.\n\nKey Responsibilities\n• Build and maintain critical payment processing systems\n• Own backend services in Node.js and Ruby\n• Design APIs consumed by thousands of businesses\n• Participate in on-call and incident response\n\nMust-Have\n• 5+ years backend experience\n• Strong Node.js or Ruby on Rails\n• PostgreSQL or equivalent at scale\n• API design and system architecture experience\n\nNice to Have\n• Payments or fintech background\n• Experience with high-throughput financial systems\n\nLocation: Bengaluru (Hybrid)\nCTC: ₹35–55L'},
+    {id:'r3',name:'Pooja Rao',title:'TA Manager',co:'PhonePe',posted:'5 days ago',score:78,ring:'var(--am)',
+     fit:'Good fit',fitSub:'Strong backend match. PhonePe prefers deep UPI/payments domain knowledge.',
+     matched:['Node.js / TypeScript','AWS','Backend architecture'],
+     missing:['UPI/NPCI stack knowledge','Kotlin/Android adjacent'],
+     jd:'Senior Backend Engineer — PhonePe\n\nAbout the Role\nPhonePe is India\'s largest payments platform. We are hiring Senior Backend Engineers to scale our core transaction infrastructure.\n\nKey Responsibilities\n• Build and scale backend systems processing 5Bn+ monthly transactions\n• Own microservices architecture for payment flows\n• Lead tech design sessions and code reviews\n• Work closely with data and ML teams on real-time fraud detection\n\nMust-Have\n• 5+ years backend experience\n• Java or Node.js at scale\n• Experience with distributed systems and event-driven architecture\n• Strong SQL and NoSQL database skills\n\nNice to Have\n• UPI or NPCI payments experience\n• Experience with Apache Kafka\n\nLocation: Bengaluru (On-site)\nCTC: ₹30–48L'},
+    {id:'r4',name:'Arjun Singh',title:'Tech Recruiter',co:'Meesho',posted:'1 week ago',score:71,ring:'var(--am)',
+     fit:'Good fit',fitSub:'Your Node.js skills fit but Meesho prefers Java for backend at their scale.',
+     matched:['Backend engineering','PostgreSQL','System design'],
+     missing:['Java (preferred)','E-commerce/D2C scale experience'],
+     jd:'Senior Backend Engineer — Meesho\n\nAbout the Role\nMeesho is India\'s fastest growing social commerce platform. We are hiring Backend Engineers to build infrastructure for our 150M+ users.\n\nKey Responsibilities\n• Design and build scalable Java-based backend services\n• Own data pipelines and real-time processing systems\n• Lead design reviews for new product features\n• Ensure 99.99% uptime for payment and order systems\n\nMust-Have\n• 4+ years backend engineering experience\n• Strong Java or Kotlin\n• Experience with microservices and REST APIs\n• SQL proficiency\n\nNice to Have\n• E-commerce or social commerce experience\n• Kafka or RabbitMQ experience\n\nLocation: Bengaluru (Hybrid)\nCTC: ₹25–40L'}
+  ]
+};
+
+var currentJDRecruiterId=null;
+var selectedRecruiters={};
+
+function initC4Recruiters(){
+  var k=csel||'hrta';
+  var recs=C4_RECRUITERS[k]||C4_RECRUITERS.hrta;
+  var list=document.getElementById('c4-recruiter-list');
+  if(!list)return;
+  list.innerHTML='';
+  selectedRecruiters={};
+  updateSendBtn();
+  recs.forEach(function(r,i){
+    var scoreColor=r.score>=85?'var(--sa)':r.score>=75?'var(--am)':'var(--ro)';
+    var card=document.createElement('div');
+    card.id='rec-card-'+r.id;
+    card.style.cssText='background:var(--cr);border:1.5px solid var(--cr3);border-radius:12px;padding:12px 13px;transition:border-color .2s';
+    card.innerHTML=
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">'
+        +'<div style="width:40px;height:40px;border-radius:10px;background:var(--pul);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">👤</div>'
+        +'<div style="flex:1;min-width:0">'
+          +'<div style="font-size:13px;font-weight:700;color:var(--ink)">'+(i===0?'<span style="background:var(--sa);color:#fff;font-size:9px;padding:1px 6px;border-radius:4px;margin-right:4px;font-weight:700">Top pick</span>':'')+r.name+'</div>'
+          +'<div style="font-size:11px;color:var(--mu)">'+r.title+' · '+r.co+'</div>'
+          +'<div style="font-size:10px;color:var(--mu);margin-top:1px">📅 Posted '+r.posted+'</div>'
+        +'</div>'
+        +'<div style="text-align:right;flex-shrink:0">'
+          +'<div style="font-family:\'Cormorant Garamond\',serif;font-size:22px;font-weight:600;color:'+scoreColor+'">'+r.score+'%</div>'
+          +'<div style="font-size:9px;color:var(--mu)">your match</div>'
+        +'</div>'
+      +'</div>'
+      +'<div style="display:flex;gap:7px">'
+        +'<button onclick="openJDReader(\''+r.id+'\')" style="flex:1;background:var(--pul);border:1px solid var(--pum);border-radius:8px;padding:8px;font-size:11px;font-weight:700;font-family:\'Figtree\',sans-serif;color:var(--pu);cursor:pointer">📄 Read JD & match →</button>'
+        +'<button id="sel-btn-'+r.id+'" onclick="quickSelectRecruiter(\''+r.id+'\')" style="background:var(--cr2);border:1.5px solid var(--cr3);border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;font-family:\'Figtree\',sans-serif;color:var(--br);cursor:pointer;white-space:nowrap">Select</button>'
+      +'</div>';
+    list.appendChild(card);
+  });
+}
+
+function openJDReader(rid){
+  var k=csel||'hrta';
+  var recs=C4_RECRUITERS[k]||C4_RECRUITERS.hrta;
+  var r=recs.find(function(x){return x.id===rid;});
+  if(!r)return;
+  currentJDRecruiterId=rid;
+  document.getElementById('jdr-title').textContent=r.name+' · '+r.co;
+  document.getElementById('jdr-sub').textContent=r.title+' · Hiring for: '+r.jd.split('\n')[0];
+  var scoreColor=r.score>=85?'var(--sa)':r.score>=75?'var(--am)':'var(--ro)';
+  document.getElementById('jdr-score-ring').style.borderColor=scoreColor;
+  document.getElementById('jdr-score-num').style.color=scoreColor;
+  document.getElementById('jdr-score-num').textContent=r.score+'%';
+  document.getElementById('jdr-fit-label').textContent=r.fit;
+  document.getElementById('jdr-fit-sub').textContent=r.fitSub;
+  var mEl=document.getElementById('jdr-matched');
+  mEl.innerHTML=r.matched.map(function(s){return '<div style="font-size:10px;color:var(--sa);background:var(--sal);border-radius:5px;padding:3px 7px;">'+s+'</div>';}).join('');
+  var miEl=document.getElementById('jdr-missing');
+  miEl.innerHTML=r.missing.map(function(s){return '<div style="font-size:10px;color:var(--ro);background:#fff0f0;border-radius:5px;padding:3px 7px;">'+s+'</div>';}).join('');
+  document.getElementById('jdr-jd-text').textContent=r.jd;
+  var selBtn=document.getElementById('jdr-select-btn');
+  if(selectedRecruiters[rid]){
+    selBtn.textContent='✅ Selected — remove';
+    selBtn.style.background='var(--sa)';
+  } else {
+    selBtn.textContent='Select for outreach →';
+    selBtn.style.background='var(--pu)';
+  }
+  document.getElementById('jdReaderModal').classList.add('on');
+}
+
+function closeJDReader(){
+  document.getElementById('jdReaderModal').classList.remove('on');
+  currentJDRecruiterId=null;
+}
+
+function toggleRecruiterSelect(){
+  if(!currentJDRecruiterId)return;
+  if(selectedRecruiters[currentJDRecruiterId]){
+    delete selectedRecruiters[currentJDRecruiterId];
+  } else {
+    selectedRecruiters[currentJDRecruiterId]=true;
+  }
+  updateSelectionUI();
+  closeJDReader();
+}
+
+function quickSelectRecruiter(rid){
+  if(selectedRecruiters[rid]){
+    delete selectedRecruiters[rid];
+  } else {
+    selectedRecruiters[rid]=true;
+  }
+  updateSelectionUI();
+}
+
+function updateSelectionUI(){
+  var k=csel||'hrta';
+  var recs=C4_RECRUITERS[k]||C4_RECRUITERS.hrta;
+  recs.forEach(function(r){
+    var card=document.getElementById('rec-card-'+r.id);
+    var btn=document.getElementById('sel-btn-'+r.id);
+    if(!card||!btn)return;
+    if(selectedRecruiters[r.id]){
+      card.style.borderColor='var(--pu)';card.style.background='var(--pul)';
+      btn.textContent='✅ Selected';btn.style.background='var(--pu)';btn.style.color='#fff';btn.style.borderColor='var(--pu)';
+    } else {
+      card.style.borderColor='var(--cr3)';card.style.background='var(--cr)';
+      btn.textContent='Select';btn.style.background='var(--cr2)';btn.style.color='var(--br)';btn.style.borderColor='var(--cr3)';
+    }
+  });
+  updateSendBtn();
+}
+
+function updateSendBtn(){
+  var count=Object.keys(selectedRecruiters).length;
+  var btn=document.getElementById('c4-send-btn');
+  var label=document.getElementById('or-sel-count');
+  if(!btn)return;
+  if(label)label.textContent=count+' selected';
+  if(count>0){
+    btn.style.opacity='1';btn.style.pointerEvents='auto';
+    btn.textContent='📨 Send outreach to '+count+' recruiter'+(count>1?'s':'')+' →';
+  } else {
+    btn.style.opacity='.4';btn.style.pointerEvents='none';
+    btn.textContent='📨 Send outreach to selected →';
+  }
+}
+
+function sendSelectedOutreach(){
+  var count=Object.keys(selectedRecruiters).length;
+  if(!count)return;
+  // Show the outreach sent confirmation via the existing modal step 3
+  var k=csel||'hrta';
+  var recs=C4_RECRUITERS[k]||C4_RECRUITERS.hrta;
+  var selected=recs.filter(function(r){return selectedRecruiters[r.id];});
+  orCurrentKey=k;
+  // Override recruiters with selected ones for step 3
+  var tempRecs=OUTREACH[k]||OUTREACH.hrta;
+  tempRecs.recruiters=selected.map(function(r){return {name:r.name,title:r.title,co:r.co,posted:r.posted,match:r.score+'%',platform:'LinkedIn'};});
+  document.getElementById('outreachModal').classList.add('on');
+  orStep3();
+  document.getElementById('or-sent-headline').textContent='Sent to '+count+' recruiter'+(count>1?'s':'')+' on your behalf';
+  document.getElementById('or-sent-list').innerHTML=selected.map(function(r){
+    return '<div style="display:flex;align-items:center;gap:10px;background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:9px 12px">'
+      +'<div style="font-size:14px">✅</div>'
+      +'<div style="flex:1"><div style="font-size:12px;font-weight:600;color:var(--ink)">'+r.name+' · '+r.co+'</div>'
+      +'<div style="font-size:10px;color:var(--mu)">Personalised message sent with your rewritten CV</div></div></div>';
+  }).join('');
+}
+
 // ── OUTREACH DEMO DATA ──
 var OUTREACH = {
   hrta:{
@@ -2569,6 +3350,147 @@ function closeOutreach(){
 }
 
 function showOutreachDemo_old(){}
+
+// ── RETURNING CANDIDATE DATA ──
+var RETURNING_DATA = {
+  hrta:{firstname:'Anika',avatar:'AS',lastRole:'Senior TA Manager',lastCo:'HDFC Bank · 2 weeks ago',lastScore:86,scoreImprovement:22,scoreFrom:64},
+  tech:{firstname:'Rahul',avatar:'RS',lastRole:'Senior Backend Engineer',lastCo:'Razorpay · 3 weeks ago',lastScore:84,scoreImprovement:23,scoreFrom:61},
+  mktg:{firstname:'Priya',avatar:'PK',lastRole:'Senior Marketing Manager',lastCo:'Nykaa · 1 week ago',lastScore:78,scoreImprovement:20,scoreFrom:58},
+  bank:{firstname:'Vikram',avatar:'VN',lastRole:'VP Corporate Banking',lastCo:'HDFC Bank · 2 weeks ago',lastScore:81,scoreImprovement:19,scoreFrom:62},
+  cons:{firstname:'Rohan',avatar:'RG',lastRole:'Senior Consultant',lastCo:'McKinsey · 1 month ago',lastScore:89,scoreImprovement:18,scoreFrom:71},
+  acct:{firstname:'Kavya',avatar:'KI',lastRole:'Audit Manager',lastCo:'Deloitte · 3 weeks ago',lastScore:85,scoreImprovement:17,scoreFrom:68},
+  sales:{firstname:'Arjun',avatar:'AM',lastRole:'B2B Account Executive',lastCo:'Zoho · 2 weeks ago',lastScore:79,scoreImprovement:23,scoreFrom:56}
+};
+
+function initReturningScreen(){
+  var k=csel||'hrta';
+  var r=RETURNING_DATA[k]||RETURNING_DATA.hrta;
+  var av=document.getElementById('cr-avatar');if(av)av.textContent=r.avatar;
+  var fn=document.getElementById('cr-firstname');if(fn)fn.textContent=r.firstname;
+  var lr=document.getElementById('cr-last-role');if(lr)lr.textContent=r.lastRole;
+  var lc=document.getElementById('cr-last-co');if(lc)lc.textContent=r.lastCo;
+  var ls=document.getElementById('cr-last-score');if(ls)ls.textContent=r.lastScore+'%';
+}
+
+function showRolePivotTip(){
+  showT('💡 Running fresh CV health check for your new direction…');
+  setTimeout(function(){hideT();go('c1');},1500);
+}
+
+function updateC6ScoreLabel(){
+  var k=csel||'hrta';
+  var cv=CV_DATA&&CV_DATA[k]?CV_DATA[k]:null;
+  var el=document.getElementById('c6-cv-label');
+  if(el&&cv)el.textContent='ATS Score: '+cv.oldScore+'% → '+cv.newScore+'% · ready to download';
+}
+
+// ── JD CREATOR ──
+var JD_EXAMPLES = {
+  tech: "Looking for a Senior Backend Engineer with 5+ years experience for our fintech team in Bengaluru. Must know Node.js, TypeScript and PostgreSQL at scale. Experience with Kubernetes and AWS required. System design experience a plus. Hybrid role.",
+  hrta: "Looking for a Senior TA Manager with 6+ years experience for our Bangalore office. Should have worked in a tech startup, managed a team of at least 3 recruiters, have strong ATS experience (we use Greenhouse) and good data skills. Hybrid role.",
+  mktg: "Hiring a Senior Marketing Manager for our D2C brand in Mumbai. 5+ years in performance marketing — Meta, Google Ads. Should have owned P&L, understands brand strategy, and has worked with content teams. MBA preferred."
+};
+
+var JD_OUTPUTS = {
+  tech:"Senior Backend Engineer — Fintech (Bengaluru)\n\nAbout the Role\nWe're looking for a Senior Backend Engineer to join our core payments team in Bengaluru. You'll own critical infrastructure, work on high-throughput financial systems and collaborate with a world-class engineering team.\n\nKey Responsibilities\n• Design and build scalable backend services in Node.js and TypeScript\n• Own and optimise PostgreSQL databases at production scale\n• Lead technical architecture decisions for distributed systems\n• Manage Kubernetes deployments and AWS infrastructure\n• Participate in on-call rotations and incident response\n• Mentor junior engineers and contribute to code reviews\n\nMust-Have Requirements\n• 5+ years of backend engineering experience\n• Expert-level Node.js and TypeScript\n• PostgreSQL at production scale\n• Kubernetes and container orchestration\n• AWS (EC2, RDS, S3, Lambda)\n• Strong system design fundamentals\n\nNice to Have\n• Experience in fintech or payments\n• GraphQL API design\n• CI/CD pipeline ownership\n• Previous experience in a high-growth startup\n\nWhat We Offer\n• Competitive salary and meaningful equity\n• Hybrid work — 3 days in Bengaluru office\n• Health insurance and wellness benefits\n• Learning and development budget\n\nATS Keywords: Node.js, TypeScript, PostgreSQL, Kubernetes, AWS, Backend Engineering, Distributed Systems, Microservices, System Design, REST API",
+  hrta:"Senior Talent Acquisition Manager — In-house HR (Bengaluru)\n\nAbout the Role\nWe're looking for a Senior TA Manager to lead recruiting across our tech and non-tech functions. You'll own the full hiring process, build our employer brand and drive data-informed talent strategy.\n\nKey Responsibilities\n• Own full-cycle recruiting across all functions\n• Manage and mentor a team of 3+ recruiters\n• Administer and optimise our ATS (Greenhouse)\n• Build and execute employer branding initiatives\n• Partner with hiring managers on JD creation and interview frameworks\n• Track and report TA metrics — Time to Fill, offer acceptance, source quality\n\nMust-Have Requirements\n• 6+ years of in-house talent acquisition experience\n• Proven experience managing a recruiting team\n• Strong ATS experience — Greenhouse preferred\n• Excellent data and analytics skills\n• Experience hiring for tech roles in a startup environment\n\nNice to Have\n• MBA or equivalent from a reputed institution\n• Campus hiring and DEI programme experience\n• Employer branding campaign ownership\n\nWhat We Offer\n• Competitive CTC with performance bonus\n• Hybrid work — 3 days in Bengaluru office\n• Comprehensive health insurance\n• Fast-growing team with real ownership\n\nATS Keywords: Talent Acquisition, Full-cycle Recruiting, ATS, Greenhouse, Employer Branding, HR Analytics, Team Management, Sourcing, Campus Hiring",
+  mktg:"Senior Marketing Manager — D2C Brand (Mumbai)\n\nAbout the Role\nWe're hiring a Senior Marketing Manager to own performance and brand marketing for our fast-growing D2C brand. You'll manage a ₹1Cr+ monthly budget and drive growth across digital and offline channels.\n\nKey Responsibilities\n• Own P&L for performance marketing — Meta, Google Ads, affiliates\n• Build and execute brand campaigns in partnership with creative teams\n• Drive customer acquisition, retention and LTV optimisation\n• Lead SEO/SEM strategy and content marketing\n• Manage a team of 3–4 marketing specialists\n• Report on ROAS, CAC, LTV and other key metrics to leadership\n\nMust-Have Requirements\n• 5+ years in digital marketing for a consumer brand\n• Proven ownership of Meta and Google Ads at scale\n• Full P&L ownership — ROAS, CAC, LTV experience\n• Strong data skills — SQL or advanced analytics\n• Team management experience\n\nNice to Have\n• MBA from a premium institution\n• Experience with marketing automation (HubSpot, MoEngage)\n• D2C or e-commerce background\n• Brand strategy and campaign experience\n\nWhat We Offer\n• Competitive salary and ESOP\n• Hybrid work — Mumbai based\n• Fast-paced, high-ownership culture\n• Performance bonus and health benefits\n\nATS Keywords: D2C Marketing, Performance Marketing, Meta Ads, Google Ads, ROAS, CAC, LTV, Brand Strategy, SEO/SEM, Marketing Analytics, Team Management"
+};
+
+function checkJDInput(){
+  var v=document.getElementById('jd-input').value.trim();
+  var btn=document.getElementById('jd-gen-btn');
+  if(v.length>20){btn.style.opacity='1';btn.style.pointerEvents='auto';}
+  else{btn.style.opacity='.4';btn.style.pointerEvents='none';}
+}
+
+function fillJDExample(k){
+  document.getElementById('jd-input').value=JD_EXAMPLES[k]||JD_EXAMPLES.hrta;
+  checkJDInput();
+  document.getElementById('jd-input').focus();
+}
+
+function generateJD(){
+  var v=document.getElementById('jd-input').value.trim();
+  if(!v)return;
+  var btn=document.getElementById('jd-gen-btn');
+  btn.textContent='✨ Generating…';btn.style.opacity='.7';btn.style.pointerEvents='none';
+  showT('Analysing your description…');
+  setTimeout(function(){
+    showT('Writing job description…');
+    setTimeout(function(){
+      // Pick closest match
+      var k='hrta';
+      if(v.toLowerCase().indexOf('engineer')>=0||v.toLowerCase().indexOf('backend')>=0||v.toLowerCase().indexOf('node')>=0)k='tech';
+      else if(v.toLowerCase().indexOf('market')>=0||v.toLowerCase().indexOf('d2c')>=0||v.toLowerCase().indexOf('brand')>=0)k='mktg';
+      var output=JD_OUTPUTS[k];
+      document.getElementById('jd-result').textContent=output;
+      document.getElementById('jd-output').style.display='block';
+      document.getElementById('jd-use-btn').style.display='block';
+      document.getElementById('jd-cta-label').textContent='✅ Your JD is ready — use it or copy it';
+      btn.textContent='✨ Regenerate';btn.style.opacity='1';btn.style.pointerEvents='auto';
+      hideT();showT('JD generated! Review and continue →');setTimeout(hideT,2500);
+      document.getElementById('sjd').querySelector('.sb').scrollTop=9999;
+    },1200);
+  },900);
+}
+
+function copyJD(){
+  var txt=document.getElementById('jd-result').textContent;
+  navigator.clipboard.writeText(txt).catch(function(){});
+  var btn=document.getElementById('jd-copy-btn');
+  btn.textContent='✅ Copied!';setTimeout(function(){btn.textContent='📋 Copy JD';},2000);
+}
+
+// ── INTERVIEW SCHEDULING HELPERS ──
+var schedType='video';
+var hmAdded=false;
+
+function selSchedType(el,type){
+  schedType=type;
+  document.querySelectorAll('.sched-type').forEach(function(b){
+    b.style.background='var(--cr2)';b.style.borderColor='var(--cr3)';b.style.color='var(--br)';
+  });
+  el.style.background='var(--tel)';el.style.borderColor='var(--te)';el.style.color='var(--te)';
+}
+
+function addHMInterviewer(){
+  if(hmAdded)return;
+  hmAdded=true;
+  var el=document.getElementById('hm-interviewer');
+  el.style.background='var(--tel)';el.style.borderColor='var(--tem)';
+  el.innerHTML='<div class="av at" style="width:28px;height:28px;font-size:10px;background:var(--sa);color:#fff">RS</div>'
+    +'<div style="flex:1;font-size:12px;font-weight:600">Rahul S. <span style="font-size:10px;font-weight:400;color:var(--mu)">— Hiring Manager</span></div>'
+    +'<div style="font-size:10px;color:var(--sa);font-weight:700">✓ Added</div>';
+  el.style.cursor='default';
+  showT('Rahul S. added as interviewer');setTimeout(hideT,2000);
+}
+
+function openSched(){
+  hmAdded=false;schedType='video';
+  var d=D[csel]||D.hrta;
+  document.getElementById('schedName').textContent='Scheduling interview for '+d.name+' · '+d.role;
+  var slots=document.getElementById('calSlots');slots.innerHTML='';
+  var days=['Mon 24 Mar','Tue 25 Mar','Wed 26 Mar'];
+  var times=['10:00 AM','11:30 AM','2:00 PM','4:00 PM'];
+  days.forEach(function(day){
+    var dh=document.createElement('div');dh.style.cssText='font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.07em;margin:10px 0 6px;grid-column:1/-1';dh.textContent=day;slots.appendChild(dh);
+    times.forEach(function(t,ti){
+      if(ti===2&&day==='Tue 25 Mar')return;
+      var b=document.createElement('button');
+      b.className='cal-slot';b.textContent=t;
+      b.onclick=function(){
+        document.querySelectorAll('.cal-slot').forEach(function(s){s.classList.remove('on');});
+        b.classList.add('on');selSlot=day+' · '+t;
+        var cb=document.getElementById('sched-confirm-btn');
+        cb.style.opacity='1';cb.style.pointerEvents='auto';
+        cb.textContent='📅 Send invite for '+t+' →';
+      };
+      slots.appendChild(b);
+    });
+  });
+  document.getElementById('schedModal').classList.add('on');
+}
 
 function triggerCVUpload(){document.getElementById('cvFileInput').click();}
 function triggerMatchCVUpload(){document.getElementById('matchCVFileInput').click();}
@@ -2799,24 +3721,20 @@ var CVH = {
 };
 
 function goFixCV(){
-  // Show a brief "AI is fixing your CV" toast animation
   showT('✨ AI is fixing your CV…');
   setTimeout(function(){
     hideT();
-    // Populate the health check fixes banner in c4
-    var h = CVH[csel];
-    var fixBanner = document.getElementById('c4-healthfix');
-    var fixList = document.getElementById('c4-fixlist');
-    if(h && h.critical && h.critical.length > 0){
-      fixBanner.style.display = 'block';
-      fixList.innerHTML = h.critical.map(function(c){
-        return '<div style="display:flex;gap:8px;align-items:flex-start"><span style="font-size:12px;flex-shrink:0;margin-top:1px">✅</span><span style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.6">'+c.issue+'<span style="color:rgba(255,255,255,.5)"> — fixed</span></span></div>';
-      }).join('');
-    } else {
-      // No critical issues — show a positive message
-      fixBanner.style.display = 'block';
-      fixBanner.style.background = 'linear-gradient(135deg,var(--sa),#2d7a50)';
-      fixList.innerHTML = '<div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6">No critical issues found — AI optimised your CV for ATS keyword matching and quantification.</div>';
+    var fixBanner=document.getElementById('c4-healthfix');
+    var fixList=document.getElementById('c4-fixlist');
+    if(fixBanner&&fixList){
+      var h=CVH[csel];
+      if(h&&h.critical&&h.critical.length>0){
+        fixBanner.style.display='block';
+        fixList.innerHTML=h.critical.map(function(c){return'<div style="display:flex;gap:8px;align-items:flex-start"><span style="font-size:12px;flex-shrink:0;margin-top:1px">✅</span><span style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.6">'+c.issue+'<span style="color:rgba(255,255,255,.5)"> — fixed</span></span></div>';}).join('');
+      } else {
+        fixBanner.style.display='block';fixBanner.style.background='linear-gradient(135deg,var(--sa),#2d7a50)';
+        fixList.innerHTML='<div style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6">No critical issues found — AI optimised your CV for ATS keyword matching and quantification.</div>';
+      }
     }
     go('c4');
   }, 1800);
@@ -2988,22 +3906,30 @@ function fillTransparency(){
   if(!cd||!csel||!TRANS[csel])return;
   var t=TRANS[csel];
   var vp=t.voicePct, ap=100-vp;
-  document.getElementById('ai-voice-bar').style.width=vp+'%';
-  document.getElementById('ai-voice-pct').textContent=vp+'% your voice';
-  document.getElementById('ai-ai-pct').textContent=ap+'% AI enhanced';
-  document.getElementById('ai-score-label').textContent=vp>=85?'✅ Excellent — very human':'⚠️ Add more specifics to improve';
-  var labelMap={original:'Original',enhanced:'Enhanced',added:'Added',generated:'Generated'};
-  document.getElementById('ai-breakdown').innerHTML=t.bullets.map(function(b){
-    return'<div style="display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--cr3)">'
-      +'<div style="width:8px;height:8px;border-radius:2px;background:'+b.color+';flex-shrink:0;margin-top:5px"></div>'
-      +'<div style="flex:1;font-size:12px;color:var(--br);line-height:1.6">'+b.text+'</div>'
-      +'<div style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:'+b.color+'22;color:'+b.color+';flex-shrink:0">'+labelMap[b.label]+'</div>'
-    +'</div>';
-  }).join('');
-  document.getElementById('ai-summary').innerHTML='<strong style="color:var(--sa)">'+vp+'% your voice.</strong> '+t.summary;
-  // Prompt to add more if AI score is high
-  if(vp<80){
-    document.getElementById('ai-summary').innerHTML+='<br><br><strong style="color:var(--am)">💡 Tip:</strong> Your AI score is above 20%. Add your specific numbers and project context in the original CV to bring this down.';
+  // New c4 voice bar
+  var nvb=document.getElementById('c4-voice-bar');if(nvb)nvb.style.width=vp+'%';
+  var nvl=document.getElementById('c4-voice-label');if(nvl)nvl.textContent=vp+'% your voice · '+ap+'% AI enhanced';
+  var nts=document.getElementById('c4-trans-summary');if(nts)nts.textContent=t.summary;
+  // Legacy elements — safely skip if not present
+  var avb=document.getElementById('ai-voice-bar');if(avb)avb.style.width=vp+'%';
+  var avp=document.getElementById('ai-voice-pct');if(avp)avp.textContent=vp+'% your voice';
+  var aap=document.getElementById('ai-ai-pct');if(aap)aap.textContent=ap+'% AI enhanced';
+  var asl=document.getElementById('ai-score-label');if(asl)asl.textContent=vp>=85?'✅ Excellent — very human':'⚠️ Add more specifics to improve';
+  var abd=document.getElementById('ai-breakdown');
+  if(abd){
+    var labelMap={original:'Original',enhanced:'Enhanced',added:'Added',generated:'Generated'};
+    abd.innerHTML=t.bullets.map(function(b){
+      return'<div style="display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--cr3)">'
+        +'<div style="width:8px;height:8px;border-radius:2px;background:'+b.color+';flex-shrink:0;margin-top:5px"></div>'
+        +'<div style="flex:1;font-size:12px;color:var(--br);line-height:1.6">'+b.text+'</div>'
+        +'<div style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:'+b.color+'22;color:'+b.color+';flex-shrink:0">'+labelMap[b.label]+'</div>'
+      +'</div>';
+    }).join('');
+  }
+  var asm=document.getElementById('ai-summary');
+  if(asm){
+    asm.innerHTML='<strong style="color:var(--sa)">'+vp+'% your voice.</strong> '+t.summary;
+    if(vp<80)asm.innerHTML+='<br><br><strong style="color:var(--am)">💡 Tip:</strong> Your AI score is above 20%. Add your specific numbers and project context in the original CV to bring this down.';
   }
 }
 
@@ -3015,7 +3941,7 @@ function fillCand(){
   setTimeout(function(){document.getElementById('cring').style.strokeDashoffset=264-(264*cd.sc/100);},200);
   document.getElementById('cgaps').innerHTML=cd.cgaps.map(function(g){return'<div class="gap-item"><div class="gap-top"><span class="gap-name">'+g.n+'</span><span class="gap-badge '+g.b+'">'+g.lv+'</span></div><div class="gap-desc">'+g.bd+'</div></div>'}).join('');
   document.getElementById('cgood').innerHTML=cd.cgood.map(function(s){return'<span class="ch cm">'+s+'</span>'}).join('');
-  document.getElementById('cvRewrites').innerHTML=cd.cvr.map(function(r){return'<div style="margin-bottom:16px"><div class="cv-before"><span class="cv-label">❌ Before — generic</span>'+r.before+'</div><div style="text-align:center;padding:5px 0;font-size:18px">↓</div><div class="cv-after"><span class="cv-label">✅ After — JD optimised</span>'+r.after+'</div></div>'}).join('');
+  var cvr=document.getElementById('cvRewrites');if(cvr)cvr.innerHTML=cd.cvr.map(function(r){return'<div style="margin-bottom:16px"><div class="cv-before"><span class="cv-label">❌ Before — generic</span>'+r.before+'</div><div style="text-align:center;padding:5px 0;font-size:18px">↓</div><div class="cv-after"><span class="cv-label">✅ After — JD optimised</span>'+r.after+'</div></div>'}).join('');
   fillTransparency();
   document.getElementById('ip-title').textContent='Interview Prep — '+cd.cn.split(' ')[0];
   document.getElementById('ip-sub').textContent='Targeting '+cd.ti+' · '+cd.cgaps.length+' gaps identified';
@@ -3777,10 +4703,11 @@ function confirmSched(){
 function closeSchedBtn(){document.getElementById('schedModal').classList.remove('on');}
 var _sm=document.getElementById('schedModal');if(_sm)_sm.addEventListener('click',function(e){if(e.target===document.getElementById('schedModal'))document.getElementById('schedModal').classList.remove('on');});
 var _om=document.getElementById('outreachModal');if(_om)_om.addEventListener('click',function(e){if(e.target===document.getElementById('outreachModal'))closeOutreach();});
+var _jm=document.getElementById('jdReaderModal');if(_jm)_jm.addEventListener('click',function(e){if(e.target===document.getElementById('jdReaderModal'))closeJDReader();});
 function cpyN(){var ta=document.getElementById('nta');try{navigator.clipboard.writeText(ta.value);}catch(e){ta.select();document.execCommand('copy');}var b=document.getElementById('cpyb');b.classList.add('cp');b.textContent='✓ Copied!';setTimeout(function(){b.classList.remove('cp');b.textContent='📋 Copy';},2500);}
 function regN(){var ta=document.getElementById('nta');ta.style.opacity='.3';setTimeout(function(){ta.style.opacity='1';},700);showT('Regenerating notes…');setTimeout(hideT,1800);}
 function waShare(){window.open('https://wa.me/?text='+encodeURIComponent(document.getElementById('nsj').value+'\n\n'+document.getElementById('nta').value),'_blank');}
-function cpyCv(){var b=document.getElementById('cvCpyBtn');b.classList.add('cp');b.textContent='✓ Copied!';setTimeout(function(){b.classList.remove('cp');b.textContent='📋 Copy Rewritten CV';},2500);showT('CV bullets copied!');}
+function cpyCv(){var b=document.getElementById('cvCpyBtn');if(b){b.classList.add('cp');b.textContent='✓ Copied!';setTimeout(function(){b.classList.remove('cp');b.textContent='📋 Copy';},2500);}showT('CV copied!');}
 function showT(m){document.getElementById('tsm').textContent=m;document.getElementById('ts').classList.add('on');}
 function hideT(){document.getElementById('ts').classList.remove('on');}
 </script>
