@@ -636,7 +636,7 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
     </div>
 
     <!-- DATA MAGIC TILE — full width -->
-    <div style="grid-column:1/-1;background:linear-gradient(135deg,var(--ink) 0%,#2A2040 100%);padding:14px 13px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:opacity .15s;border-top:1px solid var(--cr3)" onclick="go('dm')" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
+    <div style="grid-column:1/-1;background:linear-gradient(135deg,var(--ink) 0%,#2A2040 100%);padding:14px 13px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:opacity .15s;border-top:1px solid var(--cr3)" onclick="window.open('data-magic.html','_self')" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
       <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--am),#E8A040);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✨</div>
       <div style="flex:1;min-width:0">
         <div style="font-size:12px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:2px">Data Magic — Already tracking in Excel? Upload it →</div>
@@ -2389,56 +2389,56 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var botAnswers=[
   {q:"How many profiles did I send for Audit Manager this month?",
    a:"You shared <strong>14 profiles</strong> for Audit Manager in March.\n\n✅ 6 shortlisted &nbsp;|&nbsp; ❌ 5 rejected &nbsp;|&nbsp; ⏳ 3 awaiting review\n\nOf the 5 rejected — 2 were flagged as 'insufficient experience', 1 as 'overqualified', and <strong>2 had no reason given</strong>. Want me to nudge the HM on the 3 unreviewed profiles?",
    actions:['nudge','dash'],
    dashTitle:"Audit Manager — March Profiles",dashSub:"14 profiles shared · Auto-generated from your question",
-   dashHTML:function(){return '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px"><div class="dash-stat"><div class="dash-stat-num" style="color:var(--te)">14</div><div class="dash-stat-label">Profiles Sent</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--sa)">6</div><div class="dash-stat-label">Shortlisted</div><div class="dash-stat-delta" style="color:var(--sa)">43% rate</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--ro)">5</div><div class="dash-stat-label">Rejected</div><div class="dash-stat-delta" style="color:var(--am)">2 no reason</div></div></div><span class="sl">Profile status breakdown</span><div class="card"><div class="dash-bar-row"><span class="dash-bar-label">Shortlisted</span><div class="dash-bar-track"><div class="dash-bar-fill bfs" style="width:0" data-w="43%"></div></div><span class="dash-bar-val">6</span></div><div class="dash-bar-row"><span class="dash-bar-label">Rejected</span><div class="dash-bar-track"><div class="dash-bar-fill bft" style="width:0" data-w="36%"></div></div><span class="dash-bar-val">5</span></div><div class="dash-bar-row"><span class="dash-bar-label">Awaiting</span><div class="dash-bar-track"><div class="dash-bar-fill bfa" style="width:0" data-w="21%"></div></div><span class="dash-bar-val">3</span></div></div><span class="sl">Rejection reasons</span><div class="card"><div class="dash-bar-row"><span class="dash-bar-label">Insuff. exp.</span><div class="dash-bar-track"><div class="dash-bar-fill bft" style="width:0" data-w="40%"></div></div><span class="dash-bar-val">2</span></div><div class="dash-bar-row"><span class="dash-bar-label">Overqualified</span><div class="dash-bar-track"><div class="dash-bar-fill bfa" style="width:0" data-w="20%"></div></div><span class="dash-bar-val">1</span></div><div class="dash-bar-row"><span class="dash-bar-label" style="color:var(--ro)">No reason ⚠️</span><div class="dash-bar-track"><div class="dash-bar-fill" style="width:0;background:var(--ro)" data-w="40%"></div></div><span class="dash-bar-val" style="color:var(--ro)">2</span></div></div><div class="sig sag2"><div class="si2">💡</div><div><div class="sigt">2 rejections with no reason given</div><div class="sigd">Hiring managers must select a reason before rejecting. This keeps your audit trail clean and protects you from escalations.</div></div></div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   },
   {q:"Which role is taking the longest to fill?",
    a:"<strong>VP Engineering</strong> is your most critical open role right now.\n\n📅 Open for <strong>47 days</strong> — your SLA is 30 days\n👤 Last profile shared 12 days ago\n⏳ Hiring manager hasn't reviewed it yet\n\nWant me to send an automatic nudge to the HM, or flag this to your manager?",
    actions:['nudge','flag','dash'],
    dashTitle:"Role Ageing Report",dashSub:"Roles beyond SLA threshold — auto-generated",
-   dashHTML:function(){return '<span class="sl">Roles beyond SLA</span><div class="sig srr" style="margin-bottom:8px"><div class="si2">🔴</div><div><div class="sigt">VP Engineering · 47 days open</div><div class="sigd">SLA: 30 days · Last profile shared 12 days ago · HM not reviewed · <strong style="color:var(--ro)">17 days overdue</strong></div></div></div><div class="sig sag2" style="margin-bottom:16px"><div class="si2">🟡</div><div><div class="sigt">Senior Data Scientist · 38 days open</div><div class="sigd">SLA: 30 days · 3 profiles sent, all rejected · No reason given on 2 · <strong style="color:var(--am)">8 days overdue</strong></div></div></div><span class="sl">All open roles — time to fill</span><div class="card"><div class="dash-bar-row"><span class="dash-bar-label">VP Engineering</span><div class="dash-bar-track"><div class="dash-bar-fill" style="width:0;background:var(--ro)" data-w="94%"></div></div><span class="dash-bar-val" style="color:var(--ro)">47d</span></div><div class="dash-bar-row"><span class="dash-bar-label">Sr. Data Sci.</span><div class="dash-bar-track"><div class="dash-bar-fill bfa" style="width:0" data-w="76%"></div></div><span class="dash-bar-val" style="color:var(--am)">38d</span></div><div class="dash-bar-row"><span class="dash-bar-label">Audit Manager</span><div class="dash-bar-track"><div class="dash-bar-fill bfa" style="width:0" data-w="56%"></div></div><span class="dash-bar-val">28d</span></div><div class="dash-bar-row"><span class="dash-bar-label">Marketing Mgr</span><div class="dash-bar-track"><div class="dash-bar-fill bfs" style="width:0" data-w="40%"></div></div><span class="dash-bar-val">20d</span></div><div class="dash-bar-row"><span class="dash-bar-label">AE · Sales</span><div class="dash-bar-track"><div class="dash-bar-fill bfs" style="width:0" data-w="22%"></div></div><span class="dash-bar-val">11d</span></div></div><div style="background:var(--cr3);border-radius:8px;padding:9px 12px;font-size:11px;color:var(--mu);text-align:center">SLA threshold: <strong style="color:var(--ink)">30 days</strong> · Roles beyond SLA shown in red</div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   },
   {q:"Why are my profiles getting rejected?",
    a:"Across your <strong>23 rejections</strong> this month:\n\n🔴 8 — Insufficient experience for level\n🟡 6 — Overqualified / salary mismatch\n🟡 4 — Location / notice period issue\n⚠️ 5 — <strong>No reason given by HM</strong>\n\nThe 5 with no reason are a problem — you have no audit trail for those. Want me to flag them and request reasons?",
    actions:['flag','dash'],
    dashTitle:"Rejection Analysis — March",dashSub:"23 total rejections · auto-generated",
-   dashHTML:function(){return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px"><div class="dash-stat"><div class="dash-stat-num" style="color:var(--ro)">23</div><div class="dash-stat-label">Total Rejections</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--am)">5</div><div class="dash-stat-label">No Reason Given</div><div class="dash-stat-delta" style="color:var(--ro)">⚠️ Fix this</div></div></div><span class="sl">Why profiles are being rejected</span><div class="card"><div class="dash-bar-row"><span class="dash-bar-label">Insuff. exp.</span><div class="dash-bar-track"><div class="dash-bar-fill bft" style="width:0" data-w="70%"></div></div><span class="dash-bar-val">8</span></div><div class="dash-bar-row"><span class="dash-bar-label">Overqualified</span><div class="dash-bar-track"><div class="dash-bar-fill bfa" style="width:0" data-w="52%"></div></div><span class="dash-bar-val">6</span></div><div class="dash-bar-row"><span class="dash-bar-label">Location/Notice</span><div class="dash-bar-track"><div class="dash-bar-fill bfa" style="width:0" data-w="35%"></div></div><span class="dash-bar-val">4</span></div><div class="dash-bar-row"><span class="dash-bar-label" style="color:var(--ro)">No reason ⚠️</span><div class="dash-bar-track"><div class="dash-bar-fill" style="width:0;background:var(--ro)" data-w="43%"></div></div><span class="dash-bar-val" style="color:var(--ro)">5</span></div></div><div class="sig srr"><div class="si2">🛡️</div><div><div class="sigt">You are not protected on 5 rejections</div><div class="sigd">If a stakeholder escalates to your manager, you have no documented reason for these 5. HireMatch requires HMs to select a reason before rejecting — retroactively request these 5 now.</div></div></div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   },
   {q:"What is my best performing source?",
    a:"Your best source by far is <strong>Referrals</strong> 🏆\n\n🟢 Referrals — 58% shortlist rate\n🔵 LinkedIn — 34% shortlist rate\n🟠 Naukri — 22% shortlist rate\n🔴 Agencies — 18% shortlist rate\n\nReferrals are converting <strong>3x better than agencies</strong>. You're spending the most on agencies and getting the worst results. Want to see the full cost breakdown?",
    actions:['dash'],
    dashTitle:"Source Performance — March",dashSub:"Which channel is delivering the best quality",
-   dashHTML:function(){return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px"><div class="dash-stat"><div class="dash-stat-num" style="color:var(--sa)">58%</div><div class="dash-stat-label">Best Rate</div><div class="dash-stat-delta" style="color:var(--sa)">Referrals 🏆</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--ro)">18%</div><div class="dash-stat-label">Worst Rate</div><div class="dash-stat-delta" style="color:var(--ro)">Agencies 📉</div></div></div><span class="sl">Shortlist rate by source</span><div class="card" style="margin-bottom:14px"><div class="dash-bar-row"><span class="dash-bar-label">🟢 Referrals</span><div class="dash-bar-track"><div class="dash-bar-fill bfs" style="width:0" data-w="58%"></div></div><span class="dash-bar-val" style="color:var(--sa)">58%</span></div><div class="dash-bar-row"><span class="dash-bar-label">🔵 LinkedIn</span><div class="dash-bar-track"><div class="dash-bar-fill bfb" style="width:0" data-w="34%"></div></div><span class="dash-bar-val">34%</span></div><div class="dash-bar-row"><span class="dash-bar-label">🟠 Naukri</span><div class="dash-bar-track"><div class="dash-bar-fill bfa" style="width:0" data-w="22%"></div></div><span class="dash-bar-val">22%</span></div><div class="dash-bar-row"><span class="dash-bar-label">🔴 Agencies</span><div class="dash-bar-track"><div class="dash-bar-fill bft" style="width:0" data-w="18%"></div></div><span class="dash-bar-val" style="color:var(--ro)">18%</span></div></div><div class="sig sgg"><div class="si2">💡</div><div><div class="sigt">Referrals converting 3x better than agencies</div><div class="sigd">Consider shifting 20% of agency budget to an internal referral bonus. Estimated saving: ₹2.4L/month with better quality hires.</div></div></div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   },
   {q:"Show me my team's performance this week",
    a:"Here's your team this week:\n\n🏆 <strong>Priya R.</strong> — 12 screened, 42% shortlist rate\n✅ <strong>Amit K.</strong> — 9 screened, 33% shortlist rate\n⚠️ <strong>Sneha R.</strong> — 6 screened, 17% shortlist rate\n\nSneha's shortlist rate dropped <strong>14% vs last week</strong>. Her last 4 shortlisted profiles were rejected for the same reason — over-indexed on years of experience vs skill depth. A quick coaching conversation is recommended.",
    actions:['dash'],
    dashTitle:"Team Performance — This Week",dashSub:"Recruiter productivity and shortlist rates",
-   dashHTML:function(){return '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:18px"><div class="dash-stat"><div class="dash-stat-num" style="color:var(--te)">27</div><div class="dash-stat-label">Total Screened</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--sa)">32%</div><div class="dash-stat-label">Team Shortlist Rate</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--am)">1</div><div class="dash-stat-label">Needs Review</div></div></div><span class="sl">Recruiter breakdown</span><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px"><div class="card" style="margin-bottom:0;padding:12px 14px"><div style="display:flex;align-items:center;gap:10px"><div class="av at" style="width:36px;height:36px;font-size:12px">PR</div><div style="flex:1"><div style="font-size:14px;font-weight:600">Priya R.</div><div style="font-size:11px;color:var(--mu)">12 screened · 5 shortlisted</div><div class="dash-bar-row" style="margin-top:6px;margin-bottom:0"><div class="dash-bar-track"><div class="dash-bar-fill bfs" style="width:0" data-w="42%"></div></div><span class="dash-bar-val" style="color:var(--sa)">42%</span></div></div><div style="background:var(--sal);border:1px solid var(--sam);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--sa);white-space:nowrap">🏆 Top</div></div></div><div class="card" style="margin-bottom:0;padding:12px 14px"><div style="display:flex;align-items:center;gap:10px"><div class="av as" style="width:36px;height:36px;font-size:12px">AK</div><div style="flex:1"><div style="font-size:14px;font-weight:600">Amit K.</div><div style="font-size:11px;color:var(--mu)">9 screened · 3 shortlisted</div><div class="dash-bar-row" style="margin-top:6px;margin-bottom:0"><div class="dash-bar-track"><div class="dash-bar-fill bft" style="width:0" data-w="33%"></div></div><span class="dash-bar-val">33%</span></div></div><div style="background:var(--cr2);border:1px solid var(--cr3);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;color:var(--mu);white-space:nowrap">On track</div></div></div><div class="card" style="margin-bottom:0;padding:12px 14px;background:var(--aml);border-color:var(--amm)"><div style="display:flex;align-items:center;gap:10px"><div class="av ab" style="width:36px;height:36px;font-size:12px">SR</div><div style="flex:1"><div style="font-size:14px;font-weight:600">Sneha R.</div><div style="font-size:11px;color:var(--mu)">6 screened · 1 shortlisted</div><div class="dash-bar-row" style="margin-top:6px;margin-bottom:0"><div class="dash-bar-track"><div class="dash-bar-fill" style="width:0;background:var(--am)" data-w="17%"></div></div><span class="dash-bar-val" style="color:var(--am)">17%</span></div></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--am);white-space:nowrap">⚠️ Review</div></div></div></div><div class="sig sag2"><div class="si2">💡</div><div><div class="sigt">Sneha\'s shortlist rate dropped 14% this week</div><div class="sigd">Over-indexing on years of experience vs skill depth. Quick coaching conversation recommended before next batch of profiles.</div></div></div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   },
   // ── ANSWERS BOT — query past interviews ──
   {q:"What did candidates say about salary expectations?",
    a:"Across your <strong>18 screened candidates</strong> this month:\n\n💰 <strong>Senior TA Manager role</strong>\n• Anika Sharma — ₹22–26L ✅ within budget\n• Priyanka Roy — ₹18–22L ✅ within budget\n• Rahul Mehta — ₹28–32L ⚠️ above range\n\n📊 <strong>Average: ₹23.4L</strong> | Band: ₹20–28L\n<strong>14 of 18 candidates</strong> are within range.\n\nThe 4 above range all have 8+ years experience. Worth revisiting the band with your HM for senior hires.",
    actions:['dash'],
    dashTitle:"Salary Expectations — Interview Data",dashSub:"Extracted from 18 interview transcripts",
-   dashHTML:function(){return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px"><div class="dash-stat"><div class="dash-stat-num" style="color:var(--te)">₹23.4L</div><div class="dash-stat-label">Avg Expectation</div></div><div class="dash-stat"><div class="dash-stat-num" style="color:var(--sa)">14/18</div><div class="dash-stat-label">Within Band</div></div></div><span class="sl">Candidate salary expectations</span><div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px"><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:9px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600">Anika Sharma</span><span style="font-size:12px;font-weight:700;color:var(--sa)">₹22–26L ✓</span></div><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:9px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600">Priyanka Roy</span><span style="font-size:12px;font-weight:700;color:var(--sa)">₹18–22L ✓</span></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:9px;padding:9px 12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:600">Rahul Mehta</span><span style="font-size:12px;font-weight:700;color:var(--am)">₹28–32L ↑</span></div></div><div class="sig sgg"><div class="si2">💡</div><div><div class="sigt">14 of 18 candidates within your approved band</div><div class="sigd">4 above band — all have 8+ yrs experience. Consider revisiting the band with your HM for senior hires.</div></div></div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   },
   {q:"Which interview questions got the best answers?",
    a:"Analysed <strong>47 interview transcripts</strong> across your last 3 roles:\n\n🏆 <strong>Best quality answers:</strong>\n1. \"Walk me through a hiring process you rebuilt\" — 82% gave structured answers\n2. \"Tell me about a hire you regret\" — 71% showed real self-awareness\n3. \"How do you handle a HM who keeps rejecting profiles?\" — only 34% answered well — strong signal question\n\n⚠️ <strong>Remove this question:</strong>\n\"Where do you see yourself in 5 years?\" — 89% gave generic answers. No signal.",
    actions:['dash'],
    dashTitle:"Interview Question Quality Analysis",dashSub:"Based on 47 transcripts across 3 roles",
-   dashHTML:function(){return '<span class="sl">Best performing questions</span><div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px"><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:10px 12px"><div style="font-size:10px;font-weight:700;color:var(--sa);margin-bottom:3px">🏆 82% quality response rate</div><div style="font-size:12px;color:var(--ink)">"Walk me through a hiring process you rebuilt from scratch"</div></div><div style="background:var(--sal);border:1px solid var(--sam);border-radius:9px;padding:10px 12px"><div style="font-size:10px;font-weight:700;color:var(--sa);margin-bottom:3px">✅ 71% quality response rate</div><div style="font-size:12px;color:var(--ink)">"Tell me about a hire you regret"</div></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:9px;padding:10px 12px"><div style="font-size:10px;font-weight:700;color:var(--am);margin-bottom:3px">⚠️ 34% — strong signal only</div><div style="font-size:12px;color:var(--ink)">"How do you handle a HM who keeps rejecting profiles?"</div></div></div><span class="sl">Question to remove</span><div class="sig sag2"><div class="si2">🗑️</div><div><div class="sigt">"Where do you see yourself in 5 years?" — 89% generic answers</div><div class="sigd">Not producing signal. Replace with "What does a great TA leader look like to you in 3 years?"</div></div></div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   },
   {q:"Compare what the top 3 finalists said about remote work",
    a:"Here's what your <strong>3 Senior TA Manager finalists</strong> said about remote work:\n\n👤 <strong>Anika Sharma</strong> — \"I prefer 3 days in office. In-person is essential for stakeholder relationships.\"\n\n👤 <strong>Priyanka Roy</strong> — \"Fully flexible. I've managed distributed teams across 3 time zones.\"\n\n👤 <strong>Rahul Mehta</strong> — \"Remote-first preferred. Will come in for key moments — quarterly reviews, onboarding.\"\n\nYour role is <strong>hybrid — 3 days/week in Bangalore</strong>.\n✅ Anika aligns best. ⚠️ Rahul is a risk.",
    actions:['dash'],
    dashTitle:"Finalist Comparison — Remote Work",dashSub:"Extracted from interview transcripts",
-   dashHTML:function(){return '<span class="sl">Finalist comparison — remote work preference</span><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px"><div style="background:var(--sal);border:1.5px solid var(--sa);border-radius:10px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><div class="av at" style="width:28px;height:28px;font-size:10px">AS</div><div style="font-size:12px;font-weight:700;flex:1">Anika Sharma</div><div style="background:var(--sa);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px">Best fit</div></div><div style="font-size:11px;color:var(--br);line-height:1.6;font-style:italic">"Prefer 3 days in office. In-person collaboration essential."</div></div><div style="background:var(--cr);border:1px solid var(--cr3);border-radius:10px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><div class="av as" style="width:28px;height:28px;font-size:10px">PR</div><div style="font-size:12px;font-weight:700;flex:1">Priyanka Roy</div><div style="background:var(--bll);color:var(--bl);font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;border:1px solid var(--blm)">Flexible</div></div><div style="font-size:11px;color:var(--br);line-height:1.6;font-style:italic">"Fully flexible. Managed distributed teams across 3 time zones."</div></div><div style="background:var(--aml);border:1px solid var(--amm);border-radius:10px;padding:11px 13px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><div class="av ab" style="width:28px;height:28px;font-size:10px">RM</div><div style="font-size:12px;font-weight:700;flex:1">Rahul Mehta</div><div style="background:var(--aml);color:var(--am);font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;border:1px solid var(--amm)">Risk</div></div><div style="font-size:11px;color:var(--br);line-height:1.6;font-style:italic">"Remote-first preferred. Will come in for key moments only."</div></div></div><div class="sig sgg"><div class="si2">💡</div><div><div class="sigt">Role requires hybrid — 3 days in Bangalore</div><div class="sigd">Anika aligns perfectly. Rahul carries meaningful risk — clarify expectations before offer stage.</div></div></div>';}
+   dashHTML:function(){return '<div style="text-align:center;padding:16px;color:#9C8878;font-size:12px">📊 Full dashboard in live product</div>'}
   }
 ];
 
@@ -2480,99 +2480,99 @@ tech:{ti:"Senior Backend Engineer (L3)",cn:"Rahul Sharma",ci:"RS",cv:"at",ch:"SD
 tax:[["Node.js","Owned in prod",92],["TypeScript","Owned in prod",88],["PostgreSQL","Owned in prod",85],["Docker","Used in prod",72],["AWS","Mentioned only",38],["Kubernetes","Not evidenced",8],["System Design","Partial",30]],
 ba:[["Experience","84%","bfa"],["Technical Skills","67%","bft"],["Education","95%","bfs"],["Career Trajectory","88%","bfs"],["Company Pedigree","90%","bfs"]],
 sg:[["sgg","📈","Strong progression","Promoted to SDE-2 at Razorpay in under 2 years."],["sgg","🏢","High-calibre employers","Razorpay and Freshworks — real fintech scale."],["sag2","⏱","Slightly below experience bar","4.2 vs 5 years. Probe depth of backend ownership."],["srr","⚠️","No Kubernetes mentioned","JD requires K8s for production. Must assess in call."]],
-qs:[{tg:"Gap · Kubernetes",q:"Walk me through how your team manages deployments. Have you personally worked with Kubernetes in production?",go:["Gap · Kubernetes",",go:["]},{tg:"Depth · Backend Ownership",q:"Tell me about the largest backend system you've owned end-to-end at Razorpay.",go:["Depth · Backend Ownership",",go:["]}],
+qs:[{tg:"Gap · Kubernetes",q:"Walk me through how your team manages deployments. Have you personally worked with Kubernetes in production?"},{tg:"Depth · Backend Ownership",q:"Tell me about the largest backend system you've owned end-to-end at Razorpay."}],
 ns:"Rahul Sharma · Senior Backend Engineer — Screening Notes",
 no:"Hi [Name],\n\nCandidate: Rahul Sharma | Role: Senior Backend Engineer\nScore: 82% — Strong Match | Source: Naukri\n\nSUMMARY\n• 4.2 yrs (JD needs 5 — minor gap)\n• SDE-2 at Razorpay · Prior Freshworks · NIT Trichy\n• ₹18–22 LPA · 30-day notice\n\nSKILLS\n✅ Matched: Node.js, TypeScript, PostgreSQL, Docker, Redis\n⚠️ Adjacent: AWS (EC2/S3 only)\n❌ Missing: Kubernetes, System Design, GraphQL, CI/CD\n\nSIGNALS\n• Promoted to SDE-2 in under 2 yrs — strong trajectory\n• Razorpay + Freshworks — solid employer pedigree\n\nRECOMMENDATION\nAdvance to tech screening. K8s and system design gaps must be tested in technical round.\n\nRegards,\n[Your Name]",
 po:[["SI","as","Sneha Iyer","Senior SDE · PhonePe","91%","ssh","Shortlisted"],["KR","ab","Karthik Rajan","SDE · Ola","88%","sin","Interviewing"],["RG","atl","Rohan Gupta","SDE · Paytm","94%","sof","Offered"]],
 cgaps:[{n:"Kubernetes",b:"gb-cr",lv:"Critical",bd:"JD requires K8s in production. Start on kubernetes.io — takes 2–3 weeks to get basics solid."},{n:"System Design",b:"gb-cr",lv:"Critical",bd:"Senior roles always test this. Read 'System Design Interview' by Alex Xu. Practice on Excalidraw."},{n:"GraphQL",b:"gb-cl",lv:"Improve",bd:"Not always tested but shows breadth. Official GraphQL docs cover basics in a weekend."},{n:"CI/CD",b:"gb-cl",lv:"Improve",bd:"GitHub Actions basics take 1–2 days. Sets you apart at this level."}],
 cgood:["Node.js","TypeScript","PostgreSQL","Docker","REST APIs","Redis","AWS basics"],
 cvr:[{before:"Led backend development for payment processing modules",after:"Owned end-to-end design and delivery of Razorpay's payment processing microservice — handling 2M+ daily transactions using Node.js, PostgreSQL and Redis, reducing latency by 34%"},{before:"Worked with AWS for deployment",after:"Deployed and maintained production workloads on AWS EC2 and S3, managing infrastructure for 3 services with 99.9% uptime SLA"}],
-mockqs:[{tg:"Gap · Kubernetes",q:"Have you worked with Kubernetes in production — what was your actual setup?",eg:"I have not used K8s in production at Razorpay — our infra team managed that layer. But I built a personal cluster on GKE and deployed my side project "},{tg:"Core · System Design",q:"Design a real-time notification system for 10 million users. Walk me through your approach.",eg:"First I would clarify — push notifications, in-app, email or all three? At 10M users with spiky traffic I would use Kafka as the backbone to decouple "},{tg:"Core · Backend Ownership",q:"Tell me about a backend system you owned end-to-end at Razorpay. What were the hardest decisions?",eg:"I owned Razorpay's payment status webhook service end-to-end — I was the on-call engineer. The hardest decision was moving from synchronous DB writes "}],
-companyIntel:"Razorpay engineers typically face a system design round plus 2 coding rounds. They value engineers who speak to production experience and scale. Freshworks background is well regarded there. The ba..."},
+mockqs:[{tg:"Gap · Kubernetes",q:"Have you worked with Kubernetes in production — what was your actual setup?"},{tg:"Core · System Design",q:"Design a real-time notification system for 10 million users. Walk me through your approach."}],
+companyIntel:"Razorpay engineers typically face a system design round plus 2 coding rounds. They value engineers who speak to production experience and scale. Freshworks background is well regarded there. The bar is high — they screen for ownership mentality."},
 
 mktg:{ti:"Senior Marketing Manager",cn:"Priya Kapoor",ci:"PK",cv:"ar",ch:"Marketing Manager · Nykaa · Mumbai · 5.1 yrs",ct:["₹22–28 LPA","45d notice","MICA Ahmedabad"],cs:["Performance Marketing","Google Ads","Meta Ads","Email Campaigns","Influencer Marketing","SEO basics"],ce:[["Marketing Manager · Nykaa","D2C Beauty · Present","2 yrs"],["Senior Executive · Mamaearth","D2C · 2021–22","1 yr 4 mo"]],sc:78,vd:"Good Match",fc:"<strong>7 of 11</strong> skills matched<br><strong>5.1 yrs</strong> vs 5 yrs required",ma:["Performance Marketing","Google Ads","Meta Ads","Email Campaigns","Influencer"],ad:["SEO basics","Excel Analytics"],mi:["Marketing Automation","Brand P&L","Advanced Analytics"],
 tax:[["Performance Mktg","Owned in prod",90],["Google Ads","Owned in prod",85],["Meta Ads","Owned in prod",88],["Email Marketing","Used regularly",72],["SEO","Mentioned only",35],["HubSpot / Automation","Not evidenced",10],["SQL / Analytics","Not evidenced",12]],
 ba:[["Experience","98%","bfs"],["Digital Marketing","73%","bft"],["Analytics Depth","55%","bfa"],["Brand Strategy","70%","bft"],["P&L Ownership","42%","bfa"]],
 sg:[["sgg","📈","Strong D2C pedigree","Nykaa and Mamaearth — two of India's best D2C brands."],["sgg","🎓","MICA Ahmedabad","Gold standard for marketing talent in India."],["sag2","📊","Analytics depth unclear","No SQL or BI tool experience despite data-driven role."],["srr","⚠️","No marketing automation","HubSpot/Marketo missing — critical for CRM scaling."]],
-qs:[{tg:"Gap · Marketing Automation",q:"Have you used a platform like HubSpot or Clevertap to run CRM campaigns — or was that a different team?",go:["Gap · Marketing Automation",",go:["]},{tg:"Depth · P&L Ownership",q:"Have you managed a marketing budget end-to-end — owning ROAS and CAC targets?",go:["Depth · P&L Ownership",",go:["]}],
+qs:[{tg:"Gap · Marketing Automation",q:"Have you used a platform like HubSpot or Clevertap to run CRM campaigns — or was that a different team?"},{tg:"Depth · P&L Ownership",q:"Have you managed a marketing budget end-to-end — owning ROAS and CAC targets?"}],
 ns:"Priya Kapoor · Senior Marketing Manager — Screening Notes",
 no:"Hi [Name],\n\nCandidate: Priya Kapoor | Role: Senior Marketing Manager\nScore: 78% — Good Match | Source: Naukri\n\nSUMMARY\n• 5.1 yrs — meets bar\n• Marketing Manager at Nykaa (D2C) · MICA Ahmedabad\n• ₹22–28 LPA · 45-day notice\n\nSKILLS\n✅ Matched: Performance Marketing, Google Ads, Meta Ads, Email, Influencer\n⚠️ Adjacent: SEO basics, Excel Analytics\n❌ Missing: Marketing Automation, Brand P&L, Advanced Analytics\n\nRECOMMENDATION\nAdvance to functional round. Probe P&L ownership and automation depth carefully.\n\nRegards,\n[Your Name]",
 po:[["AM","ab","Ananya Mehta","Marketing Lead · Zepto","85%","ssh","Shortlisted"],["RV","atl","Rohan Verma","Brand Mgr · HUL","79%","sin","Interviewing"],["SP","aa","Sneha Patel","Growth · SUGAR","91%","sof","Offered"]],
 cgaps:[{n:"Marketing Automation",b:"gb-cr",lv:"Critical",bd:"HubSpot has free certification. Take it this week. Real credibility in interviews."},{n:"Brand P&L Ownership",b:"gb-cr",lv:"Critical",bd:"Frame existing campaigns in P&L language — budget, ROAS, CAC. Numbers matter."},{n:"Advanced Analytics",b:"gb-cl",lv:"Improve",bd:"Basic SQL on Khan Academy or Mode Analytics. Even fundamentals set you apart."}],
 cgood:["Performance Marketing","Google Ads","Meta Ads","Email Campaigns","Influencer Marketing","D2C Category Expertise"],
 cvr:[{before:"Managed digital marketing campaigns for Nykaa",after:"Drove 3.2x ROAS across Meta and Google for Nykaa's skincare vertical — managing ₹1.2Cr monthly ad budget and reducing CAC by 28% YoY through audience segmentation and creative testing"},{before:"Worked on influencer campaigns",after:"Built and managed an 85-creator influencer network across Instagram and YouTube, generating 40M+ organic impressions for new product launches with 4.1% average engagement rate"}],
-mockqs:[{tg:"Gap · Marketing Automation",q:"Walk me through a CRM automation flow you built end-to-end — what was the objective and what were the results?",eg:"At Nykaa I built a 5-step cart abandonment flow in MoEngage — triggered 30 minutes after abandonment, personalised with the exact product, with a 10% "},{tg:"Core · Performance Marketing",q:"Walk me through how you managed a Meta or Google Ads campaign from brief to performance review.",eg:"For Nykaa lipstick launch on Meta I ran a three-cell test — broad, interest-based and lookalike from recent purchasers. Lookalike won at 3.8x ROAS vs "},{tg:"Core · P&L Ownership",q:"What was your marketing budget last year and what return did you deliver on it?",eg:"I managed 1.8Cr of the digital budget in FY24. ROAS across performance channels was 3.6x. I made the call to cut agency spend by 40% in Q3 when their "}],
-companyIntel:"D2C brands interview for marketers who are both creative and analytical. They test whether you move fast, make data-driven decisions, and can own P&L. MICA background is well regarded. Lean into th..."},
+mockqs:[{tg:"Gap · Marketing Automation",q:"Walk me through a CRM automation flow you built end-to-end — what was the objective and what were the results?"},{tg:"Core · Performance Marketing",q:"Walk me through how you managed a Meta or Google Ads campaign from brief to performance review."}],
+companyIntel:"D2C brands interview for marketers who are both creative and analytical. They test whether you move fast, make data-driven decisions, and can own P&L. MICA background is well regarded. Lean into the beauty/wellness category expertise."},
 
 acct:{ti:"Audit Manager (Big 4)",cn:"Vikram Iyer",ci:"VI",cv:"ab",ch:"Asst. Manager Audit · Deloitte · Mumbai · 6.2 yrs",ct:["₹24–30 LPA","60d notice","ICAI (ACA)"],cs:["Statutory Audit","IFRS","Ind AS","Internal Controls","Risk Assessment","Team Management","SAP"],ce:[["Asst. Manager · Deloitte","Big 4 · Present","2 yrs 4 mo"],["Senior Auditor · EY","Big 4","2 yrs 2 mo"],["Audit Associate · KPMG","Big 4","1 yr 8 mo"]],sc:88,vd:"Strong Match",fc:"<strong>9 of 11</strong> skills matched<br><strong>6.2 yrs</strong> vs 6 yrs required",ma:["Statutory Audit","IFRS","Ind AS","Internal Controls","Risk Assessment","Team Management","SAP"],ad:["Limited PCAOB"],mi:["US GAAP","Client BD"],
 tax:[["Statutory Audit","Owned in prod",95],["IFRS","Owned in prod",90],["Ind AS","Owned in prod",88],["Risk Assessment","Owned in prod",85],["Team Management","Regular",78],["Business Development","Minimal",18],["US GAAP","Mentioned only",22]],
 ba:[["Experience","100%","bfs"],["Technical Audit","90%","bfs"],["Standards Knowledge","85%","bft"],["Client Management","72%","bfa"],["Business Development","25%","bfa"]],
 sg:[["sgg","🏆","Exceptional Big 4 trajectory","KPMG → EY → Deloitte — extremely rare and highly valued."],["sgg","📜","Qualified CA","ACA from ICAI — meets the fundamental qualification."],["sag2","🤝","Client BD unclear","At Manager level, BD becomes important. Not evidenced."],["sag2","🌍","US GAAP gap","Relevant if firm has US-listed clients."]],
-qs:[{tg:"Leadership · Team Management",q:"Tell me about the largest team you've led on an audit engagement.",go:["Leadership · Team Management",",go:["]},{tg:"Technical · Risk Assessment",q:"Walk me through how you approach risk assessment at the start of an audit.",go:["Technical · Risk Assessment",",go:["]}],
+qs:[{tg:"Leadership · Team Management",q:"Tell me about the largest team you've led on an audit engagement."},{tg:"Technical · Risk Assessment",q:"Walk me through how you approach risk assessment at the start of an audit."}],
 ns:"Vikram Iyer · Audit Manager — Screening Notes",
 no:"Hi [Name],\n\nCandidate: Vikram Iyer | Role: Audit Manager\nScore: 88% — Strong Match | Source: Naukri\n\nSUMMARY\n• 6.2 yrs — meets bar · Asst. Manager at Deloitte ✅\n• Prior EY + KPMG — full Big 4 trajectory ✅\n• Qualified CA (ACA, ICAI) ✅ · ₹24–30 LPA · 60-day notice\n\nSKILLS\n✅ Matched: Statutory Audit, IFRS, Ind AS, Controls, Risk, Team Mgmt, SAP\n⚠️ Adjacent: Limited PCAOB · ❌ Missing: US GAAP, Client BD\n\nRECOMMENDATION\nPriority candidate. Probe BD and leadership depth in round 2.\n\nRegards,\n[Your Name]",
 po:[["NK","ar","Nisha Kumar","AM Audit · PwC","84%","ssh","Shortlisted"],["AS","atl","Arjun Shah","Sr. Auditor · GT","71%","ssc","Screened"],["PM","aa","Pooja Mehta","Manager · BDO","92%","sof","Offered"]],
 cgaps:[{n:"Business Development",b:"gb-cr",lv:"Critical",bd:"At Manager level this matters. Prepare 2-3 examples of adding value beyond delivery. Even one proposal contribution counts."},{n:"US GAAP",b:"gb-cl",lv:"Improve",bd:"Depends on firm's clients. Review key US GAAP vs Ind AS differences. AICPA has free online resources."}],
 cgood:["Statutory Audit","IFRS","Ind AS","Internal Controls","Risk Assessment","Team Management","SAP","Big 4 Pedigree"],
 cvr:[{before:"Led audit engagements for clients at Deloitte",after:"Managed end-to-end statutory audits for 4 listed clients with combined revenue of ₹8,000Cr at Deloitte — leading a team of 6 auditors across Ind AS and IFRS reporting, with zero material misstatements reported"},{before:"Worked on risk assessment for audits",after:"Designed risk-based audit frameworks for manufacturing and BFSI clients — reducing audit cycle time by 22% while maintaining full compliance with SA 315 and SA 330 standards"}],
-mockqs:[{tg:"Gap · Business Development",q:"What have you personally done to develop client relationships or bring in new work at Deloitte?",eg:"I worked with a manufacturing audit client for 2 years and built a strong relationship with their CFO. When they were evaluating a transfer pricing st"},{tg:"Technical · IFRS",q:"Walk me through the key differences between IFRS 15 and IAS 18 for revenue recognition. How has this affected your audits?",eg:"At EY I audited a software company where IFRS 15 was material — they bundled licences with implementation services. The question was whether the perfo"},{tg:"Core · Risk Assessment",q:"Walk me through how you structured the risk assessment for a complex audit engagement.",eg:"For a listed manufacturing client at Deloitte, the highest inherent risk was inventory valuation — significant management judgement in obsolescence pr"}],
-companyIntel:"Big 4 interviews for Manager roles test both technical competence and commercial awareness. They want to see readiness to step into a client-facing leadership role. KPMG→EY→Deloitte trajectory will..."},
+mockqs:[{tg:"Gap · Business Development",q:"What have you personally done to develop client relationships or bring in new work at Deloitte?"},{tg:"Technical · IFRS",q:"Walk me through the key differences between IFRS 15 and IAS 18 for revenue recognition. How has this affected your audits?"}],
+companyIntel:"Big 4 interviews for Manager roles test both technical competence and commercial awareness. They want to see readiness to step into a client-facing leadership role. KPMG→EY→Deloitte trajectory will be very well received. Prepare BD examples carefully."},
 
 bank:{ti:"VP — Corporate Banking",cn:"Aditya Nair",ci:"AN",cv:"aa",ch:"AVP Corporate Banking · HDFC Bank · Mumbai · 8.5 yrs",ct:["₹45–55 LPA","90d notice","IIM Calcutta"],cs:["Credit Analysis","Relationship Management","Working Capital","Trade Finance","Financial Modelling","KYC/AML"],ce:[["AVP Corporate Banking · HDFC Bank","Present","3 yrs 2 mo"],["Relationship Manager · Axis Bank","Mid-Corporates","3 yrs"]],sc:86,vd:"Strong Match",fc:"<strong>8 of 10</strong> skills matched<br><strong>8.5 yrs</strong> vs 8 yrs required",ma:["Credit Analysis","Relationship Management","Trade Finance","Working Capital","KYC/AML","Financial Modelling"],ad:["MSME (limited large corporate)"],mi:["Syndicated Loans","IB crossover"],
 tax:[["Credit Analysis","Owned in prod",92],["Relationship Mgmt","Owned in prod",88],["Trade Finance","Owned in prod",85],["Working Capital","Owned in prod",90],["Financial Modelling","Regular",75],["Syndicated Loans","Not evidenced",10],["Investment Banking","Not evidenced",5]],
 ba:[["Experience","100%","bfs"],["Credit Skills","88%","bfs"],["Relationship Mgmt","82%","bft"],["Deal Structuring","75%","bfa"],["Institution Pedigree","92%","bfs"]],
 sg:[["sgg","🏦","Premier bank pedigree","HDFC, Axis and ICICI — the holy trinity of Indian private banking."],["sgg","🎓","IIM Calcutta MBA","Top-tier — strong analytical and communication foundation."],["sag2","📋","Large corporate exposure unclear","VP role may need ₹500Cr+ corporate relationships."],["srr","⚠️","90-day notice","Longer than average — flag if role has urgent start date."]],
-qs:[{tg:"Deal Depth · Credit",q:"What's the largest credit facility you've independently recommended — walk me through the structure?",go:["Deal Depth · Credit",",go:["]},{tg:"Relationship · Revenue",q:"What was your wallet size and revenue contribution in your last full year at HDFC?",go:["Relationship · Revenue",",go:["]}],
+qs:[{tg:"Deal Depth · Credit",q:"What's the largest credit facility you've independently recommended — walk me through the structure?"},{tg:"Relationship · Revenue",q:"What was your wallet size and revenue contribution in your last full year at HDFC?"}],
 ns:"Aditya Nair · VP Corporate Banking — Screening Notes",
 no:"Hi [Name],\n\nCandidate: Aditya Nair | Role: VP Corporate Banking\nScore: 86% — Strong Match | Source: Naukri\n\nSUMMARY\n• 8.5 yrs · AVP at HDFC Bank · Prior Axis + ICICI\n• IIM Calcutta MBA ✅ · ₹45–55 LPA · 90-day notice ⚠️\n\nSKILLS\n✅ Matched: Credit, RM, Trade Finance, Working Capital, KYC, Financial Modelling\n⚠️ Adjacent: MSME focus · ❌ Missing: Syndicated Loans, IB crossover\n\nRECOMMENDATION\nStrong candidate. Probe large corporate deal size and revenue ownership in depth.\n\nRegards,\n[Your Name]",
 po:[["SK","as","Sunita Krishnan","VP · Kotak Mahindra","89%","ssh","Shortlisted"],["RP","ar","Rajan Pillai","AVP · Yes Bank","76%","ssc","Screened"],["MG","ab","Meera Gupta","VP · Std Chartered","94%","sof","Offered"]],
 cgaps:[{n:"Large Corporate Credit",b:"gb-cr",lv:"Critical",bd:"Prepare 2-3 case studies of your biggest deals with specific numbers. Even MSME deals show credit depth if discussed well."},{n:"Syndicated Loans",b:"gb-cl",lv:"Improve",bd:"Read up on syndication mechanics. Your trade finance background bridges well."}],
 cgood:["Credit Analysis","Relationship Management","Trade Finance","Working Capital","KYC/AML","Financial Modelling","HDFC+Axis+ICICI pedigree"],
 cvr:[{before:"Managed corporate banking relationships at HDFC Bank",after:"Managed a ₹1,800Cr corporate banking portfolio at HDFC Bank as AVP — growing wallet share 31% through structured working capital, trade finance and cross-sell of forex and treasury products across 12 mid-corporate clients"},{before:"Conducted credit analysis for loan proposals",after:"Independently appraised and recommended credit facilities of ₹25Cr–₹150Cr for MSME and mid-corporate clients — maintaining zero NPA portfolio across 3 years with 100% regulatory compliance"}],
-mockqs:[{tg:"Core · Credit Structuring",q:"Walk me through how you would structure a 200Cr working capital facility for a mid-sized FMCG company.",eg:"For an FMCG company with a 45-day cash conversion cycle on 500Cr revenue I would structure 200Cr as 60% CC against debtors and stock, 30% LC for raw m"},{tg:"Depth · Large Corporate",q:"What is fundamentally different about managing a large corporate relationship vs an MSME relationship?",eg:"The biggest difference is that a large corporate relationship is a platform, not a loan. At HDFC I managed a 1,800Cr Tata Group company — the CC facil"},{tg:"Risk · Early Warning",q:"Tell me about a borrower account where you identified early warning signals before the account slipped. What did you see and what did you do?",eg:"A mid-corporate textile client started submitting stock statements with 15-day delays. I visited the factory — production was at 60% capacity and the "}],
-companyIntel:"Private sector bank VP interviews include a technical credit round, a business round and a senior leadership conversation. They look for commercial acumen alongside credit depth. IIM Calcutta pedig..."},
+mockqs:[{tg:"Core · Credit Structuring",q:"Walk me through how you would structure a 200Cr working capital facility for a mid-sized FMCG company."},{tg:"Depth · Large Corporate",q:"What is fundamentally different about managing a large corporate relationship vs an MSME relationship?"}],
+companyIntel:"Private sector bank VP interviews include a technical credit round, a business round and a senior leadership conversation. They look for commercial acumen alongside credit depth. IIM Calcutta pedigree helps significantly. Prepare a portfolio story — what you managed, how it grew."},
 
 cons:{ti:"Senior Consultant (Strategy)",cn:"Kavya Reddy",ci:"KR",cv:"atl",ch:"Consultant · McKinsey & Co. · Mumbai · 4.5 yrs",ct:["₹38–48 LPA","30d notice","IIM Bangalore"],cs:["Problem Structuring","Financial Modelling","Deck Creation","Client Workshops","Data Analysis","Stakeholder Management"],ce:[["Consultant · McKinsey & Co.","Strategy · Present","2 yrs 8 mo"],["Business Analyst · McKinsey","Pre-MBA","1 yr 6 mo"]],sc:91,vd:"Exceptional Match",fc:"<strong>10 of 11</strong> skills matched<br><strong>4.5 yrs</strong> vs 4 yrs required",ma:["Problem Structuring","Financial Modelling","Deck Creation","Client Workshops","Data Analysis","Stakeholder Mgmt"],ad:["Python (basic)"],mi:["Ops Consulting"],
 tax:[["Problem Structuring","Expert",97],["Financial Modelling","Owned in prod",92],["Deck Creation","Owned in prod",95],["Client Workshops","Owned in prod",88],["Data Analysis","Strong",85],["Operations Consulting","Limited",25],["Python","Basic",30]],
 ba:[["Experience","100%","bfs"],["Problem Solving","95%","bfs"],["Client Management","85%","bft"],["Financial Modelling","90%","bfs"],["Firm Pedigree","100%","bfs"]],
 sg:[["sgg","🌟","McKinsey pedigree","Sitting McKinsey Consultant — the highest signal in consulting hiring."],["sgg","🎓","IIM Bangalore + McKinsey","Most powerful combination in Indian consulting."],["sgg","📈","Strong tenure","2+ years at McKinsey post-MBA — survived up-or-out culture."],["sag2","🏭","Ops exposure unknown","Primarily strategy. Probe if firm focuses on operations."]],
-qs:[{tg:"Core · Problem Structuring",q:"Walk me through how you'd structure a problem for a client who says 'our profits are declining'.",go:["Core · Problem Structuring",",go:["]},{tg:"Depth · Client Ownership",q:"Tell me about a project where you owned the client relationship directly — not your EM or Partner.",go:["Depth · Client Ownership",",go:["]}],
+qs:[{tg:"Core · Problem Structuring",q:"Walk me through how you'd structure a problem for a client who says 'our profits are declining'."},{tg:"Depth · Client Ownership",q:"Tell me about a project where you owned the client relationship directly — not your EM or Partner."}],
 ns:"Kavya Reddy · Senior Consultant — Screening Notes",
 no:"Hi [Name],\n\nCandidate: Kavya Reddy | Role: Senior Consultant (Strategy)\nScore: 91% — Exceptional Match | Source: Naukri\n\nSUMMARY\n• 4.5 yrs · Sitting Consultant at McKinsey & Co. ✅\n• IIM Bangalore (MBA) ✅ · ₹38–48 LPA · 30-day notice\n\nSKILLS\n✅ Matched: Problem Structuring, Financial Modelling, Decks, Workshops, Data Analysis\n⚠️ Adjacent: Python (basic) · ❌ Gap: Ops consulting exposure\n\nRECOMMENDATION\nPRIORITY — fast-track to Partner interview. Confirm ops exposure and career intent.\n\nRegards,\n[Your Name]",
 po:[["AB","ar","Arjun Bose","Consultant · BCG","87%","ssh","Shortlisted"],["PM","ab","Prachi Mishra","Sr. Analyst · Bain","79%","ssc","Screened"],["VS","aa","Vikram Seth","Manager · Kearney","88%","sof","Offered"]],
 cgaps:[{n:"Operations Consulting",b:"gb-cl",lv:"Improve",bd:"If the firm does implementation work, read up on lean operations and process redesign basics. 2–3 case studies will cover it."}],
 cgood:["Problem Structuring","Financial Modelling","Deck Creation","Client Workshops","Data Analysis","Stakeholder Management","McKinsey + IIM Bangalore"],
 cvr:[{before:"Led strategy projects for clients at McKinsey",after:"Led end-to-end strategy engagements for 3 Fortune 500 clients at McKinsey — delivering ₹180Cr+ in identified revenue opportunities across consumer, financial services and telecom sectors"},{before:"Created financial models and presentations",after:"Built integrated 5-year financial models and board-level strategy decks for C-suite stakeholders — translating complex analysis into decisions that drove ₹50Cr+ capex allocation"}],
-mockqs:[{tg:"Core · Case Structuring",q:"A consumer goods company's market share has declined 8% in 3 years despite flat industry growth. Structure the problem.",eg:"I would start by segmenting the decline — is it happening across all geographies or concentrated in specific markets? If regional, it is likely a dist"},{tg:"Core · Financial Modelling",q:"Walk me through a financial model you built for a client. What were the key assumptions and how did you stress-test it?",eg:"At McKinsey I built a 5-year business case model for a retail bank's digital lending expansion. The key driver was NPA rate on unsecured digital loans"},{tg:"Client · Stakeholder Management",q:"Tell me about a time a senior client stakeholder disagreed with your analysis or recommendation. What did you do?",eg:"The CFO of an FMCG client pushed back hard on our recommendation to exit a 400Cr business unit — it was his team's project. I did not move immediately"}],
-companyIntel:"MBB firms interview using case studies and fit interviews. Expect 2–3 case rounds. They test structured thinking, communication under pressure and cultural fit. IIM Bangalore + McKinsey track recor..."},
+mockqs:[{tg:"Core · Case Structuring",q:"A consumer goods company's market share has declined 8% in 3 years despite flat industry growth. Structure the problem."},{tg:"Core · Financial Modelling",q:"Walk me through a financial model you built for a client. What were the key assumptions and how did you stress-test it?"}],
+companyIntel:"MBB firms interview using case studies and fit interviews. Expect 2–3 case rounds. They test structured thinking, communication under pressure and cultural fit. IIM Bangalore + McKinsey track record gets you past screening every time — the interview is where you prove you deserve it."},
 
 hrta:{ti:"Senior TA Manager",cn:"Anika Sharma",ci:"AS",cv:"apu",ch:"TA Manager · Infosys · Bengaluru · 6.3 yrs",ct:["₹18–24 LPA","30d notice","MBA — XLRI"],cs:["Full-cycle Recruiting","ATS (Workday)","Employer Branding","Campus Hiring","Stakeholder Management","HR Analytics","Offer Negotiation"],ce:[["TA Manager · Infosys","IT Services · Present","2 yrs 8 mo"],["Senior Recruiter · Wipro","IT Services","2 yrs 2 mo"],["HR Executive · Cognizant","IT","1 yr 5 mo"]],sc:84,vd:"Strong Match",fc:"<strong>8 of 10</strong> skills matched<br><strong>6.3 yrs</strong> vs 5 yrs required",ma:["Full-cycle Recruiting","ATS (Workday)","Campus Hiring","Stakeholder Management","Offer Negotiation"],ad:["HR Analytics (basic)","Employer Branding"],mi:["Executive Search","Diversity Hiring Strategy"],
 tax:[["Full-cycle Recruiting","Expert",93],["ATS — Workday","Owned in prod",88],["Campus Hiring","Owned in prod",85],["Stakeholder Mgmt","Strong",80],["HR Analytics","Basic",40],["Executive Search","Not evidenced",12],["DEI Hiring Strategy","Mentioned only",22]],
 ba:[["Experience","100%","bfs"],["Recruiting Depth","85%","bft"],["Technology / ATS","88%","bfs"],["Analytics Maturity","42%","bfa"],["Strategic TA","65%","bfa"]],
 sg:[["sgg","📋","Strong full-cycle background","End-to-end recruiting across Infosys, Wipro and Cognizant — real volume hiring exposure."],["sgg","🎓","XLRI MBA","Premium HR school — strong foundation in people strategy."],["sag2","📊","HR analytics depth unclear","Role requires data-driven TA decisions. Basic exposure noted but no reporting tools."],["srr","⚠️","No executive search","Senior TA Manager will be expected to handle VP/Director level hiring independently."]],
-qs:[{tg:"Gap · Executive Search",q:"Have you independently managed VP or Director level hiring — not using an agency?",go:["Gap · Executive Search",",go:["]},{tg:"Depth · TA Strategy",q:"Walk me through how you designed the hiring plan for a large batch requirement at Infosys.",go:["Depth · TA Strategy",",go:["]}],
+qs:[{tg:"Gap · Executive Search",q:"Have you independently managed VP or Director level hiring — not using an agency?"},{tg:"Depth · TA Strategy",q:"Walk me through how you designed the hiring plan for a large batch requirement at Infosys."}],
 ns:"Anika Sharma · Senior TA Manager — Screening Notes",
 no:"Hi [Name],\n\nCandidate: Anika Sharma | Role: Senior TA Manager\nScore: 84% — Strong Match | Source: Naukri\n\nSUMMARY\n• 6.3 yrs — exceeds bar · TA Manager at Infosys\n• Prior Wipro + Cognizant — solid IT hiring background\n• MBA XLRI ✅ · ₹18–24 LPA · 30-day notice\n\nSKILLS\n✅ Matched: Full-cycle Recruiting, Workday ATS, Campus, Stakeholder Mgmt, Offer Negotiation\n⚠️ Adjacent: HR Analytics (basic), Employer Branding\n❌ Missing: Executive Search, DEI Hiring Strategy\n\nRECOMMENDATION\nStrong candidate for mid-level TA. Probe senior hiring capability and analytics maturity.\n\nRegards,\n[Your Name]",
 po:[["RN","as","Rohan Nair","TA Lead · Swiggy","88%","ssh","Shortlisted"],["MS","ab","Meera Singh","Sr. Recruiter · Flipkart","79%","ssc","Screened"],["PT","amo","Priya Thomas","TA Manager · Zomato","91%","sof","Offered"]],
 cgaps:[{n:"Executive Search",b:"gb-cr",lv:"Critical",bd:"Start sourcing one senior role independently — even if it's a stretch. Build a passive candidate pipeline on LinkedIn. Shows initiative."},{n:"DEI Hiring Strategy",b:"gb-cl",lv:"Improve",bd:"Take one online certification on inclusive hiring. Frame current campus work in DEI language — women in tech, diversity ratios."}],
 cgood:["Full-cycle Recruiting","Workday ATS","Campus Hiring","Stakeholder Management","Offer Negotiation","IT Sector Depth"],
 cvr:[{before:"Managed recruitment for technology roles at Infosys",after:"Led full-cycle TA for 300+ technology hires annually at Infosys — managing a team of 5 recruiters across campus and lateral tracks, achieving 28-day average time-to-fill and 88% offer acceptance rate"},{before:"Worked on employer branding initiatives",after:"Designed and executed Infosys' campus employer branding strategy across 12 Tier-1 engineering colleges — increasing applications by 45% and improving campus offer-to-join ratio from 62% to 79%"}],
-mockqs:[{tg:"Gap · Executive Search",q:"How would you source and close a VP-level passive candidate who has no reason to move?",eg:"For a VP Engineering role I built a list of 40 candidates from target companies, cross-referenced with patent filings and GitHub contributions to iden"},{tg:"Core · High-Volume Hiring",q:"Walk me through how you designed and executed a bulk hiring drive for 200+ positions in a short timeframe.",eg:"At Infosys I ran a 250-position bulk hire for a new digital practice in 8 weeks. I segmented it: 150 lateral hires from portals and referrals, 70 camp"},{tg:"Depth · Data Analytics",q:"Walk me through the TA metrics you track weekly and how you use them to make decisions.",eg:"My weekly dashboard has 6 metrics: active positions vs SLA breach count, offer drop rate by business unit, source conversion by channel, time-in-stage"}],
-companyIntel:"In-house TA interviews test both operational depth and strategic thinking. They want someone who can run a lean desk, manage hiring managers, and bring data to every conversation. XLRI background w..."},
+mockqs:[{tg:"Gap · Executive Search",q:"How would you source and close a VP-level passive candidate who has no reason to move?"},{tg:"Core · High-Volume Hiring",q:"Walk me through how you designed and executed a bulk hiring drive for 200+ positions in a short timeframe."}],
+companyIntel:"In-house TA interviews test both operational depth and strategic thinking. They want someone who can run a lean desk, manage hiring managers, and bring data to every conversation. XLRI background will be well received. The biggest differentiator at Senior TA Manager level is executive hiring capability."},
 
 sales:{ti:"B2B Account Executive",cn:"Rohan Mehta",ci:"RM",cv:"amo",ch:"Sr. Account Executive · Zoho · Bengaluru · 4.8 yrs",ct:["₹22–28 LPA","30d notice","MBA — NMIMS"],cs:["Enterprise Sales","CRM (Salesforce)","Product Demo","Negotiation","Pipeline Management","Cold Outreach","Stakeholder Mapping"],ce:[["Sr. Account Executive · Zoho","SaaS · Present","2 yrs 3 mo"],["Account Executive · Freshworks","SaaS","1 yr 9 mo"],["Inside Sales · Exotel","SaaS","9 mo"]],sc:80,vd:"Good Match",fc:"<strong>8 of 10</strong> skills matched<br><strong>4.8 yrs</strong> vs 3 yrs required",ma:["Enterprise Sales","CRM (Salesforce)","Product Demo","Negotiation","Pipeline Management"],ad:["Cold Outreach","Stakeholder Mapping"],mi:["MEDDIC / Sales Methodology","Channel / Partner Sales"],
 tax:[["Enterprise Sales","Owned in prod",88],["CRM — Salesforce","Owned in prod",85],["Product Demo","Expert",92],["Negotiation","Strong",80],["Pipeline Management","Strong",82],["MEDDIC","Not evidenced",15],["Channel Sales","Not evidenced",8]],
 ba:[["Experience","100%","bfs"],["Sales Skills","82%","bft"],["CRM / Tech Stack","85%","bft"],["Methodology Depth","30%","bfa"],["Deal Size / Complexity","65%","bfa"]],
 sg:[["sgg","🚀","Strong SaaS pedigree","Zoho and Freshworks — two of India's most respected SaaS companies. Understands the product-led motion."],["sgg","📈","Exceeded experience requirement","4.8 yrs vs 3 yrs required — strong pipeline management habits likely established."],["sag2","📋","No sales methodology","MEDDIC or SPIN not mentioned. Enterprise deals at scale need structured qualification."],["srr","⚠️","Deal size unclear","AE roles at this level typically require ₹50L+ deal experience. Not evidenced in CV."]],
-qs:[{tg:"Gap · Sales Methodology",q:"Do you use any formal sales qualification methodology — MEDDIC, SPIN or BANT — in your deals?",go:["Gap · Sales Methodology",",go:["]},{tg:"Depth · Deal Complexity",q:"What's the largest deal you've closed — walk me through the sale from first contact to signed contract?",go:["Depth · Deal Complexity",",go:["]}],
+qs:[{tg:"Gap · Sales Methodology",q:"Do you use any formal sales qualification methodology — MEDDIC, SPIN or BANT — in your deals?"},{tg:"Depth · Deal Complexity",q:"What's the largest deal you've closed — walk me through the sale from first contact to signed contract?"}],
 ns:"Rohan Mehta · B2B Account Executive — Screening Notes",
 no:"Hi [Name],\n\nCandidate: Rohan Mehta | Role: B2B Account Executive\nScore: 80% — Good Match | Source: Naukri\n\nSUMMARY\n• 4.8 yrs — exceeds bar · Sr. AE at Zoho · Prior Freshworks\n• MBA NMIMS · ₹22–28 LPA · 30-day notice\n\nSKILLS\n✅ Matched: Enterprise Sales, Salesforce CRM, Demo, Negotiation, Pipeline Mgmt\n⚠️ Adjacent: Cold Outreach, Stakeholder Mapping\n❌ Missing: MEDDIC / Sales Methodology, Channel Sales\n\nRECOMMENDATION\nGood foundation. Probe deal size and methodology depth before advancing.\n\nRegards,\n[Your Name]",
 po:[["NP","apu","Neha Patil","AE · Freshdesk","86%","ssh","Shortlisted"],["AK","atl","Amit Kulkarni","Sr. AE · Chargebee","82%","sin","Interviewing"],["RS","as","Rahul Soni","AE · CleverTap","91%","sof","Offered"]],
 cgaps:[{n:"MEDDIC Methodology",b:"gb-cr",lv:"Critical",bd:"Learn MEDDIC basics in 2 hours on YouTube. Use it to frame your existing deal stories — identify the Economic Buyer and Identified Pain in past wins."},{n:"Deal Size / ACV",b:"gb-cr",lv:"Critical",bd:"Quantify your biggest deals before the interview. If ACV was low, frame the deal complexity — stakeholders, timeline, obstacles."},{n:"Channel / Partner Sales",b:"gb-cl",lv:"Improve",bd:"Even basic partner co-selling experience helps. Ask your Zoho manager about any partner motion you can get exposure to."}],
 cgood:["Enterprise Sales","Salesforce CRM","Product Demo","Negotiation","Pipeline Management","SaaS Domain Expertise"],
 cvr:[{before:"Managed enterprise sales accounts at Zoho",after:"Closed ₹3.2Cr in new ARR across 12 enterprise accounts at Zoho — running full-cycle deals from cold outreach to contract signature, averaging 68-day sales cycles and 78% win rate on qualified opportunities"},{before:"Conducted product demonstrations for prospects",after:"Delivered 200+ tailored enterprise demos annually at Zoho — achieving 62% demo-to-proposal conversion rate by mapping Zoho's product capabilities directly to each prospect's identified pain points and decision criteria"}],
-mockqs:[{tg:"Core · Enterprise Deal",q:"Walk me through your biggest enterprise deal from first contact to signed contract.",eg:"My biggest deal was a 1.2Cr ARR CRM implementation at a 3000-person manufacturing company. I cold-sourced it via LinkedIn — found their VP Sales talki"},{tg:"Gap · Sales Methodology",q:"How do you qualify a deal — what makes you decide to pursue or walk away?",eg:"I use MEDDIC. The most important element for me is the Economic Buyer — if I cannot get a meeting with the person who controls the budget within the f"},{tg:"Depth · Pipeline Management",q:"Walk me through how you manage your pipeline. What does your weekly cadence look like?",eg:"Every Monday morning I do a 45-minute pipeline review before any customer calls. I look at every deal in Stage 3 or above and ask: what is the specifi"}],
-companyIntel:"SaaS enterprise sales interviews test deal depth, methodology knowledge and pipeline discipline. They want AEs who qualify hard and close clean — not someone who'll chase every lead. Zoho + Freshwo..."}
+mockqs:[{tg:"Core · Enterprise Deal",q:"Walk me through your biggest enterprise deal from first contact to signed contract."},{tg:"Gap · Sales Methodology",q:"How do you qualify a deal — what makes you decide to pursue or walk away?"}],
+companyIntel:"SaaS enterprise sales interviews test deal depth, methodology knowledge and pipeline discipline. They want AEs who qualify hard and close clean — not someone who'll chase every lead. Zoho + Freshworks background is a strong signal for product-led SaaS understanding. Prepare your best deal story with specific numbers."}
 };
 
 var role=null,sel=null,d=null,csel=null,cd=null,selSlot=null,doneCount=0;
@@ -2604,95 +2604,6 @@ var SS = {
     ],
     adjwhy:'A Senior Backend Engineer who uses these words in their CV has thought beyond writing features — they have owned infrastructure, designed systems and debugged production at scale. These are the signal words that separate genuine senior engineers from people with senior job titles.',
     exclterms:['fresher','trainee','intern','0-2 years','junior developer','associate engineer','React developer','frontend','UI developer','full stack (React focus)']
-  },
-  mktg:{
-    icon:'📣', meta:'D2C / E-commerce · Marketing · 5–8 yrs · Mumbai',
-    bool:'("performance marketing" OR "paid marketing") AND ("Meta Ads" OR "Facebook Ads") AND ("Google Ads" OR "Google Adwords" OR "SEM") AND ("ROAS" OR "CAC" OR "CPA") NOT "fresher" NOT "content writer" NOT "social media executive"',
-    excl:'NOT "fresher" NOT "content writer" NOT "social media executive" NOT "graphic designer" NOT "copywriter" NOT "SEO executive" NOT "0-2 years"',
-    must:[
-      {skill:'Performance Marketing', variants:['performance marketing','paid marketing','digital marketing'], why:'Core function — must have owned paid channels'},
-      {skill:'Meta Ads / Facebook Ads', variants:['Meta Ads','Facebook Ads','Meta Business Manager'], why:'Primary D2C channel — non-negotiable'},
-      {skill:'Google Ads / SEM', variants:['Google Ads','Google Adwords','SEM','paid search'], why:'Second primary channel for D2C'},
-      {skill:'ROAS / CAC metrics', variants:['ROAS','CAC','CPA','cost per acquisition'], why:'Without quoting these metrics they have not owned P&L'},
-      {skill:'Marketing Automation', variants:['MoEngage','Clevertap','HubSpot','Marketo','Braze'], why:'Senior Manager must own CRM automation independently'}
-    ],
-    seniority:['owned','managed budget','P&L','ROAS','CAC','LTV','team lead','campaign strategy','brand P&L','media mix'],
-    adj:[
-      {skill:'D2C / E-commerce', why:'Category expertise — D2C marketing is fundamentally different from B2B or traditional brand'},
-      {skill:'Attribution / Analytics', why:'Data-driven decision making — GA4, AppsFlyer, MMPs signal analytical depth'},
-      {skill:'Influencer Marketing', why:'Part of D2C playbook — signals category experience beyond paid channels'},
-      {skill:'Email Marketing', why:'Retention channel ownership shows full-funnel thinking'},
-      {skill:'A/B Testing', why:'Signals a test-and-learn mindset that separates strategic marketers from executors'},
-      {skill:'Cohort Analysis', why:'Understanding LTV requires cohort thinking — signals commercial maturity'}
-    ],
-    adjwhy:'D2C marketing at Senior Manager level is about owning the full funnel — not just running campaigns. These adjacent terms signal candidates who understand unit economics, customer lifetime value and marketing as a business driver, not just a spend centre.',
-    exclterms:['content writer','social media executive','graphic designer','copywriter','SEO executive','PR executive','event marketing','fresher','0-2 years']
-  },
-  acct:{
-    icon:'📊', meta:'Public Accounting · Big 4 · 6–9 yrs · Mumbai / Delhi',
-    bool:'("statutory audit" OR "external audit") AND ("IFRS" OR "Ind AS" OR "Indian Accounting Standards") AND ("Big 4" OR "Deloitte" OR "EY" OR "KPMG" OR "PwC") AND ("CA" OR "Chartered Accountant" OR "ACA" OR "FCA") NOT "internal audit only" NOT "fresher" NOT "articleship"',
-    excl:'NOT "articleship only" NOT "fresher" NOT "0-2 years" NOT "accounts executive" NOT "bookkeeper" NOT "tally" NOT "GST filing"',
-    must:[
-      {skill:'Statutory Audit', variants:['statutory audit','external audit','financial statement audit'], why:'Core function — cannot be substituted with internal audit'},
-      {skill:'IFRS / Ind AS', variants:['IFRS','Ind AS','Indian Accounting Standards','IND AS'], why:'Listed company audits require IFRS/Ind AS depth'},
-      {skill:'Big 4 / Large CA Firm', variants:['Deloitte','EY','KPMG','PwC','Big 4','Grant Thornton'], why:'Pedigree signals quality of audit training and client exposure'},
-      {skill:'Qualified CA', variants:['CA','Chartered Accountant','ACA','FCA','ICAI'], why:'Mandatory qualification for Audit Manager role'},
-      {skill:'Risk Assessment', variants:['risk assessment','risk-based audit','audit risk','inherent risk'], why:'Audit Manager must design risk-based plans, not just execute templates'}
-    ],
-    seniority:['managed','led engagement','audit manager','team lead','reviewed','quality review','client relationship','partner interaction','listed client','SEBI'],
-    adj:[
-      {skill:'Listed Company Audits', why:'Listed company experience signals higher complexity — SEBI requirements, investor scrutiny, tight timelines'},
-      {skill:'SAP / ERP Audit', why:'Large clients run SAP — auditors who have tested SAP IT controls are more versatile'},
-      {skill:'PCAOB / SOX', why:'Relevant for firms with US-listed clients or MNC subsidiaries'},
-      {skill:'Internal Controls', why:'ICFR and internal control testing is increasingly standard in listed company audits'},
-      {skill:'Business Development', why:'At Manager level BD is expected — look for proposals, client expansion, relationship ownership'}
-    ],
-    adjwhy:'Big 4 Audit Managers are evaluated on both technical depth and commercial awareness. These adjacent terms signal candidates who have moved beyond executing audits to owning client relationships and contributing to the firm commercially — the profile needed at Manager level.',
-    exclterms:['articleship only','accounts executive','bookkeeper','Tally operator','GST filing','MIS executive','payroll','tax assistant','fresher','0-2 years','internal audit only']
-  },
-  bank:{
-    icon:'🏦', meta:'Corporate Banking · Private Sector · 8–12 yrs · Mumbai',
-    bool:'("corporate banking" OR "commercial banking" OR "relationship manager") AND ("credit analysis" OR "credit appraisal" OR "credit assessment") AND ("working capital" OR "term loan" OR "trade finance") AND ("IIM" OR "MBA") NOT "retail banking" NOT "branch banking" NOT "personal banker"',
-    excl:'NOT "retail banking" NOT "branch banking" NOT "personal banker" NOT "home loan" NOT "auto loan" NOT "credit card" NOT "fresher" NOT "0-3 years"',
-    must:[
-      {skill:'Corporate / Commercial Banking', variants:['corporate banking','commercial banking','wholesale banking','mid-corporate'], why:'Role is specifically corporate — retail bankers have a different skill set'},
-      {skill:'Credit Analysis', variants:['credit analysis','credit appraisal','credit assessment','CMA','credit memo'], why:'Core analytical skill — must have independently prepared credit proposals'},
-      {skill:'Working Capital / Trade Finance', variants:['working capital','trade finance','LC','letter of credit','BG','bank guarantee','CC limit'], why:'Primary products in corporate banking — non-negotiable depth'},
-      {skill:'Relationship Management', variants:['relationship management','RM','client relationship','wallet share'], why:'At VP level this is the primary function — credit is secondary to RM'},
-      {skill:'Financial Modelling', variants:['financial modelling','financial model','financial analysis','DCF','valuation'], why:'Credit appraisal for large corporates requires modelling capability'}
-    ],
-    seniority:['VP','AVP','portfolio','wallet share','NPA','SMA','cross-sell','deal structuring','syndication','led','independent recommendation','credit committee'],
-    adj:[
-      {skill:'Forex / Treasury Products', why:'Corporate VP revenue comes from forex, derivatives and treasury — not just loans'},
-      {skill:'Syndicated Loans', why:'Large corporate deals above ₹500Cr typically involve syndication — signals deal complexity'},
-      {skill:'IIM / Premium MBA', why:'Most VP-level corporate bankers from top private banks have premium MBA — strong signal'},
-      {skill:'HDFC / ICICI / Kotak', why:'Big three private banks are the training ground for the best corporate bankers in India'},
-      {skill:'ESG / Sustainability Finance', why:'Increasingly relevant for large corporate mandates — signals forward-looking profile'}
-    ],
-    adjwhy:'Corporate banking VP roles demand commercial instinct as much as credit skill. These adjacent terms signal candidates who have moved beyond credit analysis into wallet management, deal origination and client relationship ownership — the profile required at VP level.',
-    exclterms:['retail banking','branch banking','personal banker','home loan','auto loan','credit card collections','microfinance','MSME only','0-3 years','fresher']
-  },
-  cons:{
-    icon:'🔍', meta:'Strategy Consulting · MBB / Big 4 Advisory · 4–7 yrs · Pan-India',
-    bool:'("management consulting" OR "strategy consulting" OR "McKinsey" OR "BCG" OR "Bain" OR "MBB") AND ("problem solving" OR "structured thinking" OR "case study") AND ("financial modelling" OR "data analysis" OR "business analysis") AND ("MBA" OR "IIM") NOT "IT consulting" NOT "SAP consultant" NOT "Salesforce consultant"',
-    excl:'NOT "IT consulting" NOT "SAP consultant" NOT "Salesforce consultant" NOT "ERP consultant" NOT "technical consultant" NOT "fresher" NOT "0-2 years"',
-    must:[
-      {skill:'Management / Strategy Consulting', variants:['management consulting','strategy consulting','business consulting','advisory'], why:'Role is strategy — IT consultants and implementation consultants have a different skill set'},
-      {skill:'MBB / Top Consulting Firm', variants:['McKinsey','BCG','Bain','MBB','Kearney','Oliver Wyman','LEK','Roland Berger'], why:'Pedigree signals rigorous analytical training and structured thinking'},
-      {skill:'Financial Modelling', variants:['financial modelling','financial model','business case','DCF','P&L modelling'], why:'Core deliverable in strategy consulting — must have built models that drove client decisions'},
-      {skill:'Problem Structuring', variants:['problem structuring','MECE','hypothesis-driven','structured analysis','issue tree'], why:'The foundational consulting skill — signals someone trained in the consulting method'},
-      {skill:'Premium MBA', variants:['IIM','ISB','IIT MBA','XLRI','FMS','London Business School','Wharton','Harvard Business School'], why:'MBB and top advisory firms recruit exclusively from premium institutions'}
-    ],
-    seniority:['led','engagement manager','work stream','client presentation','Board','C-suite','recommendations','strategy','independent','synthesis','impact'],
-    adj:[
-      {skill:'Data Analytics / Python / SQL', why:'Modern consultants are expected to do their own analysis — not rely on data teams'},
-      {skill:'Private Equity / M&A', why:'Many consultants work on PE due diligence — signals deal exposure and commercial depth'},
-      {skill:'Sector Expertise', why:'Financial services, consumer, healthcare — deep sector knowledge commands premium at Senior Consultant'},
-      {skill:'Change Management', why:'Strategy without implementation is increasingly a liability — change management signals a practitioner'},
-      {skill:'Client Relationship', why:'At Senior Consultant level the expectation is day-to-day client ownership — look for direct client references'}
-    ],
-    adjwhy:'The best Senior Consultants are not just analysts — they are trusted advisors who own client relationships, synthesise complex data into clear recommendations and have the commercial sense to understand what the business actually needs. These terms signal that depth.',
-    exclterms:['IT consulting','SAP consultant','Salesforce consultant','ERP consultant','technical consultant','project manager (IT)','business analyst (IT)','fresher','0-2 years','software consultant']
   },
   hrta:{
     icon:'🤝', meta:'Talent Acquisition · In-house HR · 5–8 yrs · Pan-India',
@@ -2934,26 +2845,6 @@ var CV_DATA={
     changed:6,added:3,kept:2,
     diffSummary:'6 bullets improved with JD-specific metrics · 3 keywords added (Kubernetes context, system design, infra ownership) · 2 bullets kept exactly as written — already strong'
   },
-  mktg:{
-    name:'Priya Kapoor',role:'Senior Marketing Manager',
-    summary:'Performance marketing specialist with 5+ years driving D2C growth at Nykaa and Mamaearth. Proven expertise managing ₹1Cr+ monthly ad budgets across Meta and Google, with strong brand strategy, influencer and SEO experience.',
-    experience:[
-      {title:'Marketing Manager',co:'Nykaa · D2C Beauty',period:'2022 – Present',bullets:[
-        'Drove 3.2x ROAS across Meta and Google for Nykaa\'s skincare vertical — managing ₹1.2Cr monthly ad budget and reducing CAC by 28% YoY through audience segmentation and creative testing',
-        'Built and managed an 85-creator influencer network across Instagram and YouTube, generating 40M+ organic impressions for new product launches with 4.1% average engagement rate',
-        'Led brand campaign strategy for 3 seasonal launches — contributing to 22% YoY revenue growth for the skincare category'
-      ]},
-      {title:'Senior Executive',co:'Mamaearth · D2C',period:'2021 – 2022',bullets:[
-        'Owned Google Ads and Meta performance campaigns for a ₹40L monthly budget — achieving 2.8x ROAS with consistent MoM improvement',
-        'Launched email automation sequences that improved repeat purchase rate by 18%'
-      ]}
-    ],
-    skills:['Performance Marketing','Meta Ads','Google Ads','Influencer Marketing','Email Campaigns','Brand Strategy','SEO basics','Excel Analytics','Audience Segmentation'],
-    education:'MBA Marketing · MICA Ahmedabad · 2021',
-    oldScore:58,newScore:78,
-    changed:5,added:2,kept:3,
-    diffSummary:'5 bullets improved with campaign metrics and impact numbers · 2 keywords added (marketing automation context, P&L framing) · 3 bullets kept as written — strong specificity already'
-  },
   hrta:{
     name:'Anika Sharma',role:'Senior Talent Acquisition Manager',
     summary:'Senior TA professional with 6+ years leading full-cycle recruitment at Infosys and TCS. Proven track record managing high-volume hiring across tech and non-tech functions, with deep expertise in ATS management, employer branding and data-driven talent strategy.',
@@ -2973,66 +2864,6 @@ var CV_DATA={
     oldScore:64,newScore:86,
     changed:6,added:2,kept:2,
     diffSummary:'6 bullets improved with hiring metrics and impact numbers · 2 keywords added (DEI framing, executive search context) · 2 bullets kept as written — already strong and specific'
-  },
-  bank:{
-    name:'Vikram Nair',role:'VP — Corporate Banking',
-    summary:'Senior corporate banking professional with 9+ years managing large corporate portfolios at HDFC Bank. Proven expertise in credit appraisal, relationship management and structured finance across working capital, trade finance and treasury products.',
-    experience:[
-      {title:'AVP — Corporate Banking',co:'HDFC Bank · Private Sector',period:'2020 – Present',bullets:[
-        'Managed a ₹1,800Cr corporate banking portfolio at HDFC Bank as AVP — growing wallet share 31% through structured working capital, trade finance and cross-sell of forex and treasury products across 12 mid-corporate clients',
-        'Independently appraised and recommended credit facilities of ₹25Cr–₹150Cr for MSME and mid-corporate clients — maintaining zero NPA portfolio across 3 years with 100% regulatory compliance',
-        'Led KYC/AML remediation for 28 legacy corporate accounts — resolving regulatory observations within 60-day SLA'
-      ]},
-      {title:'Senior Relationship Manager',co:'Axis Bank · Corporate',period:'2017 – 2020',bullets:[
-        'Built and managed relationships with 8 large corporate clients with combined annual revenue of ₹5,000Cr',
-        'Structured and processed 40+ credit proposals annually across term loans, working capital and LC facilities'
-      ]}
-    ],
-    skills:['Credit Analysis','Relationship Management','Trade Finance','Working Capital','Forex & Treasury','KYC/AML','Financial Modelling','MSME Lending'],
-    education:'MBA Finance · IIM Lucknow · 2015',
-    oldScore:62,newScore:81,
-    changed:5,added:2,kept:3,
-    diffSummary:'5 bullets improved with portfolio figures and impact · 2 keywords added (regulatory compliance framing, structured finance depth) · 3 bullets kept as written — specific and strong'
-  },
-  cons:{
-    name:'Rohan Gupta',role:'Senior Consultant — Strategy',
-    summary:'Strategy consultant with 5 years at McKinsey delivering growth and transformation engagements for Fortune 500 clients. Deep expertise in financial modelling, C-suite communication and cross-sector problem solving across consumer, financial services and telecom.',
-    experience:[
-      {title:'Engagement Manager',co:'McKinsey & Company · MBB',period:'2022 – Present',bullets:[
-        'Led end-to-end strategy engagements for 3 Fortune 500 clients at McKinsey — delivering ₹180Cr+ in identified revenue opportunities across consumer, financial services and telecom sectors',
-        'Built integrated 5-year financial models and board-level strategy decks for C-suite stakeholders — translating complex analysis into decisions that drove ₹50Cr+ capex allocation',
-        'Managed cross-functional teams of 4–6 across 3 simultaneous engagements — maintaining 100% on-time delivery'
-      ]},
-      {title:'Senior Analyst',co:'McKinsey & Company',period:'2020 – 2022',bullets:[
-        'Developed market sizing models and competitive landscape analyses for 6 client engagements in FMCG and FSI',
-        'Presented findings to VP and C-suite stakeholders across 8 client workshops'
-      ]}
-    ],
-    skills:['Strategy','Financial Modelling','Problem Structuring','Client Management','Data Analysis','Deck Building','Market Sizing','Operations Consulting'],
-    education:'MBA · IIM Ahmedabad · 2020 · Gold Medallist',
-    oldScore:71,newScore:89,
-    changed:4,added:1,kept:4,
-    diffSummary:'4 bullets sharpened with quantified impact · 1 keyword added (operations consulting framing) · 4 bullets kept as written — IIM + McKinsey background already very strong'
-  },
-  acct:{
-    name:'Kavya Iyer',role:'Audit Manager',
-    summary:'Chartered Accountant with 7 years at Deloitte leading statutory audits for listed companies across manufacturing and BFSI. Deep expertise in Ind AS, IFRS, risk-based frameworks and Big 4 quality standards.',
-    experience:[
-      {title:'Senior Audit Manager',co:'Deloitte · Big 4',period:'2021 – Present',bullets:[
-        'Managed end-to-end statutory audits for 4 listed clients with combined revenue of ₹8,000Cr at Deloitte — leading a team of 6 auditors across Ind AS and IFRS reporting, with zero material misstatements reported',
-        'Designed risk-based audit frameworks for manufacturing and BFSI clients — reducing audit cycle time by 22% while maintaining full compliance with SA 315 and SA 330 standards',
-        'Led Ind AS transition for 2 clients, coordinating with finance teams, auditors and regulators to meet statutory timelines'
-      ]},
-      {title:'Audit Supervisor',co:'Deloitte · Big 4',period:'2019 – 2021',bullets:[
-        'Supervised statutory audits for 6 mid-cap clients — managing a team of 3 across quarterly and annual cycles',
-        'Prepared and reviewed financial statements under Ind AS for manufacturing and trading clients'
-      ]}
-    ],
-    skills:['Statutory Audit','Ind AS','IFRS','Risk Assessment','SA 315 / SA 330','Financial Reporting','Team Management','Client Management'],
-    education:'CA · ICAI · 2019 · All India Rank 28',
-    oldScore:68,newScore:85,
-    changed:5,added:2,kept:2,
-    diffSummary:'5 bullets improved with client scale and audit outcomes · 2 keywords added (risk-based framework language, regulatory compliance framing) · 2 bullets kept — specific and accurate already'
   },
   sales:{
     name:'Arjun Mehta',role:'B2B Account Executive — SaaS',
@@ -3713,10 +3544,6 @@ function showOutreachDemo_old(){}
 var RETURNING_DATA = {
   hrta:{firstname:'Anika',avatar:'AS',lastRole:'Senior TA Manager',lastCo:'HDFC Bank · 2 weeks ago',lastScore:86,scoreImprovement:22,scoreFrom:64},
   tech:{firstname:'Rahul',avatar:'RS',lastRole:'Senior Backend Engineer',lastCo:'Razorpay · 3 weeks ago',lastScore:84,scoreImprovement:23,scoreFrom:61},
-  mktg:{firstname:'Priya',avatar:'PK',lastRole:'Senior Marketing Manager',lastCo:'Nykaa · 1 week ago',lastScore:78,scoreImprovement:20,scoreFrom:58},
-  bank:{firstname:'Vikram',avatar:'VN',lastRole:'VP Corporate Banking',lastCo:'HDFC Bank · 2 weeks ago',lastScore:81,scoreImprovement:19,scoreFrom:62},
-  cons:{firstname:'Rohan',avatar:'RG',lastRole:'Senior Consultant',lastCo:'McKinsey · 1 month ago',lastScore:89,scoreImprovement:18,scoreFrom:71},
-  acct:{firstname:'Kavya',avatar:'KI',lastRole:'Audit Manager',lastCo:'Deloitte · 3 weeks ago',lastScore:85,scoreImprovement:17,scoreFrom:68},
   sales:{firstname:'Arjun',avatar:'AM',lastRole:'B2B Account Executive',lastCo:'Zoho · 2 weeks ago',lastScore:79,scoreImprovement:23,scoreFrom:56}
 };
 
@@ -3956,84 +3783,6 @@ var CVH = {
     ],
     tip:"75% of CVs are rejected by ATS before a recruiter sees them — not because the candidate is unqualified, but because the CV format or keyword gaps trigger automatic filters. For a Senior Backend Engineer role, Kubernetes missing entirely is the single biggest ATS killer. The system doesn't know you know Docker and can learn K8s fast. It just sees: Kubernetes = 0 matches."
   },
-  mktg:{
-    score:65, scoreLabel:'Needs Work', scoreColor:'var(--am)', scoreBg:'var(--aml)',
-    critical:[
-      {issue:'Marketing automation tool not named in CV', fix:'HubSpot, MoEngage, Clevertap — whichever you have used most, name it explicitly. ATS searches for tool names, not generic phrases like "email campaigns".'},
-      {issue:'Budget figures missing from experience bullets', fix:'Senior marketing roles require P&L evidence. Add: "managed ₹1.2Cr monthly ad budget" or "ROAS of 3.2x" — without numbers, ATS scores you as a junior.'},
-      {issue:'ROAS and CAC not mentioned in skills or experience', fix:'These are the most searched metrics for performance marketing roles. Add them explicitly even if they appear in your job description context.'}
-    ],
-    improve:[
-      {issue:'SEO not evidenced beyond skills list', fix:'Even basic SEO experience — a project, a certification — should appear in your experience section, not just skills.'},
-      {issue:'No LinkedIn URL in header', fix:'Standard for marketing professionals — your LinkedIn is often more up to date than your CV.'},
-      {issue:'Influencer campaign results not quantified', fix:'Add reach, engagement rate, GMV attributed — numbers that show impact, not just activity.'}
-    ],
-    strong:[
-      {issue:'D2C brands clearly named — Nykaa and Mamaearth signal category expertise immediately'},
-      {issue:'MICA Ahmedabad education section complete with degree and year'},
-      {issue:'Performance marketing skills section well-structured'},
-      {issue:'Chronological format — ATS will parse correctly'},
-      {issue:'Contact details present'}
-    ],
-    tip:"D2C marketing ATS systems are heavily tuned to filter for performance marketing metrics. A CV that says 'managed digital campaigns' without ROAS, CAC or budget figures will be scored similarly to a fresher. The numbers are not optional at Senior Manager level — they are the evidence that separates strategic ownership from execution."
-  },
-  acct:{
-    score:85, scoreLabel:'Good Shape', scoreColor:'var(--sa)', scoreBg:'var(--sal)',
-    critical:[
-      {issue:'Business development not evidenced anywhere', fix:'At Manager level, ATS for Big 4 roles increasingly filters for commercial language. Add even one example: a proposal contribution, a cross-sell conversation, a client relationship you own personally.'}
-    ],
-    improve:[
-      {issue:'US GAAP not mentioned — relevant for MNC clients', fix:'If you have any US GAAP exposure from Deloitte\'s MNC clients, add it. One line is enough.'},
-      {issue:'Audit committee interaction not described', fix:'Listed company auditors who mention audit committee experience signal genuine seniority. Add if applicable.'},
-      {issue:'Team size not quantified', fix:'How many auditors did you lead on your largest engagement? Add the number.'}
-    ],
-    strong:[
-      {issue:'All three Big 4 firms named — KPMG, EY, Deloitte — extremely strong signal'},
-      {issue:'CA (ACA, ICAI) qualification clearly stated'},
-      {issue:'IFRS and Ind AS both present in skills and experience'},
-      {issue:'Listed company clients evidenced in experience bullets'},
-      {issue:'Education complete — college, degree, year all present'},
-      {issue:'SAP mentioned as a tool — ATS will pick this up for listed company roles'}
-    ],
-    tip:"Big 4 ATS systems are specifically tuned to look for qualification status, Big 4 pedigree and standards knowledge. Your CV is already strong on all three. The only real ATS risk is missing commercial language at Manager level — firms increasingly filter for candidates who show they understand the business development expectations of the Manager role."
-  },
-  bank:{
-    score:78, scoreLabel:'Good Shape', scoreColor:'var(--sa)', scoreBg:'var(--sal)',
-    critical:[
-      {issue:'Deal size / facility size not quantified in experience', fix:'Corporate banking ATS filters for deal complexity. Add specific facility sizes: "structured ₹150Cr working capital facility" or "managed portfolio of ₹1,800Cr". Without numbers you look like a support banker.'},
-      {issue:'Revenue / NII contribution not mentioned', fix:'VP-level roles expect commercial contribution evidence. Add something like "cross-sold forex generating ₹1.2Cr annual fee income" — without this, you score like an AVP.'}
-    ],
-    improve:[
-      {issue:'Syndicated loans not mentioned', fix:'If you have any syndication exposure even as a participant, add it. JD mentions this as a requirement.'},
-      {issue:'NPA / SMA management not evidenced', fix:'Risk management language signals a senior banker. Add a line about portfolio quality or early warning signals you identified.'},
-      {issue:'Treasury / forex products not named explicitly', fix:'List the specific products you have cross-sold: forex, LC, BG, derivatives. Generic "relationship management" does not trigger ATS product filters.'}
-    ],
-    strong:[
-      {issue:'IIM Calcutta MBA — highest signal for corporate banking roles'},
-      {issue:'HDFC Bank and Axis Bank both named — premier private bank pedigree'},
-      {issue:'Credit analysis, trade finance and working capital all present'},
-      {issue:'KYC/AML compliance mentioned — essential for regulated roles'},
-      {issue:'Notice period stated — 90 days flagged clearly'}
-    ],
-    tip:"Corporate banking ATS systems at private sector banks prioritise three things: MBA pedigree, portfolio size and product breadth. Your pedigree is exceptional. The gap is that your CV currently reads like a relationship manager who manages credit — it needs to read like a banker who drives revenue across credit, forex, trade and treasury. Add the numbers and the product names."
-  },
-  cons:{
-    score:91, scoreLabel:'ATS Ready', scoreColor:'var(--sa)', scoreBg:'var(--sal)',
-    critical:[],
-    improve:[
-      {issue:'Quantified impact missing on 2 of 4 bullets', fix:'McKinsey consultants are expected to cite specific impact. Add: "₹180Cr revenue opportunity identified" or "reduced client costs by 23%". Vague impact language scores lower than numbers.'},
-      {issue:'Operations consulting not evidenced', fix:'JD mentions this as a plus. If you have touched any implementation work add a half-line — even adjacent exposure helps.'}
-    ],
-    strong:[
-      {issue:'McKinsey & Co. named explicitly — single strongest signal in consulting hiring'},
-      {issue:'IIM Bangalore MBA — top tier, will pass every pedigree filter'},
-      {issue:'Pre-MBA McKinsey experience shows a continuous track record'},
-      {issue:'All core consulting skills present: problem structuring, financial modelling, client workshops'},
-      {issue:'Chronological format, complete dates, no formatting issues'},
-      {issue:'Contact details, LinkedIn, education all complete'}
-    ],
-    tip:"Your CV is in excellent shape for ATS. McKinsey + IIM Bangalore is the highest-signal combination in consulting hiring and will pass virtually every automated filter. The only optimisation left is quantifying the impact of your work more specifically — consulting ATS and human reviewers both respond strongly to specific numbers over directional language."
-  },
   hrta:{
     score:68, scoreLabel:'Needs Work', scoreColor:'var(--am)', scoreBg:'var(--aml)',
     critical:[
@@ -4216,34 +3965,6 @@ var TRANS = {
     {label:'original',color:'var(--sa)',text:'PostgreSQL at production scale — query optimisation reduced latency from 3.2s to 180ms'},
     {label:'enhanced',color:'var(--bl)',text:'AWS infrastructure — EC2, S3, RDS — restructured to show ownership not just usage'}
   ],summary:'This rewrite is 82% your own words. The 18% we added are Kubernetes and K8s — JD requirements that weren\'t in your CV. Add a line about your K8s learning to bring this closer to 95%.'},
-  mktg:{voicePct:79,bullets:[
-    {label:'original',color:'var(--sa)',text:'Managed ₹1.2Cr monthly performance marketing budget across Meta and Google Ads'},
-    {label:'enhanced',color:'var(--bl)',text:'Delivered 3.2x ROAS on Meta performance campaigns — restructured to lead with the metric'},
-    {label:'added',color:'var(--am)',text:'Added: MoEngage marketing automation — from JD requirement, mentioned HubSpot in your original'},
-    {label:'original',color:'var(--sa)',text:'Nykaa D2C brand campaigns — influencer-led and performance channels across categories'},
-    {label:'generated',color:'var(--ro)',text:'Managed cross-functional campaign calendar — no equivalent in original CV, added to cover gap'}
-  ],summary:'This rewrite is 79% your own words. We added one marketing automation tool and one generated bullet for a gap. Add your MoEngage or Clevertap experience directly if you have it.'},
-  acct:{voicePct:91,bullets:[
-    {label:'original',color:'var(--sa)',text:'Led statutory audits for listed manufacturing and BFSI clients at Deloitte and EY'},
-    {label:'original',color:'var(--sa)',text:'Applied IFRS 15 and Ind AS 109 ECL model — required provision top-up of ₹28Cr'},
-    {label:'enhanced',color:'var(--bl)',text:'Risk-based audit planning and ICFR testing — restructured to front-load the methodology'},
-    {label:'added',color:'var(--am)',text:'Added: business development and client relationship language — expected at Manager level'},
-    {label:'original',color:'var(--sa)',text:'CA (ICAI) qualified — Big 4 trained across Deloitte and EY engagements'}
-  ],summary:'This rewrite is 91% your own words — your CV was already strong. The only addition was BD language at Manager level. No generated content.'},
-  bank:{voicePct:85,bullets:[
-    {label:'original',color:'var(--sa)',text:'Managed ₹1,800Cr corporate banking portfolio at HDFC Bank — worked capital, trade finance, forex'},
-    {label:'enhanced',color:'var(--bl)',text:'Structured ₹150Cr+ credit facilities for large corporate clients — restructured to show deal ownership'},
-    {label:'added',color:'var(--am)',text:'Added: syndicated loans exposure — mentioned briefly, elevated to make it visible to ATS'},
-    {label:'original',color:'var(--sa)',text:'Cross-sold forex at ₹800Cr annual volume — generated ₹1.2Cr fee income'},
-    {label:'original',color:'var(--sa)',text:'IIM Calcutta MBA — corporate banking track'}
-  ],summary:'This rewrite is 85% your own words. Syndication was in your CV but buried — we surfaced it. No content was invented.'},
-  cons:{voicePct:94,bullets:[
-    {label:'original',color:'var(--sa)',text:'McKinsey & Co. Senior Consultant — financial services, consumer and telecom engagements'},
-    {label:'original',color:'var(--sa)',text:'Built 5-year financial model for retail bank digital lending — Board-level presentation'},
-    {label:'enhanced',color:'var(--bl)',text:'Hypothesis-driven problem structuring and MECE analysis — restructured to use consulting vocabulary'},
-    {label:'original',color:'var(--sa)',text:'IIM Bangalore MBA — consulting track, recruited pre-MBA'},
-    {label:'original',color:'var(--sa)',text:'Client workshop facilitation and C-suite stakeholder management across 4 sectors'}
-  ],summary:'This rewrite is 94% your own words — one of the strongest CVs in the demo. Your McKinsey experience and IIM pedigree needed almost no AI enhancement. Only vocabulary restructuring applied.'},
   hrta:{voicePct:77,bullets:[
     {label:'original',color:'var(--sa)',text:'TA Manager at Infosys — leads team of 5, 300+ annual hires across tech and non-tech'},
     {label:'enhanced',color:'var(--bl)',text:'Full-cycle recruiting with 88% 90-day retention on bulk hires — restructured to lead with outcome'},
@@ -4962,13 +4683,13 @@ function downloadCV(format){
     // Open print dialog with the CV content
     var previewHTML=document.getElementById('cd-preview').innerHTML;
     var win=window.open('','_blank');
-    win.document.write('<!DOCTYPE html><html><head><title>'+cd.cn+' — CV</title><style>body{font-family:Arial,sans-serif;font-size:12px;line-height:1.6;color:#1e1a16;max-width:700px;margin:40px auto;padding:20px}@media print{body{margin:0}}</style></head><body>'+previewHTML+'<script>window.onload=function(){window.print();}<\/script></body></html>');
+    win.document.write('<!DOCTYPE html><ht'+'ml><he'+'ad><tit'+'le>'+cd.cn+' — CV<\/title><sty'+'le>body{font-family:Arial,sans-serif;font-size:12px;line-height:1.6;color:#1e1a16;max-width:700px;margin:40px auto;padding:20px}@media print{body{margin:0}}<\/style><\/head><bo'+'dy>'+previewHTML+'<scr'+'ipt>window.onload=function(){window.print();}<\/script><\/body><\/ht'+'ml>');
     win.document.close();
     showT('CV opened — use Ctrl+P or Cmd+P to save as PDF');setTimeout(hideT,4000);
   } else {
     // Download as HTML file (opens in Word)
     var previewHTML=document.getElementById('cd-preview').innerHTML;
-    var content='<html><head><meta charset="UTF-8"><style>body{font-family:Arial,sans-serif;font-size:12pt;line-height:1.6;color:#1e1a16;max-width:700px;margin:40px auto}</style></head><body>'+previewHTML+'</body></html>';
+    var content='<ht'+'ml><he'+'ad><meta charset="UTF-8"><sty'+'le>body{font-family:Arial,sans-serif;font-size:12pt;line-height:1.6;color:#1e1a16;max-width:700px;margin:40px auto}<\/style><\/head><bo'+'dy>'+previewHTML+'<\/body><\/ht'+'ml>';
     var blob=new Blob([content],{type:'application/msword'});
     var a=document.createElement('a');
     a.href=URL.createObjectURL(blob);
