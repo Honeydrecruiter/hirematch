@@ -2733,6 +2733,58 @@ body{font-family:'Figtree',sans-serif;background:var(--cr);color:var(--ink);-web
       <div style="font-size:12px;color:var(--br);line-height:1.7" id="cc-nudge-text"></div>
     </div>
 
+    <!-- LIVE MOMENTS — what's happening in your search -->
+    <div style="background:var(--ink);border-radius:14px;padding:14px 16px;margin-bottom:16px">
+      <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;margin-bottom:11px">📡 What's happening in your search</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+
+        <!-- Interview lined up -->
+        <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(34,197,94,.2);border:1px solid rgba(34,197,94,.35);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">📅</div>
+          <div style="flex:1">
+            <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">Interview lined up — Razorpay</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55);margin-bottom:6px">L1 · Video call · Thursday 3:00 PM · Priya Sharma (Engineering Manager)</div>
+            <div style="display:flex;gap:6px">
+              <button onclick="go('c5')" style="background:rgba(34,197,94,.2);border:1px solid rgba(34,197,94,.35);border-radius:7px;padding:5px 11px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;color:#4ade80;cursor:pointer">📋 Open prep →</button>
+              <button onclick="showT('Calendar invite opened');setTimeout(hideT,1800)" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:7px;padding:5px 11px;font-size:11px;font-weight:600;font-family:'Figtree',sans-serif;color:rgba(255,255,255,.6);cursor:pointer">📅 Add to calendar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recruiter responded to outreach -->
+        <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(96,64,160,.25);border:1px solid rgba(96,64,160,.4);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">💬</div>
+          <div style="flex:1">
+            <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">Recruiter replied to your outreach</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55);margin-bottom:4px">Arjun Mehta · TA Manager · Freshworks replied <strong style="color:rgba(255,255,255,.8)">3h ago</strong></div>
+            <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:8px 10px;font-size:11px;color:rgba(255,255,255,.65);line-height:1.6;font-style:italic;margin-bottom:6px">"Hi — thanks for reaching out! Your background looks interesting. Can we set up a 15-min call this week?"</div>
+            <button onclick="showT('Opening LinkedIn message…');setTimeout(hideT,1800)" style="background:rgba(96,64,160,.25);border:1px solid rgba(96,64,160,.4);border-radius:7px;padding:5px 11px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;color:#b89fff;cursor:pointer">Reply on LinkedIn →</button>
+          </div>
+        </div>
+
+        <!-- CV viewed -->
+        <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(193,96,74,.2);border:1px solid rgba(193,96,74,.35);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">👁</div>
+          <div style="flex:1">
+            <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">Your CV was viewed</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55)">A recruiter at <strong style="color:rgba(255,255,255,.8)">HDFC Bank</strong> viewed your CV · 4h ago · VP Banking track</div>
+          </div>
+          <div style="font-size:10px;font-weight:700;background:rgba(193,96,74,.2);color:var(--te);border-radius:20px;padding:3px 9px;flex-shrink:0;white-space:nowrap">New</div>
+        </div>
+
+        <!-- Match alert -->
+        <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0">
+          <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,193,7,.15);border:1px solid rgba(255,193,7,.3);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">⚡</div>
+          <div style="flex:1">
+            <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">New role — 91% match with your profile</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55);margin-bottom:6px">Senior TA Manager · Swiggy · Bengaluru · Posted 6h ago</div>
+            <button onclick="role='can';go('c1')" style="background:rgba(255,193,7,.15);border:1px solid rgba(255,193,7,.3);border-radius:7px;padding:5px 11px;font-size:11px;font-weight:700;font-family:'Figtree',sans-serif;color:#fcd34d;cursor:pointer">Apply now — 91% match →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- INSIGHT -->
     <div style="background:var(--pul);border:1px solid var(--pum);border-radius:12px;padding:12px 14px;display:flex;gap:10px;margin-bottom:16px">
       <div style="font-size:16px;flex-shrink:0">🧠</div>
@@ -2902,7 +2954,18 @@ po:[["SI","as","Sneha Iyer","Senior SDE · PhonePe","91%","ssh","Shortlisted"],[
 cgaps:[{n:"Kubernetes",b:"gb-cr",lv:"Critical",bd:"JD requires K8s in production. Start on kubernetes.io — takes 2–3 weeks to get basics solid."},{n:"System Design",b:"gb-cr",lv:"Critical",bd:"Senior roles always test this. Read 'System Design Interview' by Alex Xu. Practice on Excalidraw."},{n:"GraphQL",b:"gb-cl",lv:"Improve",bd:"Not always tested but shows breadth. Official GraphQL docs cover basics in a weekend."},{n:"CI/CD",b:"gb-cl",lv:"Improve",bd:"GitHub Actions basics take 1–2 days. Sets you apart at this level."}],
 cgood:["Node.js","TypeScript","PostgreSQL","Docker","REST APIs","Redis","AWS basics"],
 cvr:[{before:"Led backend development for payment processing modules",after:"Owned end-to-end design and delivery of Razorpay's payment processing microservice — handling 2M+ daily transactions using Node.js, PostgreSQL and Redis, reducing latency by 34%"},{before:"Worked with AWS for deployment",after:"Deployed and maintained production workloads on AWS EC2 and S3, managing infrastructure for 3 services with 99.9% uptime SLA"}],
-mockqs:[{tg:"Gap · Kubernetes",q:"Have you worked with Kubernetes in production — what was your actual setup?"},{tg:"Core · System Design",q:"Design a real-time notification system for 10 million users. Walk me through your approach."}],
+mockqs:[
+  {tg:"Gap · Kubernetes",q:"Have you worked with Kubernetes in production — what was your actual setup?",
+   why:"Your CV shows Docker but not Kubernetes, which is a JD requirement. They're testing whether you have real-world container orchestration experience or just awareness.",
+   pts:["Describe the cluster setup — nodes, namespaces, deployments","Mention specific problems you solved — scaling, rolling deploys, resource limits","Quantify impact — reduced downtime by X%, scaled to Y pods under load","Be honest about depth — 'I'm actively upskilling on K8s' beats vague claims"],
+   tip:"If you haven't used K8s in prod, say so — but describe Docker Swarm or a side project. Bluffing on this gets caught in follow-up.",
+   avoid:["Confusing K8s with Docker","Generic 'containerisation' answers","Saying you're 'familiar' without specifics"]},
+  {tg:"Core · System Design",q:"Design a real-time notification system for 10 million users. Walk me through your approach.",
+   why:"This tests your ability to reason about scale, latency, and reliability — core SDE-2 skills at Razorpay.",
+   pts:["Start with requirements — push vs pull, latency SLA, delivery guarantees","Cover the architecture — WebSockets or SSE for real-time, message queue (Kafka/SQS) for reliability","Mention fan-out challenge and how to handle different user segments","Address failure modes — retry logic, dead letter queues, idempotency"],
+   tip:"Interviewers want to see structured thinking. Don't jump to code — start with clarifying questions and draw the flow.",
+   avoid:["Starting to code without scoping","Forgetting failure scenarios","Not addressing the 10M scale specifically"]}
+],
 companyIntel:"Razorpay engineers typically face a system design round plus 2 coding rounds. They value engineers who speak to production experience and scale. Freshworks background is well regarded there. The bar is high — they screen for ownership mentality."},
 
 mktg:{ti:"Senior Marketing Manager",cn:"Priya Kapoor",ci:"PK",cv:"ar",ch:"Marketing Manager · Nykaa · Mumbai · 5.1 yrs",ct:["₹22–28 LPA","45d notice","MICA Ahmedabad"],cs:["Performance Marketing","Google Ads","Meta Ads","Email Campaigns","Influencer Marketing","SEO basics"],ce:[["Marketing Manager · Nykaa","D2C Beauty · Present","2 yrs"],["Senior Executive · Mamaearth","D2C · 2021–22","1 yr 4 mo"]],sc:78,vd:"Good Match",fc:"<strong>7 of 11</strong> skills matched<br><strong>5.1 yrs</strong> vs 5 yrs required",ma:["Performance Marketing","Google Ads","Meta Ads","Email Campaigns","Influencer"],ad:["SEO basics","Excel Analytics"],mi:["Marketing Automation","Brand P&L","Advanced Analytics"],
@@ -2972,7 +3035,18 @@ po:[["RN","as","Rohan Nair","TA Lead · Swiggy","88%","ssh","Shortlisted"],["MS"
 cgaps:[{n:"Executive Search",b:"gb-cr",lv:"Critical",bd:"Start sourcing one senior role independently — even if it's a stretch. Build a passive candidate pipeline on LinkedIn. Shows initiative."},{n:"DEI Hiring Strategy",b:"gb-cl",lv:"Improve",bd:"Take one online certification on inclusive hiring. Frame current campus work in DEI language — women in tech, diversity ratios."}],
 cgood:["Full-cycle Recruiting","Workday ATS","Campus Hiring","Stakeholder Management","Offer Negotiation","IT Sector Depth"],
 cvr:[{before:"Managed recruitment for technology roles at Infosys",after:"Led full-cycle TA for 300+ technology hires annually at Infosys — managing a team of 5 recruiters across campus and lateral tracks, achieving 28-day average time-to-fill and 88% offer acceptance rate"},{before:"Worked on employer branding initiatives",after:"Designed and executed Infosys' campus employer branding strategy across 12 Tier-1 engineering colleges — increasing applications by 45% and improving campus offer-to-join ratio from 62% to 79%"}],
-mockqs:[{tg:"Gap · Executive Search",q:"How would you source and close a VP-level passive candidate who has no reason to move?"},{tg:"Core · High-Volume Hiring",q:"Walk me through how you designed and executed a bulk hiring drive for 200+ positions in a short timeframe."}],
+mockqs:[
+  {tg:"Gap · Executive Search",q:"How would you source and close a VP-level passive candidate who has no reason to move?",
+   why:"Executive search is listed as a JD gap. They want to know if you can work beyond job boards and operate at a senior level.",
+   pts:["Describe your research approach — LinkedIn, referrals, conference networks, competitor mapping","Explain how you build a relationship before the pitch — not a cold message","Show you understand what motivates VP-level moves — equity, scope, team quality, not salary alone","Give a real example if you have one — even a near-miss shows understanding"],
+   tip:"If you haven't done VP hiring, be direct about it — then pivot to what you've done at senior manager level and what you'd learn.",
+   avoid:["Saying 'I'd post on LinkedIn'","Ignoring the passive/no-reason-to-move constraint","Generic headhunting language"]},
+  {tg:"Core · High-Volume Hiring",q:"Walk me through how you designed and executed a bulk hiring drive for 200+ positions in a short timeframe.",
+   why:"This tests operational scalability — can you maintain quality while hitting volume targets under pressure.",
+   pts:["Describe the planning phase — JD standardisation, panel calibration, sourcing channels","Explain the funnel management — how you tracked conversion at each stage","Quantify the outcome — time to fill, offer acceptance rate, quality metrics (90-day retention)","Mention what you'd do differently — shows maturity"],
+   tip:"Interviewers remember candidates who speak in numbers. '78% offer acceptance across 240 hires in 6 weeks' beats 'we hired a lot of people fast'.",
+   avoid:["Vague answers without numbers","Not mentioning how quality was maintained","Ignoring the coordination challenge across hiring managers"]}
+],
 companyIntel:"In-house TA interviews test both operational depth and strategic thinking. They want someone who can run a lean desk, manage hiring managers, and bring data to every conversation. XLRI background will be well received. The biggest differentiator at Senior TA Manager level is executive hiring capability."},
 
 sales:{ti:"B2B Account Executive",cn:"Rohan Mehta",ci:"RM",cv:"amo",ch:"Sr. Account Executive · Zoho · Bengaluru · 4.8 yrs",ct:["₹22–28 LPA","30d notice","MBA — NMIMS"],cs:["Enterprise Sales","CRM (Salesforce)","Product Demo","Negotiation","Pipeline Management","Cold Outreach","Stakeholder Mapping"],ce:[["Sr. Account Executive · Zoho","SaaS · Present","2 yrs 3 mo"],["Account Executive · Freshworks","SaaS","1 yr 9 mo"],["Inside Sales · Exotel","SaaS","9 mo"]],sc:80,vd:"Good Match",fc:"<strong>8 of 10</strong> skills matched<br><strong>4.8 yrs</strong> vs 3 yrs required",ma:["Enterprise Sales","CRM (Salesforce)","Product Demo","Negotiation","Pipeline Management"],ad:["Cold Outreach","Stakeholder Mapping"],mi:["MEDDIC / Sales Methodology","Channel / Partner Sales"],
@@ -3590,7 +3664,28 @@ function buildS9Charts(){
         +'<div style="font-size:10px;color:var(--br)">Open 38d — 3 rejected, no reason given.</div>'
         +'</div></div>';
 
-      pTab.innerHTML=kpiHtml+chartsHtml+slaHtml;
+      // Activity feed + attention section prepended
+      var activityHtml=
+        // Attention banner
+        '<div style="background:var(--ink);border-radius:14px;padding:14px 16px;margin-bottom:14px">'          +'<div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px">🔔 Needs your attention today</div>'          +'<div style="display:flex;flex-direction:column;gap:8px">'            +'<div style="background:rgba(193,96,74,.18);border:1px solid rgba(193,96,74,.35);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;cursor:pointer" onclick="openHMReview()">'              +'<div style="font-size:20px;flex-shrink:0">📋</div>'              +'<div style="flex:1"><div style="font-size:12px;font-weight:700;color:#fff">2 candidates awaiting HM review</div><div style="font-size:10px;color:rgba(255,255,255,.55)">Senior TA Manager · Chennai — sent 6h ago</div></div>'              +'<div style="font-size:11px;font-weight:700;color:var(--te);flex-shrink:0">Review →</div>'            +'</div>'            +'<div style="background:rgba(255,193,7,.1);border:1px solid rgba(255,193,7,.25);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px">'              +'<div style="font-size:20px;flex-shrink:0">⚠️</div>'              +'<div style="flex:1"><div style="font-size:12px;font-weight:700;color:#fff">VP Corporate Banking — 38d open, SLA risk</div><div style="font-size:10px;color:rgba(255,255,255,.55)">Sneha R. · No update in 9 days</div></div>'              +'<div style="font-size:11px;font-weight:700;color:var(--am);flex-shrink:0">Act →</div>'            +'</div>'            +'<div style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px">'              +'<div style="font-size:20px;flex-shrink:0">📅</div>'              +'<div style="flex:1"><div style="font-size:12px;font-weight:700;color:#fff">L1 interview lined up — Anika Sharma</div><div style="font-size:10px;color:rgba(255,255,255,.55)">Senior TA Manager · Video call · Thu 3pm · Priya Mehta (HM)</div></div>'              +'<div style="font-size:11px;font-weight:700;color:#4ade80;flex-shrink:0">✓ Set</div>'            +'</div>'          +'</div>'        +'</div>'        // Activity feed
+        +'<div style="margin-bottom:14px">'          +'<div style="font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Recent activity</div>'          +'<div style="background:#fff;border:1px solid var(--cr3);border-radius:12px;overflow:hidden">'            +[
+              {icon:'✅',color:'var(--sal)',tc:'var(--sa)',title:'HM approved Anika Sharma',sub:'L1 Interview · Senior TA Manager · 2h ago',bold:true},
+              {icon:'📤',color:'var(--pul)',tc:'var(--pu)',title:'Rohan Nair shortlisted — shared with HM',sub:'88% match · TA Lead · Swiggy · 4h ago',bold:false},
+              {icon:'📞',color:'var(--tel)',tc:'var(--te)',title:'Priya R. completed screening call — Meera Singh',sub:'Notes saved · Hold status · Senior TA Manager · 5h ago',bold:false},
+              {icon:'🔀',color:'var(--aml)',tc:'var(--am)',title:'Priya Thomas suggested for alternate role',sub:'HM feedback: "better fit for senior IC" · VP Banking · Yesterday',bold:false},
+              {icon:'❌',color:'var(--rol)',tc:'var(--ro)',title:'Rahul Deshpande rejected by HM',sub:'Reason: insufficient system design depth · Backend Eng · Yesterday',bold:false}
+            ].map(function(a,i){
+              return '<div style="display:flex;align-items:flex-start;gap:11px;padding:11px 14px;'+(i>0?'border-top:1px solid var(--cr3)':'')+'">'
+                +'<div style="width:30px;height:30px;border-radius:50%;background:'+a.color+';display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px">'+a.icon+'</div>'
+                +'<div style="flex:1;min-width:0">'
+                  +'<div style="font-size:12px;font-weight:'+(a.bold?'700':'600')+';color:var(--ink);margin-bottom:2px">'+a.title+'</div>'
+                  +'<div style="font-size:10px;color:var(--mu)">'+a.sub+'</div>'
+                +'</div>'
+              +'</div>';
+            }).join('')
+          +'</div>'        +'</div>';
+
+      pTab.innerHTML=activityHtml+kpiHtml+chartsHtml+slaHtml;
 
       // Make ALL KPI tiles clickable
       var kpiTiles=pTab.querySelectorAll('.hm-kpi-grid > div');
@@ -4970,13 +5065,43 @@ function fillCVHealth(){
 
 function runCan(){
   if(!cd){go('c1');return;}
-  document.getElementById('canj').textContent=cd.ti;
-  var els={p:document.getElementById('cap'),b:document.getElementById('cab'),d3:document.getElementById('cd3'),l3:document.getElementById('cl3'),d4:document.getElementById('cd4'),l4:document.getElementById('cl4'),d5:document.getElementById('cd5'),l5:document.getElementById('cl5')};
-  els.d3.className='ad2 adgp';els.d3.textContent='◌';els.l3.className='al2';els.d4.className='ad2 adw';els.d4.textContent='○';els.l4.className='al2';els.d5.className='ad2 adw';els.d5.textContent='○';els.l5.className='al2';els.p.textContent='38%';els.b.style.width='38%';
-  setTimeout(function(){els.d3.className='ad2 adn';els.d3.textContent='✓';els.l3.className='al2 dn';els.d4.className='ad2 adgp';els.d4.textContent='◌';els.p.textContent='62%';els.b.style.width='62%';},900);
-  setTimeout(function(){els.d4.className='ad2 adn';els.d4.textContent='✓';els.l4.className='al2 dn';els.d5.className='ad2 adgp';els.d5.textContent='◌';els.p.textContent='86%';els.b.style.width='86%';},1800);
-  setTimeout(function(){els.d5.className='ad2 adn';els.d5.textContent='✓';els.l5.className='al2 dn';els.p.textContent='100%';els.b.style.width='100%';},2600);
-  setTimeout(function(){fillCand();fillCVHealth();go('ch');},3200);
+  // Null-guard all elements before touching them
+  var canj=document.getElementById('canj');
+  var p=document.getElementById('cap');
+  var b=document.getElementById('cab');
+  var d3=document.getElementById('cd3');var l3=document.getElementById('cl3');
+  var d4=document.getElementById('cd4');var l4=document.getElementById('cl4');
+  var d5=document.getElementById('cd5');var l5=document.getElementById('cl5');
+  if(!p||!b||!d3||!d4||!d5){
+    // Elements missing — skip animation, go straight to results
+    setTimeout(function(){try{fillCand();}catch(e){console.warn('fillCand',e);}try{fillCVHealth();}catch(e){console.warn('fillCVHealth',e);}go('ch');},500);
+    return;
+  }
+  if(canj)canj.textContent=cd.ti;
+  // Reset states
+  d3.className='ad2 adgp';d3.textContent='◌';if(l3)l3.className='al2';
+  d4.className='ad2 adw';d4.textContent='○';if(l4)l4.className='al2';
+  d5.className='ad2 adw';d5.textContent='○';if(l5)l5.className='al2';
+  p.textContent='38%';b.style.width='38%';
+  setTimeout(function(){
+    d3.className='ad2 adn';d3.textContent='✓';if(l3)l3.className='al2 dn';
+    d4.className='ad2 adgp';d4.textContent='◌';
+    p.textContent='62%';b.style.width='62%';
+  },900);
+  setTimeout(function(){
+    d4.className='ad2 adn';d4.textContent='✓';if(l4)l4.className='al2 dn';
+    d5.className='ad2 adgp';d5.textContent='◌';
+    p.textContent='86%';b.style.width='86%';
+  },1800);
+  setTimeout(function(){
+    d5.className='ad2 adn';d5.textContent='✓';if(l5)l5.className='al2 dn';
+    p.textContent='100%';b.style.width='100%';
+  },2600);
+  setTimeout(function(){
+    try{fillCand();}catch(e){console.warn('fillCand error:',e);}
+    try{fillCVHealth();}catch(e){console.warn('fillCVHealth error:',e);}
+    go('ch');
+  },3200);
 }
 
 function fillR(){
@@ -5164,18 +5289,27 @@ function fillTransparency(){
 
 function fillCand(){
   if(!cd)return;
-  var v=document.getElementById('c3av');v.textContent=cd.ci;v.className='av '+cd.cv;v.style.cssText='width:50px;height:50px;font-size:18px';
-  document.getElementById('c3n').textContent=cd.cn;document.getElementById('c3r').textContent=cd.ch;
-  document.getElementById('cpct').textContent=cd.sc+'%';document.getElementById('cvd').textContent=cd.vd;document.getElementById('cfc').innerHTML=cd.fc;
-  setTimeout(function(){document.getElementById('cring').style.strokeDashoffset=264-(264*cd.sc/100);},200);
-  document.getElementById('cgaps').innerHTML=cd.cgaps.map(function(g){return'<div class="gap-item"><div class="gap-top"><span class="gap-name">'+g.n+'</span><span class="gap-badge '+g.b+'">'+g.lv+'</span></div><div class="gap-desc">'+g.bd+'</div></div>'}).join('');
-  document.getElementById('cgood').innerHTML=cd.cgood.map(function(s){return'<span class="ch cm">'+s+'</span>'}).join('');
-  var cvr=document.getElementById('cvRewrites');if(cvr)cvr.innerHTML=cd.cvr.map(function(r){return'<div style="margin-bottom:16px"><div class="cv-before"><span class="cv-label">❌ Before — generic</span>'+r.before+'</div><div style="text-align:center;padding:5px 0;font-size:18px">↓</div><div class="cv-after"><span class="cv-label">✅ After — JD optimised</span>'+r.after+'</div></div>'}).join('');
+  var v=document.getElementById('c3av');if(v){v.textContent=cd.ci;v.className='av '+cd.cv;v.style.cssText='width:50px;height:50px;font-size:18px';}
+  var c3n=document.getElementById('c3n');if(c3n)c3n.textContent=cd.cn;
+  var c3r=document.getElementById('c3r');if(c3r)c3r.textContent=cd.ch;
+  var cpct=document.getElementById('cpct');if(cpct)cpct.textContent=cd.sc+'%';
+  var cvd=document.getElementById('cvd');if(cvd)cvd.textContent=cd.vd;
+  var cfc=document.getElementById('cfc');if(cfc)cfc.innerHTML=cd.fc;
+  setTimeout(function(){var cr=document.getElementById('cring');if(cr)cr.style.strokeDashoffset=264-(264*cd.sc/100);},200);
+  var cgaps=document.getElementById('cgaps');
+  if(cgaps)cgaps.innerHTML=(cd.cgaps||[]).map(function(g){return'<div class="gap-item"><div class="gap-top"><span class="gap-name">'+g.n+'</span><span class="gap-badge '+g.b+'">'+g.lv+'</span></div><div class="gap-desc">'+g.bd+'</div></div>';}).join('');
+  var cgood=document.getElementById('cgood');
+  if(cgood)cgood.innerHTML=(cd.cgood||[]).map(function(s){return'<span class="ch cm">'+s+'</span>';}).join('');
+  var cvr=document.getElementById('cvRewrites');
+  if(cvr&&cd.cvr)cvr.innerHTML=cd.cvr.map(function(r){return'<div style="margin-bottom:16px"><div class="cv-before"><span class="cv-label">❌ Before — generic</span>'+r.before+'</div><div style="text-align:center;padding:5px 0;font-size:18px">↓</div><div class="cv-after"><span class="cv-label">✅ After — JD optimised</span>'+r.after+'</div></div>';}).join('');
   fillTransparency();
-  document.getElementById('ip-title').textContent='Interview Prep — '+cd.cn.split(' ')[0];
-  document.getElementById('ip-sub').textContent='Targeting '+cd.ti+' · '+cd.cgaps.length+' gaps identified';
-  document.getElementById('mockQs').innerHTML=cd.mockqs.map(function(q,i){
-    var avoidHtml=q.avoid?q.avoid.map(function(a){return'<div class="mq-avoid">'+a+'</div>';}).join(''):'';
+  var ipt=document.getElementById('ip-title');if(ipt)ipt.textContent='Interview Prep — '+cd.cn.split(' ')[0];
+  var ips=document.getElementById('ip-sub');if(ips)ips.textContent='Targeting '+cd.ti+' · '+(cd.cgaps||[]).length+' gaps identified';
+var mqEl=document.getElementById('mockQs');if(mqEl&&cd.mockqs)mqEl.innerHTML=cd.mockqs.map(function(q,i){
+    var avoidHtml=(q.avoid||[]).map(function(a){return'<div class="mq-avoid">'+a+'</div>';}).join('');
+    var ptsHtml=(q.pts||['Structure your answer clearly — situation, approach, and outcome']).map(function(p){return'<div class="mq-pt">'+p+'</div>';}).join('');
+    var whyText=q.why||'Interviewers use this to assess your depth of real-world experience and problem-solving approach.';
+    var tipText=q.tip||'Specific examples with measurable outcomes stand out. Generic answers are forgettable.';
     return '<div class="mq'+(i===0?' op':'')+'" id="mq'+i+'">'
       +'<div class="mq-head" onclick="tMQ('+i+')">'
         +'<div class="mq-num">'+(i+1)+'</div>'
@@ -5186,18 +5320,16 @@ function fillCand(){
         +'</div>'
       +'</div>'
       +'<div class="mq-reveal">'
-        +'<div class="mq-why"><span class="mq-why-label">🧠 Why they ask this</span>'+q.why+'</div>'
-        +'<div class="mq-ans"><div class="mq-ans-title">✅ What a great answer includes</div>'
-          +q.pts.map(function(p){return'<div class="mq-pt">'+p+'</div>';}).join('')
-        +'</div>'
+        +'<div class="mq-why"><span class="mq-why-label">🧠 Why they ask this</span>'+whyText+'</div>'
+        +'<div class="mq-ans"><div class="mq-ans-title">✅ What a great answer includes</div>'+ptsHtml+'</div>'
         +(q.avoid&&q.avoid.length?'<div class="mq-avoid-box"><div class="mq-avoid-title">❌ What to avoid</div>'+avoidHtml+'</div>':'')
         +(q.eg?'<div class="mq-eg"><span class="mq-eg-label">💬 Example to adapt</span>'+q.eg+'</div>':'')
-        +'<div class="mq-tip"><strong>💡 Recruiter sees:</strong> '+q.tip+'</div>'
+        +'<div class="mq-tip"><strong>💡 Recruiter sees:</strong> '+tipText+'</div>'
       +'</div>'
     +'</div>';
   }).join('');
-  document.getElementById('prepChecklist').innerHTML=['✅ CV Gap Report reviewed — '+cd.cgaps.length+' gaps identified','✅ CV rewritten and ATS-optimised for '+cd.ti,'✅ Interview questions prepared from your gaps','✅ Ideal answers reviewed','⬜ Practice answers out loud before the interview','⬜ Research the company the night before'].map(function(item){var done=item.startsWith('✅');return'<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(96,64,160,.12)"><span style="font-size:15px">'+(done?'✅':'⬜')+'</span><span style="font-size:13px;color:'+(done?'var(--br)':'var(--mu)')+'">'+item.replace(/^[✅⬜] /,'')+'</span></div>'}).join('');
-  document.getElementById('companyIntel').textContent=cd.companyIntel;
+  var pcEl=document.getElementById('prepChecklist');if(pcEl)pcEl.innerHTML=['✅ CV Gap Report reviewed — '+cd.cgaps.length+' gaps identified','✅ CV rewritten and ATS-optimised for '+cd.ti,'✅ Interview questions prepared from your gaps','✅ Ideal answers reviewed','⬜ Practice answers out loud before the interview','⬜ Research the company the night before'].map(function(item){var done=item.startsWith('✅');return'<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(96,64,160,.12)"><span style="font-size:15px">'+(done?'✅':'⬜')+'</span><span style="font-size:13px;color:'+(done?'var(--br)':'var(--mu)')+'">'+item.replace(/^[✅⬜] /,'')+'</span></div>'}).join('');
+  var ciEl=document.getElementById('companyIntel');if(ciEl)ciEl.textContent=cd.companyIntel||'';
 }
 
 
